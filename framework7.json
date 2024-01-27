@@ -1,0 +1,18 @@
+{
+  "cwd": "/Users/mxdy/Developer/CalorieTracker",
+  "type": [
+    "web"
+  ],
+  "name": "NutriSync",
+  "framework": "react",
+  "template": "tabs",
+  "cssPreProcessor": false,
+  "bundler": "vite",
+  "theming": {
+    "customColor": true,
+    "color": "#000000",
+    "darkMode": false,
+    "iconFonts": true
+  },
+  "customBuild": false
+}

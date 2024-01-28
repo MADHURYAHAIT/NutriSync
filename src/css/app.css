@@ -6,9 +6,21 @@ h1{
     color: #910A67;
    
 }
-
+h4{
+    align-items: center;
+    text-align: center;
+    position: static;
+    z-index: 400 !important;
+    position: sticky;
+    font-size: 300px;
+    color: #ffffff;
+}
 body{
     background-color: rgb(70, 70, 70) !important;
+}
+
+.block,.navbar-inner{
+    color: white;
 }
 
 .title-large{
@@ -25,17 +37,29 @@ Navbar{
 
 .navbar-bg {
     height: 300px !important;
-    border-radius: 0px 0px 80px 80px;
+    border-radius: 0px 0px 40px 40px;
     background-color: #030637 !important;
 
 }
 
 .toolbar{
     background-color: #030637 !important;
-   
 }
 
  .toolbar i,.tabbar-label {
-    color: #E6A4B4 !important;
+    color: #ffffff !important;
 }
 
+.toolbar i:before {
+    background-color: #2e0640 !important;
+}
+
+.page-content{
+    background-color: #3C0753 !important;
+
+}
+
+.page-content{
+    margin-top: 90px;
+    
+}

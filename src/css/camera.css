@@ -1,0 +1,15 @@
+.panel {
+    padding-bottom: 10px;
+  }
+  
+  #cam {
+    border: 1px;
+    border-color: black;
+    border-style: solid;
+  }
+  
+  #photo {
+    border: 1px;
+    border-color: black;
+    border-style: dashed;
+  } 

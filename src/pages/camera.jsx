@@ -1,130 +1,145 @@
-import React, { useEffect } from 'react'
+
 import '../css/camera.css'
-const camera = () => {
-    useEffect(() => {
-        /*
-Please try with devices with camera!
-*/
+import { Block, Navbar, Page } from 'framework7-react'
+import React, { useState, useEffect, useRef } from 'react';
+const Camera = () => {
 
-/*
-Reference: 
-https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
-https://developers.google.com/web/updates/2015/07/mediastream-deprecations?hl=en#stop-ended-and-active
-https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Taking_still_photos
-*/
 
-// reference to the current media stream
-var mediaStream = null;
+//   return (
+//     <div>
+//         <Page name="camera">
+//             <Navbar title="Camera" backLink="Back" />
+//             <Block strong>
+//             <div class="panel">
+//                 <button id="switchFrontBtn">Front Camera</button>
+//                 <button id="switchBackBtn">Back Camera</button>
+//                 <button id="snapBtn">Snap</button>
+//             </div>
+//             <div>
+//             <video id="cam" autoplay muted playsinline>Not available</video>
+//             <canvas id="canvas" style="display:none"></canvas>   
+//                 <img id="photo" alt="The screen capture will appear in this box."/>  
 
-// Prefer camera resolution nearest to 1280x720.
-var constraints = { 
-  audio: false, 
-  video: { 
-    width: {ideal: 640}, 
-    height: {ideal: 480},
-    facingMode: "environment"
-  } 
-}; 
+//             </div>
 
-async function getMediaStream(constraints) {
-  try {
-    mediaStream =  await navigator.mediaDevices.getUserMedia(constraints);
-    let video = document.getElementById('cam');    
-    video.srcObject = mediaStream;
-    video.onloadedmetadata = (event) => {
-      video.play();
-    };
-  } catch (err)  {    
-    console.error(err.message);   
-  }
+//             </Block>
+
+//         </Page>
+//     </div>
+//   )
+// }
+
+
+
+
+//   const [mediaStream, setMediaStream] = useState(null);
+//   const videoRef = useRef(null);
+//   const canvasRef = useRef(null);
+//   const photoRef = useRef(null);
+
+//   const constraints = {
+//     audio: false,
+//     video: {
+//       width: { ideal: 640 },
+//       height: { ideal: 480 },
+//       facingMode: "environment"
+//     }
+//   };
+
+//   useEffect(() => {
+//     getMediaStream(constraints);
+
+//     // Cleanup function
+//     return () => {
+//       if (mediaStream) {
+//         const tracks = mediaStream.getTracks();
+//         tracks.forEach(track => track.stop());
+//       }
+//     };
+//   }, []); // Empty dependency array ensures useEffect runs only once
+
+//   const getMediaStream = async (constraints) => {
+//     try {
+//       const stream = await navigator.mediaDevices.getUserMedia(constraints);
+//       setMediaStream(stream);
+//       videoRef.current.srcObject = stream;
+//       videoRef.current.onloadedmetadata = () => {
+//         videoRef.current.play();
+//       };
+//     } catch (err) {
+//       console.error(err.message);
+//     }
+//   };
+
+//   const switchCamera = async (cameraMode) => {
+//     try {
+//       if (mediaStream) {
+//         const tracks = mediaStream.getTracks();
+//         tracks.forEach(track => track.stop());
+//       }
+
+//       videoRef.current.srcObject = null;
+
+//       constraints.video.facingMode = cameraMode;
+
+//       await getMediaStream(constraints);
+//     } catch (err) {
+//       console.error(err.message);
+//       alert(err.message);
+//     }
+//   };
+
+//   const takePicture = () => {
+//     const canvas = canvasRef.current;
+//     const video = videoRef.current;
+//     const photo = photoRef.current;
+//     const context = canvas.getContext('2d');
+
+//     const height = video.videoHeight;
+//     const width = video.videoWidth;
+
+//     if (width && height) {
+//       canvas.width = width;
+//       canvas.height = height;
+//       context.drawImage(video, 0, 0, width, height);
+//       const data = canvas.toDataURL('image/png');
+//       photo.setAttribute('src', data);
+//     } else {
+//       clearPhoto();
+//     }
+//   };
+
+//   const clearPhoto = () => {
+//     const canvas = canvasRef.current;
+//     const photo = photoRef.current;
+//     const context = canvas.getContext('2d');
+
+//     context.fillStyle = "#AAA";
+//     context.fillRect(0, 0, canvas.width, canvas.height);
+//     const data = canvas.toDataURL('image/png');
+//     photo.setAttribute('src', data);
+//   };
+
+  return (
+    <Page name="camera">
+        <Navbar title="Camera" backLink="Back" />
+
+      {/* <video id="cam" ref={videoRef}></video>
+      <canvas id="canvas" ref={canvasRef}></canvas>
+      <img id="photo" ref={photoRef} alt="User's photo" />
+      <Block>
+            <button onClick={clearPhoto}>Clear Photo</button>
+        <button fill onClick={() => switchCamera("user")}>Switch to Front Camera</button>
+        <button onClick={() => switchCamera("environment")}>Switch to Back Camera</button>
+        <button onClick={takePicture}>Take Picture</button>
+      </Block> */}
+    </Page>
+  );
 };
 
-async function switchCamera(cameraMode) {  
-  try {
-    // stop the current video stream
-    if (mediaStream != null && mediaStream.active) {
-      var tracks = mediaStream.getVideoTracks();
-      tracks.forEach(track => {
-        track.stop();
-      })      
-    }
-    
-    // set the video source to null
-    document.getElementById('cam').srcObject = null;
-    
-    // change "facingMode"
-    constraints.video.facingMode = cameraMode;
-    
-    // get new media stream
-    await getMediaStream(constraints);
-  } catch (err)  {    
-    console.error(err.message); 
-    alert(err.message);
-  }
-}
 
-function takePicture() {  
-  let canvas = document.getElementById('canvas');
-  let video = document.getElementById('cam');
-  let photo = document.getElementById('photo');  
-  let context = canvas.getContext('2d');
-  
-  const height = video.videoHeight;
-  const width = video.videoWidth;
-  
-  if (width && height) {    
-    canvas.width = width;
-    canvas.height = height;
-    context.drawImage(video, 0, 0, width, height);    
-    var data = canvas.toDataURL('image/png');
-    photo.setAttribute('src', data);
-  } else {
-    clearphoto();
-  }
-}
 
-function clearPhoto() {
-  let canvas = document.getElementById('canvas');
-  let photo = document.getElementById('photo');
-  let context = canvas.getContext('2d');
-  
-  context.fillStyle = "#AAA";
-  context.fillRect(0, 0, canvas.width, canvas.height);
-  var data = canvas.toDataURL('image/png');
-  photo.setAttribute('src', data);
-}
 
-document.getElementById('switchFrontBtn').onclick = (event) => {
-  switchCamera("user");
-}
 
-document.getElementById('switchBackBtn').onclick = (event) => {  
-  switchCamera("environment");
-}
 
-document.getElementById('snapBtn').onclick = (event) => {  
-  takePicture();
-  event.preventDefault();
-}
-
-clearPhoto();
-    }, [])
-  return (
-    <Page name="Camera">
-        <Navbar title="Camera" />
-        <div class="panel">
-        <button id="switchFrontBtn">Front Camera</button>
-        <button id="switchBackBtn">Back Camera</button>
-        <button id="snapBtn">Snap</button>
-        </div>
-        <div style="width:100%">
-
-        <video id="cam" autoplay muted playsinline>Not available</video>
-        <canvas id="canvas" style="display:none"></canvas>  
-        <img id="photo" alt="The screen capture will appear in this box."/>  
-        </div>
-    </Page>
-  )
-}
-
-export default camera
+export default Camera

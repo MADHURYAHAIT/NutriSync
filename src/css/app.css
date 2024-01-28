@@ -1,13 +1,41 @@
-/* h1{
+h1{
     align-items: center;
     text-align: center;
-    margin-bottom: 100px;
     position: static;
+    font-size: 110px;
+    color: #910A67;
    
 }
 
 body{
-    background-color: black !important;
-    color: whitesmoke;
+    background-color: rgb(70, 70, 70) !important;
 }
- */
+
+.title-large{
+    height: 0px !important;
+    padding: 80px !important;
+    align-items: center;
+    z-index: 1000 !important;
+
+}
+
+Navbar{
+   height: 100px;
+}
+
+.navbar-bg {
+    height: 300px !important;
+    border-radius: 0px 0px 80px 80px;
+    background-color: #030637 !important;
+
+}
+
+.toolbar{
+    background-color: #030637 !important;
+   
+}
+
+ .toolbar i,.tabbar-label {
+    color: #E6A4B4 !important;
+}
+

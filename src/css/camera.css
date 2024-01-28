@@ -1,5 +1,6 @@
 .panel {
     padding-bottom: 10px;
+    background-color: blanchedalmond;
   }
   
   #cam {
@@ -13,3 +14,4 @@
     border-color: black;
     border-style: dashed;
   } 
+

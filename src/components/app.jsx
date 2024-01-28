@@ -38,7 +38,7 @@ const MyApp = () => {
     name: 'NutriSync', // App name
       theme: 'auto', // Automatic theme detection
       colors: {
-        primary: '#D2C2B3',
+        primary: '#910A67',
       },
 
 
@@ -87,18 +87,22 @@ const MyApp = () => {
         {/* Views/Tabs container */}
         <Views tabs className="safe-areas">
           {/* Tabbar for switching views-tabs */}
+
           <Toolbar tabbar icons bottom>
             <Link tabLink="#view-home" tabLinkActive iconIos="f7:house_fill" iconMd="material:home" text="Home" />
-            <Link tabLink="#view-catalog" iconIos="f7:camera" iconMd="material:camera" text="Camera" />
+            <Link tabLink="#view-info" iconIos="f7:info" iconMd="material:history" text="Info" />
+            <Link tabLink="#view-camera" iconIos="f7:camera" iconMd="material:camera" text="Camera" />
+            <Link tabLink="#view-info" iconIos="f7:info" iconMd="material:info" text="Info" />
             <Link tabLink="#view-settings" iconIos="f7:gear" iconMd="material:settings" text="Settings" />
-            
           </Toolbar>
 
           {/* Your main view/tab, should have "view-main" class. It also has "tabActive" prop */}
           <View id="view-home" main tab tabActive url="/" />
 
           {/* Catalog View */}
-          <View id="view-catalog" name="catalog" tab url="/catalog/" />
+          <View id="view-camera" name="camera" tab url="/camera/" />
+
+          <View id="view-info" name="info" tab url="/info/" />
 
           {/* Settings View */}
           <View id="view-settings" name="settings" tab url="/settings/" />
@@ -121,7 +125,7 @@ const MyApp = () => {
         </View>
       </Popup> */}
 
-      {/* <LoginScreen id="my-login-screen">
+      <LoginScreen id="my-login-screen">
         <View>
           <Page loginScreen>
             <LoginScreenTitle>Login</LoginScreenTitle>
@@ -149,7 +153,7 @@ const MyApp = () => {
             </List>
           </Page>
         </View>
-      </LoginScreen> */}
+      </LoginScreen>
     </App>
   )
 }

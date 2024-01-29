@@ -16,6 +16,7 @@ import {
 } from 'framework7-react';
 import { FaBell } from "react-icons/fa";
 const HomePage = () => (
+
   <Page name="home">
     {/* Top Navbar */}
     <Navbar large sliding={false}>
@@ -28,9 +29,9 @@ const HomePage = () => (
         <FaBell className='bellIcon'/>
       </Link>
       </NavRight>
-      <NavTitleLarge><h1>358</h1><h4>Calories</h4> </NavTitleLarge>
+      <NavTitleLarge><h1>430</h1><h4>Calories</h4> </NavTitleLarge>
     </Navbar>
-
+      
     {/* Page content */}
     <Block>
       
@@ -45,6 +46,9 @@ const HomePage = () => (
       <ListItem  title="Aloo Paratha" checkbox />
       <ListItem  title="Butter Paratha" checkbox />
       <ListItem  title="Paneer Paratha" checkbox />
+      <ListItem  title="Maggie" checkbox />
+      <ListItem  title="Egg roll" checkbox />
+      <ListItem  title="Burger" checkbox />
     </List>
 
     <BlockTitle>Modals</BlockTitle>

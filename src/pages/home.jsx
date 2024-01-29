@@ -48,11 +48,6 @@ const HomePage = () => (
       <Button fill loginScreenOpen="#my-login-screen">Login Screen</Button>
     </Block>
 
-    <BlockTitle>Panels</BlockTitle>
-    <Block className="grid grid-cols-2 grid-gap">
-      <Button fill panelOpen="left">Left Panel</Button>
-      <Button fill panelOpen="right">Right Panel</Button>
-    </Block>
 
     <List strong inset dividersIos>
       <ListItem

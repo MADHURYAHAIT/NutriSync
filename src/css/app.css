@@ -2,7 +2,7 @@ h1{
     align-items: center;
     text-align: center;
     position: static;
-    font-size: 80px;
+    font-size: 100px;
     color: #910A67;
     margin: 0px !important;
 }
@@ -61,13 +61,17 @@ Navbar{
 }
 
 .page-content{
-    margin-top: 90px;
+    padding-top: 290px;
+  
     
 }
 
 .bellIcon{
     color: #ffffff !important;
-    font-size: 21px;
-    margin: 10px;
-    margin-top: 10px;
+    font-size: 20px;
+    background-color:#2e0640;
+    padding: 8px;
+    border-radius: 50px;
+ 
+    margin-top: 12px;
 }

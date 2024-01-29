@@ -9,6 +9,7 @@ import Camera from '../pages/Camera.jsx';
 import DynamicRoutePage from '../pages/dynamic-route.jsx';
 import RequestAndLoad from '../pages/request-and-load.jsx';
 import NotFoundPage from '../pages/404.jsx';
+import HistoryPage from '../pages/history.jsx';
 
 var routes = [
   {
@@ -26,6 +27,10 @@ var routes = [
   {
     path: '/camera/',
     component: Camera,
+  },
+  {
+    path: '/history/',
+    component: HistoryPage,
   },
   {
     path: '/product/:id/',

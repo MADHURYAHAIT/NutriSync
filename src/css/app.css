@@ -2,9 +2,9 @@ h1{
     align-items: center;
     text-align: center;
     position: static;
-    font-size: 110px;
+    font-size: 80px;
     color: #910A67;
-   
+    margin: 0px !important;
 }
 h4{
     align-items: center;
@@ -12,11 +12,12 @@ h4{
     position: static;
     z-index: 400 !important;
     position: sticky;
-    font-size: 300px;
-    color: #ffffff;
+    font-size: 20px;
+    color: #910A67;
+    margin: 0px !important;
 }
 body{
-    background-color: rgb(70, 70, 70) !important;
+   color: #ffffff;
 }
 
 .block,.navbar-inner{
@@ -36,7 +37,7 @@ Navbar{
 }
 
 .navbar-bg {
-    height: 300px !important;
+    /* height: 300px !important; */
     border-radius: 0px 0px 40px 40px;
     background-color: #030637 !important;
 
@@ -62,4 +63,11 @@ Navbar{
 .page-content{
     margin-top: 90px;
     
+}
+
+.bellIcon{
+    color: #ffffff !important;
+    font-size: 21px;
+    margin: 10px;
+    margin-top: 10px;
 }

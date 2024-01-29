@@ -1,6 +1,4 @@
 import React from 'react';
-import '../css/app.css'
-
 import {
   Page,
   Navbar,
@@ -14,10 +12,9 @@ import {
   BlockTitle,
   List,
   ListItem,
-  Button,
-  Message
+  Button
 } from 'framework7-react';
-
+import { FaBell } from "react-icons/fa";
 const HomePage = () => (
   <Page name="home">
     {/* Top Navbar */}
@@ -25,50 +22,52 @@ const HomePage = () => (
       {/* <NavLeft>
         <Link iconIos="f7:menu" iconMd="material:menu" panelOpen="left" />
       </NavLeft> */}
-      <NavTitle ><b>CaloriSync</b></NavTitle>
+      <NavTitle sliding>NutriSync</NavTitle>
       <NavRight>
-        <Link iconIos="f7:bell_fill" iconMd="material:bell_fill" panelOpen="right" />
+      <Link iconIos="f7:bell" iconMd="material:bell" panelOpen="left">
+        <FaBell className='bellIcon'/>
+      </Link>
       </NavRight>
-      <NavTitleLarge><h1>377</h1></NavTitleLarge>
+      <NavTitleLarge><h1>358</h1><h4>Calories</h4> </NavTitleLarge>
     </Navbar>
 
     {/* Page content */}
-      <div class="page-content">
-            
-          <BlockTitle>Navigation</BlockTitle>
-          <List strong inset dividersIos>
-            <ListItem link="/about/" title="About"/>
-            <ListItem link="/form/" title="Form"/>
-          </List>
+    <Block>
+      
+    <h3>Calorie</h3>
+    </Block>
+    <BlockTitle>Navigation</BlockTitle>
+    <List strong inset dividersIos>
+      <ListItem link="/about/" title="About"/>
+      <ListItem link="/form/" title="Form"/>
+    </List>
 
-          <BlockTitle>Modals</BlockTitle>
-          <Block className="grid grid-cols-2 grid-gap">
-            <Button fill popupOpen="#my-popup">Popup</Button>
-            <Button fill loginScreenOpen="#my-login-screen">Login Screen</Button>
-          </Block>
+    <BlockTitle>Modals</BlockTitle>
+    <Block className="grid grid-cols-2 grid-gap">
+      <Button fill popupOpen="#my-popup">Popup</Button>
+      <Button fill loginScreenOpen="#my-login-screen">Login Screen</Button>
+    </Block>
 
-          <BlockTitle>Panels</BlockTitle>
-          <Block className="grid grid-cols-2 grid-gap">
-            <Button fill panelOpen="left">Left Panel</Button>
-            <Button fill panelOpen="right">Right Panel</Button>
-          </Block>
+    <BlockTitle>Panels</BlockTitle>
+    <Block className="grid grid-cols-2 grid-gap">
+      <Button fill panelOpen="left">Left Panel</Button>
+      <Button fill panelOpen="right">Right Panel</Button>
+    </Block>
 
-          <List strong inset dividersIos>
-            <ListItem
-              title="Dynamic (Component) Route"
-              link="/dynamic-route/blog/45/post/125/?foo=bar#about"
-            />
-            <ListItem
-              title="Default Route (404)"
-              link="/load-something-that-doesnt-exist/"
-            />
-            <ListItem
-              title="Request Data & Load"
-              link="/request-and-load/user/123456/"
-            />
-          </List>
-
-      </div>
+    <List strong inset dividersIos>
+      <ListItem
+        title="Dynamic (Component) Route"
+        link="/dynamic-route/blog/45/post/125/?foo=bar#about"
+      />
+      <ListItem
+        title="Default Route (404)"
+        link="/load-something-that-doesnt-exist/"
+      />
+      <ListItem
+        title="Request Data & Load"
+        link="/request-and-load/user/123456/"
+      />
+    </List>
   </Page>
 );
 export default HomePage;

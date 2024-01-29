@@ -1,17 +1,11 @@
-.panel {
-    padding-bottom: 10px;
-    background-color: blanchedalmond;
-  }
-  
-  #cam {
-    border: 1px;
-    border-color: black;
-    border-style: solid;
-  }
-  
-  #photo {
-    border: 1px;
-    border-color: black;
-    border-style: dashed;
-  } 
+.cam{
+    width: 100px !important;
+    padding: 300px;
+}
 
+.navbar-bg {
+    height: 300px !important;
+    border-radius: 0px 0px 40px 40px;
+    background-color: #030637 !important;
+
+}

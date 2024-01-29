@@ -1,5 +1,5 @@
 {
-  "cwd": "/Users/mxdy/Developer/CalorieTracker",
+  "cwd": "/Users/mxdy/Developer/Nutrii/abcd",
   "type": [
     "web"
   ],
@@ -9,8 +9,8 @@
   "cssPreProcessor": false,
   "bundler": "vite",
   "theming": {
-    "customColor": true,
-    "color": "#000000",
+    "customColor": false,
+    "color": "#007aff",
     "darkMode": false,
     "iconFonts": true
   },

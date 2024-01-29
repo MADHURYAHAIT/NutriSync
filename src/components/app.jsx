@@ -74,14 +74,14 @@ const MyApp = () => {
 
 
         {/* Right panel with reveal effect*/}
-        <Panel right reveal dark>
+        {/* <Panel right reveal dark>
           <View>
             <Page>
               <Navbar title="Right Panel"/>
               <Block>Right panel contendddt goes here</Block>
             </Page>
           </View>
-        </Panel>
+        </Panel> */}
 
 
         {/* Views/Tabs container */}
@@ -103,11 +103,11 @@ const MyApp = () => {
           <View id="view-camera" name="camera" tab url="/camera/" />
 
           <View id="view-info" name="info" tab url="/info/" />
-
+          
           {/* Settings View */}
           <View id="view-settings" name="settings" tab url="/settings/" />
 
-        </Views>
+          </Views>
 
       {/* Popup */}
       {/* <Popup id="my-popup">

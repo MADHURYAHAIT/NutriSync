@@ -112,7 +112,7 @@ const MyApp = () => {
           </Views>
 
       {/* Popup */}
-      {/* <Popup id="my-popup">
+      <Popup id="my-popup">
         <View>
           <Page>
             <Navbar title="Popup">
@@ -125,7 +125,7 @@ const MyApp = () => {
             </Block>
           </Page>
         </View>
-      </Popup> */}
+      </Popup>
 
       <LoginScreen id="my-login-screen">
         <View>

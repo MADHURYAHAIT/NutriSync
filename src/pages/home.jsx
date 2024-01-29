@@ -34,12 +34,17 @@ const HomePage = () => (
     {/* Page content */}
     <Block>
       
-    <h3>Calorie</h3>
+    <h3>Calorie Tracker</h3>
     </Block>
-    <BlockTitle>Navigation</BlockTitle>
+    <BlockTitle>Items</BlockTitle>
     <List strong inset dividersIos>
-      <ListItem link="/about/" title="About"/>
-      <ListItem link="/form/" title="Form"/>
+      <ListItem  title="Mushroom" checkbox/>
+      <ListItem  title="Biryani Tikka" checkbox />
+      <ListItem  title="Nan Hajma" checkbox />
+      <ListItem  title="Paneer Tikka" checkbox />
+      <ListItem  title="Aloo Paratha" checkbox />
+      <ListItem  title="Butter Paratha" checkbox />
+      <ListItem  title="Paneer Paratha" checkbox />
     </List>
 
     <BlockTitle>Modals</BlockTitle>
@@ -49,7 +54,7 @@ const HomePage = () => (
     </Block>
 
 
-    <List strong inset dividersIos>
+    {/* <List strong inset dividersIos>
       <ListItem
         title="Dynamic (Component) Route"
         link="/dynamic-route/blog/45/post/125/?foo=bar#about"
@@ -62,7 +67,7 @@ const HomePage = () => (
         title="Request Data & Load"
         link="/request-and-load/user/123456/"
       />
-    </List>
+    </List> */}
   </Page>
 );
 export default HomePage;

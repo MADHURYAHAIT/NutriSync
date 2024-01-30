@@ -17,6 +17,9 @@ import {
 import { FaBell } from "react-icons/fa";
 import CircularCompletionRing from './CircularCompletionRing';
 import '../css/completionRing.css';
+import { FaFire } from "react-icons/fa6";
+import { FaRunning } from "react-icons/fa";
+import { FaPizzaSlice } from "react-icons/fa";
 const HomePage = () => (
 
   <Page name="home">
@@ -29,29 +32,33 @@ const HomePage = () => (
         </Link>
       </NavRight>
     </Navbar>
-
-    
-
-    {/* <Navbar large sliding={false}>
-     
-      <NavTitle sliding>NutriSync</NavTitle>
-      <NavRight>
-      <Link iconIos="f7:bell" iconMd="material:bell" panelOpen="left">
-        <FaBell className='bellIcon'/>
-      </Link>
-      </NavRight>
-      <NavTitleLarge><h1>430</h1><h4>Calories</h4> </NavTitleLarge>
-    </Navbar> */}
       
     {/* Page content */}
     <div className='example'>
     
   
-
+    
     <Block className='Caloriemeter'>
-      <NavTitleLarge><h1>1730</h1><h4>Calories</h4> </NavTitleLarge>
-      <CircularCompletionRing radius={180} strokeWidth={5} percentage={86} />
+    <div className='div3'>
+      <h3>Today</h3>
+    </div>
+      <NavTitleLarge><FaFire id='fire' /><h1>1730</h1><h4>Net Calories</h4> </NavTitleLarge>
+      <CircularCompletionRing radius={179} strokeWidth={7} percentage={86} />
+     
+      <div className='div1'>
+        <NavTitleLarge>  <FaRunning id='icon' /> <h1>130</h1><h4>Calorie Burn</h4></NavTitleLarge>
+        <CircularCompletionRing radius={70} strokeWidth={5} percentage={46} />
+      </div>
+
+      <div className='div2'>
+        <NavTitleLarge>  <FaPizzaSlice  id='icon' /> <h1>530</h1><h4>Calorie Intake</h4></NavTitleLarge>
+        <CircularCompletionRing radius={70} strokeWidth={5} percentage={46} />
+      </div>
+
     </Block>
+   
+
+
     <Block>
       
     <h3>Calorie Tracker</h3>

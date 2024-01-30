@@ -22,11 +22,13 @@ const CircularCompletionRing = ({ radius, strokeWidth, percentage }) => {
     >
       <defs>
         <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" style={{ stopColor: '#910A67' }} />
-           <stop offset="25%" style={{ stopColor: ' #05a39e' }} />
-          <stop offset="50%" style={{ stopColor: '#a32c05' }} />
-          <stop offset="75%" style={{ stopColor: ' #016d5d' }}/>
-           <stop offset="100%" style={{ stopColor: ' #39166f' }}/>
+          <stop offset="0%" style={{ stopColor: '#a8003b' }} />
+          <stop offset="22%" style={{ stopColor: ' #00a19c' }} />
+          <stop offset="33%" style={{ stopColor: ' #348e04' }} />
+          <stop offset="46%" style={{ stopColor: '#e9850a' }} />
+          <stop offset="70%" style={{ stopColor: ' #089781' }}/>
+          <stop offset="86%" style={{ stopColor: '#b2b805' }} />
+          <stop offset="100%" style={{ stopColor: ' #3f0499' }}/>
            
         </linearGradient>
       </defs>

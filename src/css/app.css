@@ -1,9 +1,8 @@
 
 h1,h4{
-    /* line-height: 20px; */
     align-items: center;
     justify-content: center;
-    font-size: 130px;
+    font-size: 110px;
     color: #910A67;
     margin: 0px ;
 }
@@ -39,14 +38,75 @@ Navbar{
     justify-content: center;
     height: 100vh;
     position: absolute;
-   color: #39166f;
+    color: #39166f;
     left: 50%;
-    top: 52%;
-    transform: translate(-50%, -50%);
+    top: 53%;
+    transform: translate(-50%, -60%);
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
   }
+
+#fire{
+    font-size: 60px;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    position: absolute;
+    color: #fbff02;
+    left: 50%;
+    top: 52%;
+    transform: translate(-50%, -68%);
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+.div3{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    z-index: 99;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 47.5%;
+    color: #910A67;
+
+}
+.div1,.div2{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    z-index: 99;
+    left: 20%;
+    top: 90%;
+  }
+
+.div2{
+    right: -37%;
+    top: 90%;
   
+  }
+
+.div1 #icon,.div2 #icon{
+    font-size: 60px;
+    color: #fbff02;
+}
+
+.div1 h1,.div2 h1{
+   
+    font-size: 46px;
+}
+
+.div1 h4,.div2 h4{
+    line-height: 0px;
+    font-size: 12px;
+    display: flex;
+    width: 300px;
+   
+}
+.div2 .circular-completion-ring{
+    right: -37% !important;
+    top: 90% !important;
+    transition: ;
+}
   .title-large-text.hidden {
     opacity: 0;
   }
@@ -71,6 +131,7 @@ Navbar{
 .page-content{
     background-color: #3C0753 !important;
     overflow-x: hidden;
+   
 }
 
 .page-content{
@@ -83,9 +144,9 @@ Navbar{
     color: #ffffff !important;
     font-size: 20px;
     background-color:#2e0640;
-    padding: 12px;
+    padding: 9px;
     border-radius: 50px;
-    margin-right: -4px;
+    margin-right: -3px;
 }
 
 .Caloriemeter{

@@ -12,9 +12,9 @@ const Camera = () => {
         <Navbar title="Camera" backLink="Back" />
         
         <div className='Cam'>
-            <block>
+            <Block>
                 <h1>Camera</h1>
-            </block>
+            </Block>
             <Block>
                 <FileUploadComponent />
             </Block>

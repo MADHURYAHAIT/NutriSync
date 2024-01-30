@@ -1,13 +1,18 @@
 /* YourComponent.css */
 
 .circular-completion-ring {
-    display: block;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 60vh;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: absolute;
+  left: 50%;
+  top: 81%;
+  
+  transform: translate(-50%, -50%);
+ 
+}
+
   
   .ring-background {
     fill: none;
@@ -17,6 +22,7 @@
   .ring-progress {
     fill: none;
     stroke: #910A67; /* Progress color */
-    transition: stroke-dashoffset 0.4s ease-in-out;
+
+    transition: stroke-dashoffset 0.8s ease-in-out;
   }
   

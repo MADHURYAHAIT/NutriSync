@@ -1,28 +1,20 @@
 
-h1{
-    
-    display: flex;
+h1,h4{
+    /* line-height: 20px; */
     align-items: center;
     justify-content: center;
-    height: 60vh;
-    font-size: 170px;
+    font-size: 130px;
     color: #910A67;
-    margin: 0px !important;
+    margin: 0px ;
 }
 h4{
-    align-items: center;
-    text-align: center;
-    position: static;
-    z-index: 400 !important;
-    position: sticky;
     font-size: 20px;
-    color: #910A67;
-    margin: 0px !important;
+    color: #ddd;
 }
-body{
 
+body{
     overflow: hidden;
-   color: #ffffff;
+    color: #ffffff;
 }
 
 .block,.navbar-inner{
@@ -31,21 +23,37 @@ body{
 
 .title-large{
     height: 0px !important;
-    padding: 80px !important;
     align-items: center;
-    z-index: 1000 !important;
+   
 }
 
 Navbar{
    height: 100px;
 }
 
+.title-large-text {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    line-height: 85px;
+    justify-content: center;
+    height: 100vh;
+    position: absolute;
+   color: #39166f;
+    left: 50%;
+    top: 52%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .title-large-text.hidden {
+    opacity: 0;
+  }
+
 .navbar-bg {
     /* height: 300px !important; */
-    
-    border-radius: 0px 0px 40px 40px;
     background-color: #030637 !important;
-
 }
 
 .toolbar{
@@ -62,7 +70,7 @@ Navbar{
 
 .page-content{
     background-color: #3C0753 !important;
-
+    overflow-x: hidden;
 }
 
 .page-content{
@@ -77,7 +85,7 @@ Navbar{
     background-color:#2e0640;
     padding: 12px;
     border-radius: 50px;
-    margin-top: 10px;
+    margin-right: -4px;
 }
 
 .Caloriemeter{
@@ -91,16 +99,19 @@ Navbar{
 .example {
   
    height: 100%;
+   overflow-x: hidden;
     overflow-y: scroll; /* Add the ability to scroll */
   }
   
   /* Hide scrollbar for Chrome, Safari and Opera */
   .example::-webkit-scrollbar {
       display: none;
+      
   }
   
   /* Hide scrollbar for IE, Edge and Firefox */
   .example {
+   
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
   }

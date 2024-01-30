@@ -49,8 +49,8 @@ const HomePage = () => (
   
 
     <Block className='Caloriemeter'>
-      <NavTitleLarge><h1>430</h1><h4>Calories</h4> </NavTitleLarge>
-      <CircularCompletionRing radius={150} strokeWidth={18} percentage={35} />
+      <NavTitleLarge><h1>1730</h1><h4>Calories</h4> </NavTitleLarge>
+      <CircularCompletionRing radius={180} strokeWidth={5} percentage={86} />
     </Block>
     <Block>
       

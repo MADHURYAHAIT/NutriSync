@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import NotificationItem from '../pages/ NotificationItem';
 import {
   f7,
   f7ready,
@@ -29,6 +29,12 @@ import routes from '../js/routes';
 import store from '../js/store';
 
 const MyApp = () => {
+  
+    const handleNotificationClick = () => {
+      // Handle click logic here
+    };
+
+
   // Login screen demo data
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -66,8 +72,19 @@ const MyApp = () => {
         <Panel left cover dark>
           <View>
             <Page>
-              <Navbar title="Left Panel"/>
-              <Block>Left panel content goes here !</Block>
+              <Navbar title="Notifications"/>
+              <Block>Block</Block>
+              <NotificationItem
+                title="Notification Title"
+                text="Notification Text"
+                onClick={handleNotificationClick}
+              />
+              <NotificationItem
+                title="Notification Title"
+                text="Notification Text"
+                onClick={handleNotificationClick}
+              />
+              
             </Page>
           </View>
         </Panel>

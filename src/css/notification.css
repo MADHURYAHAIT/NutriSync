@@ -1,0 +1,19 @@
+/* YourComponent.css */
+
+.notification-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  .notification-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .notification-text {
+    font-size: 14px;
+    color: #777;
+  }
+  

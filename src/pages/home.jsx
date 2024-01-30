@@ -19,10 +19,19 @@ const HomePage = () => (
 
   <Page name="home">
     {/* Top Navbar */}
-    <Navbar large sliding={false}>
-      {/* <NavLeft>
-        <Link iconIos="f7:menu" iconMd="material:menu" panelOpen="left" />
-      </NavLeft> */}
+
+    <Navbar title="CaloriSync">
+      <NavRight>
+        <Link iconIos="f7:bell" iconMd="material:bell" panelOpen="left">
+          <FaBell className='bellIcon'/>
+        </Link>
+      </NavRight>
+    </Navbar>
+
+    
+
+    {/* <Navbar large sliding={false}>
+     
       <NavTitle sliding>NutriSync</NavTitle>
       <NavRight>
       <Link iconIos="f7:bell" iconMd="material:bell" panelOpen="left">
@@ -30,9 +39,15 @@ const HomePage = () => (
       </Link>
       </NavRight>
       <NavTitleLarge><h1>430</h1><h4>Calories</h4> </NavTitleLarge>
-    </Navbar>
+    </Navbar> */}
       
     {/* Page content */}
+    <div className='example'>
+     
+
+    <Block className='Caloriemeter'>
+      <NavTitleLarge><h1>430</h1><h4>Calories</h4> </NavTitleLarge>
+    </Block>
     <Block>
       
     <h3>Calorie Tracker</h3>
@@ -40,7 +55,7 @@ const HomePage = () => (
     <BlockTitle>Items</BlockTitle>
     <List strong inset dividersIos>
       <ListItem  title="Mushroom" checkbox/>
-      <ListItem  title="Biryani Tikka" checkbox />
+      <ListItem  title="Biryani" checkbox />
       <ListItem  title="Nan Hajma" checkbox />
       <ListItem  title="Paneer Tikka" checkbox />
       <ListItem  title="Aloo Paratha" checkbox />
@@ -72,6 +87,7 @@ const HomePage = () => (
         link="/request-and-load/user/123456/"
       />
     </List> */}
+     </div>
   </Page>
 );
 export default HomePage;

@@ -1,0 +1,22 @@
+/* YourComponent.css */
+
+.circular-completion-ring {
+    display: block;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+  }
+  
+  .ring-background {
+    fill: none;
+    stroke: #ddd; /* Background color */
+  }
+  
+  .ring-progress {
+    fill: none;
+    stroke: #910A67; /* Progress color */
+    transition: stroke-dashoffset 0.4s ease-in-out;
+  }
+  

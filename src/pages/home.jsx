@@ -15,6 +15,8 @@ import {
   Button
 } from 'framework7-react';
 import { FaBell } from "react-icons/fa";
+import CircularCompletionRing from './CircularCompletionRing';
+import '../css/completionRing.css';
 const HomePage = () => (
 
   <Page name="home">
@@ -43,10 +45,12 @@ const HomePage = () => (
       
     {/* Page content */}
     <div className='example'>
-     
+    
+  
 
     <Block className='Caloriemeter'>
       <NavTitleLarge><h1>430</h1><h4>Calories</h4> </NavTitleLarge>
+      <CircularCompletionRing radius={150} strokeWidth={18} percentage={35} />
     </Block>
     <Block>
       

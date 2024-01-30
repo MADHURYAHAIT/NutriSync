@@ -29,7 +29,7 @@ import routes from '../js/routes';
 import store from '../js/store';
 
 const MyApp = () => {
-  
+
     const handleNotificationClick = () => {
       // Handle click logic here
     };
@@ -75,13 +75,13 @@ const MyApp = () => {
               <Navbar title="Notifications"/>
               <Block>Block</Block>
               <NotificationItem
-                title="Notification Title"
-                text="Notification Text"
+                title="Drink Water"
+                text="Drink about 300ml of water"
                 onClick={handleNotificationClick}
               />
               <NotificationItem
-                title="Notification Title"
-                text="Notification Text"
+                title="Run 200m"
+                text="Target Burn 100 calories"
                 onClick={handleNotificationClick}
               />
               

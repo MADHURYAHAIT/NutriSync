@@ -1,10 +1,12 @@
 /* YourComponent.css */
 
 .notification-item {
-    border: 1px solid #ddd;
+    border: 1px solid #000000;
+    border-radius: 10px;
     padding: 10px;
     margin: 10px;
     cursor: pointer;
+    background-color:#910A67 ;
   }
   
   .notification-title {
@@ -14,6 +16,6 @@
   
   .notification-text {
     font-size: 14px;
-    color: #777;
+    color: #3C0753;
   }
   

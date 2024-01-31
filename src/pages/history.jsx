@@ -3,10 +3,11 @@ import { Navbar, Page, List, ListItem, Subnavbar, Searchbar, Block, theme } from
 
 const HistoryPage = () => {
     const items = [];
-    for (let i = 1; i <= 100; i += 1) {
+    let j=340;
+    for (let i = 1; i <= 31; i += 1) {
       items.push({
-        title: `Day ${i}`,
-        subtitle: `Calorie ${i}`,
+        title: `Date : ${i}/${1}/${2023}`,
+        subtitle: `Net Calorie ${j+i*(-4)^i}`,
       });
     }
     const [vlData, setVlData] = useState({
@@ -36,12 +37,8 @@ const HistoryPage = () => {
         </Navbar>
         <div className="search">
         <Block>
-          <p>
-            Virtual List allows to render lists with huge amount of elements without loss of
-            performance. And it is fully compatible with all Framework7 list components such as Search
-            Bar, Infinite Scroll, Pull To Refresh, Swipeouts (swipe-to-delete) and Sortable.
-          </p>
-          <p>Here is the example of virtual list with 10 000 items:</p>
+
+          <p>Here's the history of last 30 days: </p>
         </Block>
         <List strong outlineIos insetMd dividersIos className="searchbar-not-found">
           <ListItem title="Nothing found" />

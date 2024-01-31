@@ -192,18 +192,22 @@ Navbar{
 .searchbar input[type='text'], .searchbar input[type='search'] {
     /* backdrop-filter: blur(10px); */
     margin-top: 10px !important;
-    box-shadow: 0px 0px 20px 5px #00000086;
+    box-shadow: 0px 0px 15px 3px #00000072;
 }
-
-@media only screen and (min-width: 1000px) {
+.md .searchbar-disable-button:after,.md .searchbar .input-clear-button:after{
+    /* display: none !important; */
+   line-height: 69px;
+ }
+@media only screen and (min-width: 800px) {
  .search{
     margin-left: 18%;
     margin-right: 18%;
+    margin-top: 100px;
  }
 
 .subnavbar {
     max-width: 500px;
-    right:140px  ;
+    right:0px  ;
     left: 50%;
     top: 0%;
     transform: translate(-50%, -115%);
@@ -214,8 +218,5 @@ Navbar{
   
     box-shadow: none !important;
 }
- .md .searchbar-disable-button:after,.md .searchbar .input-clear-button:after{
-    /* display: none !important; */
-   line-height: 65px;
- }
+
 }

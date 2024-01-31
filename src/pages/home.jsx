@@ -25,7 +25,7 @@ const HomePage = () => (
   <Page name="home">
     {/* Top Navbar */}
 
-    <Navbar title="CaloriSync">
+    <Navbar title="NutriSync">
       <NavRight>
         <Link iconIos="f7:bell" iconMd="material:bell" panelOpen="left">
           <FaBell className='bellIcon'/>
@@ -47,12 +47,12 @@ const HomePage = () => (
      
       <div className='div1'>
         <NavTitleLarge>  <FaRunning id='icon' /> <h1>130</h1><h4>Calorie Burn</h4></NavTitleLarge>
-        <CircularCompletionRing radius={70} strokeWidth={5} percentage={46} />
+       
       </div>
 
       <div className='div2'>
         <NavTitleLarge>  <FaPizzaSlice  id='icon' /> <h1>530</h1><h4>Calorie Intake</h4></NavTitleLarge>
-        <CircularCompletionRing radius={70} strokeWidth={5} percentage={46} />
+        {/* <CircularCompletionRing radius={70} strokeWidth={5} percentage={46} /> */}
       </div>
 
     </Block>

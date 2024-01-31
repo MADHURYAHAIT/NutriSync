@@ -9,6 +9,7 @@
   left: 50%;
   top: 81%;
   transform: translate(-50%, -60%);
+ 
   
 }
 
@@ -19,9 +20,7 @@
 }
 
 .ring-progress {
-  fill: none;
- 
-
+    fill: none;
     transition: stroke-dashoffset 0.8s ease-in-out;
   }
   

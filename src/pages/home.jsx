@@ -24,7 +24,6 @@ const HomePage = () => (
 
   <Page name="home">
     {/* Top Navbar */}
-
     <Navbar title="NutriSync">
       <NavRight>
         <Link iconIos="f7:bell" iconMd="material:bell" panelOpen="left">
@@ -60,8 +59,7 @@ const HomePage = () => (
 
 
     <Block>
-      
-    <h3>Calorie Tracker</h3>
+      <h3>Past activites</h3>
     </Block>
     <BlockTitle>Items</BlockTitle>
     <List strong inset dividersIos>

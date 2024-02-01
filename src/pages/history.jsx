@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Navbar, Page, List, ListItem, Subnavbar, Searchbar, Block, theme } from 'framework7-react';
+import { Navbar, Page, List, ListItem, Subnavbar, Searchbar, Block, theme, NavRight,Link } from 'framework7-react';
+import { FaBell } from "react-icons/fa";
 
 const HistoryPage = () => {
     const items = [];
@@ -30,16 +31,21 @@ const HistoryPage = () => {
     };
     return (
       <Page>
-        <Navbar title="History">
+      
+        <Navbar title="NutriSync">
+        <NavRight>
+          <Link iconIos="f7:bell" iconMd="material:bell" panelOpen="left">
+            <FaBell className='bellIcon'/>
+          </Link>
+        </NavRight>
           <Subnavbar  NavRight inner={false}>
             <Searchbar searchContainer=".virtual-list" searchItem="li" searchIn=".item-title" />
           </Subnavbar>
         </Navbar>
         <div className="search">
-        <Block>
-
-          <p>Here's the history of last 30 days: </p>
-        </Block>
+            <Block>
+                <p>Here's the history of last 30 days: </p>
+            </Block>
         <List strong outlineIos insetMd dividersIos className="searchbar-not-found">
           <ListItem title="Nothing found" />
         </List>

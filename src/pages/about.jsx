@@ -1,17 +1,23 @@
 import React from 'react';
-import { Page, Navbar, Block, BlockTitle } from 'framework7-react';
-
+import { Page, Navbar, Block, BlockTitle, NavRight,Link } from 'framework7-react';
+import { FaBell } from "react-icons/fa";
 const AboutPage = () => (
   <Page>
-    <Navbar title="About" backLink="Back" />
+   <Navbar title="NutriSync">
+      <NavRight>
+        <Link iconIos="f7:bell" iconMd="material:bell" panelOpen="left">
+          <FaBell className='bellIcon'/>
+        </Link>
+      </NavRight>
+    </Navbar>
     <BlockTitle>About My App</BlockTitle>
-    <Block>
+    <Block bold inset >
       <p>
       Welcome to CalorieSyn, your go-to solution for effortless and effective calorie tracking. We understand that maintaining a healthy lifestyle is a journey, and we're here to support you every step of the way. Whether you're looking to lose weight, gain muscle, or simply stay on top of your nutritional goals, our app is designed to make calorie tracking simple, intuitive, and enjoyable.
       </p>
     </Block>
     <BlockTitle>Key Features</BlockTitle>
-    <Block>
+    <Block  bold >
       <p>
  
       <br/>

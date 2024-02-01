@@ -1,23 +1,31 @@
-import React, { useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { IoMdCloudUpload } from "react-icons/io";
+import { IoMdCloudUpload } from 'react-icons/io';
+
 const FileUploadComponent = () => {
-  const onDrop = useCallback(acceptedFiles => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const onDrop = useCallback((acceptedFiles) => {
     // Do something with the file, e.g., send it to a server
     console.log(acceptedFiles);
+    // Update state to indicate that the image has been submitted
+    setIsSubmitted(true);
   }, []);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   return (
     <div {...getRootProps()} style={dropzoneStyle}>
-        <IoMdCloudUpload size={100} />
+      <IoMdCloudUpload size={100} />
       <input {...getInputProps()} />
       {isDragActive ? (
-       
         <p>Drop the files here...</p>
       ) : (
-        <p>Drag 'n' drop some files here, or click to select files</p>
+        <p>
+          {isSubmitted
+            ? 'Image submitted successfully!'
+            : "Drag 'n' drop some files here, or click to select files"}
+        </p>
       )}
     </div>
   );

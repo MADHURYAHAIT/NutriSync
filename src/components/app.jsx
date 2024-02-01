@@ -90,15 +90,7 @@ const MyApp = () => {
         </Panel>
 
 
-        {/* Right panel with reveal effect*/}
-        {/* <Panel right reveal dark>
-          <View>
-            <Page>
-              <Navbar title="Right Panel"/>
-              <Block>Right panel contendddt goes here</Block>
-            </Page>
-          </View>
-        </Panel> */}
+       
 
 
         {/* Views/Tabs container */}
@@ -109,8 +101,9 @@ const MyApp = () => {
             <Link tabLink="#view-home" tabLinkActive iconIos="f7:house_fill" iconMd="material:home" text="Home" />
             <Link tabLink="#view-history" iconIos="f7:info" iconMd="material:history" text="History" />
             <Link tabLink="#view-camera" iconIos="f7:camera" iconMd="material:camera" text="Camera" />
+            <Link tabLink="#view-profile" iconIos="f7:person" iconMd="material:person" text="Profile" />
             <Link tabLink="#view-info" iconIos="f7:info" iconMd="material:info" text="Info" />
-            <Link tabLink="#view-settings" iconIos="f7:gear" iconMd="material:settings" text="Settings" />
+           
           </Toolbar>
 
           {/* Your main view/tab, should have "view-main" class. It also has "tabActive" prop */}
@@ -124,7 +117,7 @@ const MyApp = () => {
           <View id="view-history" name="HistoryPage" tab url="/history/"/>
           
           {/* Settings View */}
-          <View id="view-settings" name="settings" tab url="/settings/" />
+          <View id="view-profile" name="ProfilePage" tab url="/profile/" />
 
           </Views>
 

@@ -14,7 +14,7 @@ import {
   Block,
 } from 'framework7-react';
 import { FaBell } from "react-icons/fa";
-const SettingsPage = () => (
+const ProfilePage = () => (
   <Page name="settings">
    <Navbar title="NutriSync">
       <NavRight>
@@ -125,4 +125,4 @@ const SettingsPage = () => (
   </Page>
 );
 
-export default SettingsPage;
+export default ProfilePage;

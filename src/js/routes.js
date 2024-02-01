@@ -10,7 +10,7 @@ import DynamicRoutePage from '../pages/dynamic-route.jsx';
 import RequestAndLoad from '../pages/request-and-load.jsx';
 import NotFoundPage from '../pages/404.jsx';
 import HistoryPage from '../pages/history.jsx';
-
+import ProfilePage from '../pages/profile.jsx';
 var routes = [
   {
     path: '/',
@@ -37,8 +37,8 @@ var routes = [
     component: ProductPage,
   },
   {
-    path: '/settings/',
-    component: SettingsPage,
+    path: '/profile/',
+    component: ProfilePage,
   },
 
   {

@@ -11,6 +11,7 @@ import RequestAndLoad from '../pages/request-and-load.jsx';
 import NotFoundPage from '../pages/404.jsx';
 import HistoryPage from '../pages/history.jsx';
 import ProfilePage from '../pages/profile.jsx';
+import Description from '../pages/description.jsx';
 var routes = [
   {
     path: '/',
@@ -40,7 +41,10 @@ var routes = [
     path: '/profile/',
     component: ProfilePage,
   },
-
+  {
+    path:'/description/',
+    component: Description,
+  },
   {
     path: '/dynamic-route/blog/:blogId/post/:postId/',
     component: DynamicRoutePage,
@@ -61,13 +65,13 @@ var routes = [
       setTimeout(function () {
         // We got user data from request
         var user = {
-          firstName: 'Vladimir',
-          lastName: 'Kharlampidi',
+          firstName: 'Madhurya',
+          lastName: 'Hait',
           about: 'Hello, i am creator of Framework7! Hope you like it!',
           links: [
             {
-              title: 'Framework7 Website',
-              url: 'http://framework7.io',
+              title: 'Abc',
+              url: '#',
             },
             {
               title: 'Framework7 Forum',

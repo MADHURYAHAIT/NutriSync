@@ -1,4 +1,4 @@
-.about{
+.about,.profile,.contact,.description{
     margin-top: 80px;
     font-size: 16px;
     text-align: justify;
@@ -12,18 +12,38 @@ BlockTitle{
 .md .icon-back:after {
     color: white;
 }
+
+
 @media only screen and (min-width: 800px) {
 
-    .about{
+    .about,.profile,.description,.contact{
         margin-left: 18%;
         margin-right: 18%;
     }
+    
+
 }
 
+.profile .block{
+    color: black;
+}
 
-.description{
-   margin-left: 18%;
-   margin-right: 18%;
-    margin-top: 80px;
-    font-size: 16px;
+.profileIcon{
+   font-size: 80px;
+}
+
+.user{
+    font-size: 100px;
+    color: #ffffff;
+   
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+.c p{
+    text-align:left;
+    color: #000000;
 }

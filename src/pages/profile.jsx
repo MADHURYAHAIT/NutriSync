@@ -14,6 +14,8 @@ import {
   Block,
 } from 'framework7-react';
 import { FaBell } from "react-icons/fa";
+
+
 const ProfilePage = () => (
   <Page name="settings">
    <Navbar title="NutriSync">
@@ -25,6 +27,7 @@ const ProfilePage = () => (
     </Navbar>
 
     <BlockTitle>Form Example</BlockTitle>
+
     <List strongIos outlineIos dividersIos>
       <ListInput label="Name" type="text" placeholder="Your name"></ListInput>
 

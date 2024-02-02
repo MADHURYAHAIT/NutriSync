@@ -7,7 +7,7 @@ h1,h4{
     margin: 0px ;
 }
 h1{
-animation: heartbeat 800ms infinite; /* Apply the heartbeat animation */
+animation: heartbeat 1s infinite; /* Apply the heartbeat animation */
 }
 
 @keyframes heartbeat {
@@ -15,7 +15,7 @@ animation: heartbeat 800ms infinite; /* Apply the heartbeat animation */
         transform: scale(1); /* Initial scale */
     }
     50% {
-        transform: scale(1.05); /* Scale up at 50% of the animation */
+        transform: scale(1.038); /* Scale up at 50% of the animation */
     }
     
     100% {
@@ -241,3 +241,4 @@ Navbar{
 }
 
 }
+

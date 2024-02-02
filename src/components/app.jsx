@@ -117,7 +117,7 @@ const MyApp = () => {
           <View id="view-history" name="HistoryPage" tab url="/history/"/>
           
           {/* Settings View */}
-          <View id="view-profile" name="ProfilePage" tab url="/profile/" />
+          <View id="view-profile" name="ProfilePage" tab url="/request-and-load/user/:userId/" />
 
           </Views>
 

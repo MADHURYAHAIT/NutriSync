@@ -15,8 +15,10 @@ const AboutPage = () => (
     <BlockTitle><h2>What's NutriSync ?</h2></BlockTitle>
     <Block bold inset >
       <p>
-     Welcome to NutriSync, your go-to solution for effortless and effective calorie tracking. We understand that maintaining a healthy lifestyle is a journey, and we're here to support you every step of the way. Whether you're looking to lose weight, gain muscle, or simply stay on top of your nutritional goals, our app is designed to make calorie tracking simple, intuitive, and enjoyable. It will help you acheieve your desired body weight.
+        Welcome to NutriSync, your go-to solution for effortless and effective calorie tracking. We understand that maintaining a healthy lifestyle is a journey, and we're here to support you every step of the way. Whether you're looking to lose weight, gain muscle, or simply stay on top of your calorie goals, our app is designed to make calorie tracking simple, intuitive, and enjoyable. It will help you acheieve your desired body weight.
       </p>
+      <p>Get Started Today! Try NutriSync now and embark on a journey towards a healthier, happier you. Join thousands of users who have already embraced the simplicity and effectiveness of our calorie tracking app.</p>
+
     </Block>
     
      
@@ -32,13 +34,17 @@ const AboutPage = () => (
         />
       <ListItem
         title="Contact Us"
-        link="/load-something-that-doesnt-exist/"
+        link="/contact/"
         />
       <ListItem
-        title="Acknowledgments"
+        title="Terms & Conditions"
         link="/request-and-load/user/123456/"
         />
     </List>
+    
+    
+
+      
   </div>
   </Page>
 );

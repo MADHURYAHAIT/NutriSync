@@ -13,6 +13,7 @@ import HistoryPage from '../pages/history.jsx';
 import ProfilePage from '../pages/profile.jsx';
 import Description from '../pages/description.jsx';
 import Team from '../pages/team.jsx';
+import Contact from '../pages/contact.jsx';
 var routes = [
   {
     path: '/',
@@ -21,6 +22,10 @@ var routes = [
   {
     path: '/about/',
     component: AboutPage,
+  },
+  {
+    path:'/contact/',
+    component: Contact,
   },
   {
     path: '/form/',
@@ -50,7 +55,7 @@ var routes = [
    path: '/team/',
    component: Team,
   },
-  
+
   {
     path: '/dynamic-route/blog/:blogId/post/:postId/',
     component: DynamicRoutePage,
@@ -73,16 +78,13 @@ var routes = [
         var user = {
           firstName: 'Madhurya',
           lastName: 'Hait',
-          about: 'Hello, i am creator of Framework7! Hope you like it!',
+          about: 'Hello This is My about section and I am the creator of this site! Hope you like it ',
           links: [
             {
               title: 'Abc',
               url: '#',
             },
-            {
-              title: 'Framework7 Forum',
-              url: 'http://forum.framework7.io',
-            },
+            
           ]
         };
         // Hide Preloader

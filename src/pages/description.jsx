@@ -5,8 +5,11 @@ const Description = () => {
   return (
     <Page>
          <Navbar title="Description" backLink="Back" />
-        <BlockTitle><h3>Key Features</h3></BlockTitle>
-   
+
+    <div className='description'>
+
+    <BlockTitle><h2>Key Features</h2></BlockTitle>
+
    <Block bold inset >
        1. <b>Intuitive Interface</b><br/>
        <p> Our app boasts a user-friendly interface that makes calorie tracking a breeze. With a clean design and easy navigation, you can log your meals, snacks, and drinks in seconds. </p>
@@ -20,12 +23,11 @@ const Description = () => {
        4. <b>Community Support</b><br/>
         <p>Connect with like-minded individuals within our community. Share tips, recipes, and encouragement with others who are on a similar path. Together, we can build a supportive environment for everyone's health and wellness journey.</p>
 
-       <b>Get Started Today</b><br/>
-
-        <p>Ready to take control of your nutrition? Download NutriSync now and embark on a journey towards a healthier, happier you. Join thousands of users who have already embraced the simplicity and effectiveness of our calorie tracking app.</p>
-
-       <i>Thank you for choosing NutriSync. We're excited to be part of your health and wellness journey!</i>
+        5. <b>Integrated Google Ai</b><br/>
+        <p>Harness the power of Google Gemini which is integated in this app that helps recoginze the food and show calories right at your finger tips, You just need to click a photograph.</p>
+      
      </Block>
+    </div>
     </Page>
   )
 }

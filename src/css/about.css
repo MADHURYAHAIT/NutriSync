@@ -9,10 +9,21 @@ BlockTitle{
     margin-top: 20px;
     margin-bottom: 20px;
 }
+.md .icon-back:after {
+    color: white;
+}
 @media only screen and (min-width: 800px) {
 
     .about{
         margin-left: 18%;
         margin-right: 18%;
     }
+}
+
+
+.description{
+   margin-left: 18%;
+   margin-right: 18%;
+    margin-top: 80px;
+    font-size: 16px;
 }

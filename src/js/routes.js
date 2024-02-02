@@ -12,6 +12,7 @@ import NotFoundPage from '../pages/404.jsx';
 import HistoryPage from '../pages/history.jsx';
 import ProfilePage from '../pages/profile.jsx';
 import Description from '../pages/description.jsx';
+import Team from '../pages/team.jsx';
 var routes = [
   {
     path: '/',
@@ -42,9 +43,14 @@ var routes = [
     component: ProfilePage,
   },
   {
-    path:'/description/',
+    path: '/description/',
     component: Description,
   },
+  {
+   path: '/team/',
+   component: Team,
+  },
+  
   {
     path: '/dynamic-route/blog/:blogId/post/:postId/',
     component: DynamicRoutePage,

@@ -1,9 +1,9 @@
 import React from 'react'
 
-const team = () => {
+const Team = () => {
   return (
     <div>team</div>
   )
 }
 
-export default team
+export default Team

@@ -38,7 +38,7 @@ const AboutPage = () => (
         />
       <ListItem
         title="Terms & Conditions"
-        link="/request-and-load/user/123456/"
+        link="/page not found/"
         />
     </List>
     

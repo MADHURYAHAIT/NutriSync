@@ -1,4 +1,4 @@
-.about,.profile,.contact,.description{
+.about,.profile,.contact,.description,.notFound{
     margin-top: 80px;
     font-size: 16px;
     text-align: justify;
@@ -29,21 +29,20 @@ BlockTitle{
 }
 
 .profileIcon{
-   font-size: 80px;
+    font-size: 80px;
 }
 
 .user{
     font-size: 100px;
     color: #ffffff;
-   
 }
 
 .center {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-.c p{
+}
+.c p,.notFound p{
     text-align:left;
     color: #000000;
 }

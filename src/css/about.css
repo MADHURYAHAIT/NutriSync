@@ -1,0 +1,13 @@
+.about{
+    margin-top: 100px;
+ 
+}
+
+@media only screen and (min-width: 800px) {
+
+    .about{
+       
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}

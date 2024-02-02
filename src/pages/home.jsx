@@ -58,6 +58,7 @@ const HomePage = () => (
    
 
 
+  <div className='activities'>
     <Block>
       <h3>Past activites</h3>
     </Block>
@@ -74,6 +75,7 @@ const HomePage = () => (
       <ListItem  title="Egg roll" checkbox />
       <ListItem  title="Burger" checkbox />
     </List>
+  </div>
 
     <BlockTitle>Modals</BlockTitle>
     <Block className="grid grid-cols-2 grid-gap">
@@ -82,20 +84,7 @@ const HomePage = () => (
     </Block>
 
 
-    {/* <List strong inset dividersIos>
-      <ListItem
-        title="Dynamic (Component) Route"
-        link="/dynamic-route/blog/45/post/125/?foo=bar#about"
-      />
-      <ListItem
-        title="Default Route (404)"
-        link="/load-something-that-doesnt-exist/"
-      />
-      <ListItem
-        title="Request Data & Load"
-        link="/request-and-load/user/123456/"
-      />
-    </List> */}
+    
      </div>
   </Page>
 );

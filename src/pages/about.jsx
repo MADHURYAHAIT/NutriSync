@@ -1,6 +1,7 @@
 import React from 'react';
-import { Page, Navbar, Block, BlockTitle, NavRight,Link } from 'framework7-react';
+import { Page, Navbar, Block, BlockTitle, NavRight,Link,List,ListItem } from 'framework7-react';
 import { FaBell } from "react-icons/fa";
+import '../css/about.css'
 const AboutPage = () => (
   <Page>
    <Navbar title="NutriSync">
@@ -10,6 +11,7 @@ const AboutPage = () => (
         </Link>
       </NavRight>
     </Navbar>
+    <div className='about'>
     <BlockTitle>About My App</BlockTitle>
     <Block bold inset >
       <p>
@@ -41,6 +43,21 @@ const AboutPage = () => (
           <i>Thank you for choosing NutriSync. We're excited to be part of your health and wellness journey!</i>
       </p>
     </Block>
+    <List strong inset dividersIos>
+      <ListItem
+        title="Our Team"
+        link="/dynamic-route/blog/45/post/125/?foo=bar#about"
+        />
+      <ListItem
+        title="Default Route (404)"
+        link="/load-something-that-doesnt-exist/"
+        />
+      <ListItem
+        title="Request Data & Load"
+        link="/request-and-load/user/123456/"
+        />
+    </List>
+  </div>
   </Page>
 );
 

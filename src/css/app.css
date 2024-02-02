@@ -6,6 +6,22 @@ h1,h4{
     color: #910A67;
     margin: 0px ;
 }
+h1{
+animation: heartbeat 800ms infinite; /* Apply the heartbeat animation */
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1); /* Initial scale */
+    }
+    50% {
+        transform: scale(1.05); /* Scale up at 50% of the animation */
+    }
+    
+    100% {
+        transform: scale(1); /* Return to the original scale */
+    }
+}
 h4{
     font-size: 20px;
     color: #ddd;
@@ -217,6 +233,11 @@ Navbar{
     /* backdrop-filter: blur(10px); */
   
     box-shadow: none !important;
+}
+
+.activities{
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 }

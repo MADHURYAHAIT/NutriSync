@@ -22,9 +22,8 @@ const RequestAndLoad = (props) => {
       </div>
       <Block strong inset>
         Name : {user.firstName} {user.lastName}
-      </Block>
-      <Block strong inset>
-        {user.about}
+          <br/>
+        User About :  {user.about}
       </Block>
       <List strong inset dividersIos>
         {user.links.map((link, index) => (

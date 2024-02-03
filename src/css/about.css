@@ -1,4 +1,4 @@
-.about,.profile,.contact,.description,.notFound{
+.about,.profile,.contact,.description,.notFound,.team{
     margin-top: 80px;
     font-size: 16px;
     text-align: justify;
@@ -13,6 +13,52 @@ BlockTitle{
     color: white;
 }
 
+.team{
+    flex-direction: column;
+   
+}
+@media only screen and (min-width: 750px) {
+.team .block{
+
+    padding: 50px;
+}
+.team .block h6{
+    font-size: 89px;
+    
+}
+.team .block p{
+    font-size: 20px;
+}
+
+}
+
+@media only screen and (max-width: 1183px){
+    .team {
+        flex-direction: column !important;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+.team .block{
+
+    flex-direction: row;
+   
+   
+}
+.team{
+    margin: 100px;
+    
+}
+
+
+}
+
+.team h6{
+    font-size: 65px;
+    color: #910A67;
+    text-align: center;
+    margin-bottom: 80px ;
+}
 
 @media only screen and (min-width: 800px) {
 
@@ -20,8 +66,35 @@ BlockTitle{
         margin-left: 18%;
         margin-right: 18%;
     }
-    
-
+    .demo-expandable-cards{
+  
+        margin-left: 30px;
+        margin-right: 30px;
+       
+    }
+    .team .card{
+        height: 400px;
+        width: 600px;
+    }
+    .card{
+        display: flex;
+        flex-direction: row !important;
+    }
+    .team{
+        
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+       
+    }
+    .team .block{
+     
+       width: auto;
+       height: 100%;
+       
+       
+    }
 }
 
 .profile .block{

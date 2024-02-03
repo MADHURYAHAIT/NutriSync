@@ -10,7 +10,7 @@ import DynamicRoutePage from '../pages/dynamic-route.jsx';
 import RequestAndLoad from '../pages/request-and-load.jsx';
 import NotFoundPage from '../pages/404.jsx';
 import HistoryPage from '../pages/history.jsx';
-import ProfilePage from '../pages/profile.jsx';
+
 import Description from '../pages/description.jsx';
 import Team from '../pages/team.jsx';
 import Contact from '../pages/contact.jsx';
@@ -28,6 +28,10 @@ var routes = [
     component: Contact,
   },
   {
+    path:'/team/',
+    component: Team,
+  },
+  {
     path: '/form/',
     component: FormPage,
   },
@@ -42,10 +46,6 @@ var routes = [
   {
     path: '/product/:id/',
     component: ProductPage,
-  },
-  {
-    path: '/profile/',
-    component: ProfilePage,
   },
   {
     path: '/description/',

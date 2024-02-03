@@ -5,9 +5,7 @@ const Contact = () => {
   return (
     <Page>
          <Navbar title="Contact" backLink="Back" />
-
     <div className='contact'>
-
     <BlockTitle><h2>Reach Us</h2></BlockTitle>
 
    <Block bold inset >
@@ -19,10 +17,10 @@ const Contact = () => {
             <p>Our email : <i> haitmadhurya@gmail.com</i> </p>
         </Block>
         <Block strong inset>
-        <p>Our contact number : <i> +91-1234567890</i> </p>
+            <p>Our contact number : <i> +91-1234567890</i> </p>
         </Block>
         <Block strong inset>
-        <p>Our address : <i> Sikkim Manipal Institue of Technology, Majitar, Sikkim - 737136</i></p>
+            <p>Our address : <i> Sikkim Manipal Institue of Technology, Majitar, Sikkim - 737136</i></p>
         </Block>
         </div>
      </Block>

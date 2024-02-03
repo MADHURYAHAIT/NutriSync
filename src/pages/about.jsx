@@ -30,7 +30,7 @@ const AboutPage = () => (
         />
       <ListItem
         title="Our Team"
-        link="/dynamic-route/blog/45/post/125/?foo=bar#about"
+        link="/team/"
         />
       <ListItem
         title="Contact Us"

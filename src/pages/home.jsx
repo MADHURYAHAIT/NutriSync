@@ -1,4 +1,5 @@
-import React from 'react';
+import React ,{ useState } from 'react';
+import DateTimeComponent from './DateTimeComponent';
 import {
   Page,
   Navbar,
@@ -12,7 +13,13 @@ import {
   BlockTitle,
   List,
   ListItem,
-  Button
+  Button,
+  Icon,
+  Card,
+  CardContent,
+  CardHeader,
+  BlockHeader,
+  Checkbox,
 } from 'framework7-react';
 import { FaBell } from "react-icons/fa";
 import CircularCompletionRing from './CircularCompletionRing';
@@ -20,7 +27,27 @@ import '../css/completionRing.css';
 import { FaFire } from "react-icons/fa6";
 import { FaRunning } from "react-icons/fa";
 import { FaPizzaSlice } from "react-icons/fa";
-const HomePage = () => (
+const HomePage = () => {
+  const [data, setData] = useState([
+    { dessert: 'Frozen yogurt', calories: 159, fat: 6.0, carbs: 24, protein: 4.0, comments: 'I like frozen yogurt' },
+    // Add more data items as needed
+  ]);
+
+  const handleAdd = () => {
+    const newItem = { dessert: 'New Dessert', calories: 0, fat: 0, carbs: 0, protein: 0, comments: '' };
+    setData([...data, newItem]);
+  };
+
+  const handleRemove = (index) => {
+    const newData = [...data];
+    newData.splice(index, 1);
+    setData(newData);
+  };
+
+
+
+
+  return(
 
   <Page name="home">
     {/* Top Navbar */}
@@ -32,16 +59,15 @@ const HomePage = () => (
       </NavRight>
     </Navbar>
       
-    {/* Page content */}
+
     <div className='example'>
-    
-  
-    
     <Block className='Caloriemeter'>
     <div className='div3'>
-      <h3>Today</h3>
+     
+      {/* <h3>Today</h3> */}
+    <DateTimeComponent/>
     </div>
-      <NavTitleLarge><FaFire id='fire' /><h1>1730</h1><h4>Net Calories</h4> </NavTitleLarge>
+      <NavTitleLarge><FaFire id='fire' /><h1>1730</h1><h4>Net Calories Today</h4> </NavTitleLarge>
       <CircularCompletionRing radius={179} strokeWidth={7} percentage={86} />
      
       <div className='div1'>
@@ -60,32 +86,116 @@ const HomePage = () => (
 
   <div className='activities'>
     <Block>
-      <h3>Past activites</h3>
+      <h3>Past activites Today</h3>
     </Block>
-    <BlockTitle>Items</BlockTitle>
-    <List strong inset dividersIos>
-      <ListItem  title="Mushroom" checkbox/>
-      <ListItem  title="Biryani" checkbox />
-      <ListItem  title="Nan Hajma" checkbox />
-      <ListItem  title="Paneer Tikka" checkbox />
-      <ListItem  title="Aloo Paratha" checkbox />
-      <ListItem  title="Butter Paratha" checkbox />
-      <ListItem  title="Paneer Paratha" checkbox />
-      <ListItem  title="Maggie" checkbox />
-      <ListItem  title="Egg roll" checkbox />
-      <ListItem  title="Burger" checkbox />
-    </List>
-  </div>
+    <Card className="data-table data-table-init">
+      <CardHeader>
+         <div className="data-table-links">
+          <a className="button" onClick={handleAdd}>Add</a>
+          {/* Map over data and render a remove button for each item */}
+          {data.map((item, index) => (
+            <a className="button" key={index} onClick={() => handleRemove(index)}>Remove</a>
+          ))}
+        </div>
+        <div className="data-table-actions">
+          <Link iconIos="f7:line_horizontal_3_decrease" iconMd="material:sort" />
+          <Link iconIos="f7:ellipsis_vertical_circle" iconMd="material:more_vert" />
+        </div>
+      </CardHeader>
+      <CardContent padding={true}>
+        <table>
+          <thead>
+            <tr>
+              <th className="checkbox-cell">
+                <Checkbox />
+              </th>
+              <th className="label-cell">Dessert (100g serving)</th>
+              <th className="numeric-cell">Calories</th>
+              <th className="numeric-cell">Fat (g)</th>
+              <th className="numeric-cell">Carbs</th>
+              <th className="numeric-cell">Protein (g)</th>
+              <th className="medium-only">
+                <Icon ios="f7:chat_bubble_text_fill" md="material:message" /> Comments
+              </th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="checkbox-cell">
+                <Checkbox />
+              </td>
+              <td className="label-cell">Frozen yogurt</td>
+              <td className="numeric-cell">159</td>
+              <td className="numeric-cell">6.0</td>
+              <td className="numeric-cell">24</td>
+              <td className="numeric-cell">4.0</td>
+              <td className="medium-only">I like frozen yogurt</td>
+              <td className="actions-cell">
+                <Link iconIos="f7:square_pencil" iconMd="material:edit" />
+                <Link iconIos="f7:trash" iconMd="material:delete" />
+              </td>
+            </tr>
+            <tr>
+              <td className="checkbox-cell">
+                <Checkbox />
+              </td>
+              <td className="label-cell">Ice cream sandwich</td>
+              <td className="numeric-cell">237</td>
+              <td className="numeric-cell">9.0</td>
+              <td className="numeric-cell">37</td>
+              <td className="numeric-cell">4.4</td>
+              <td className="medium-only">But like ice cream more</td>
+              <td className="actions-cell">
+                <Link iconIos="f7:square_pencil" iconMd="material:edit" />
+                <Link iconIos="f7:trash" iconMd="material:delete" />
+              </td>
+            </tr>
+            <tr>
+              <td className="checkbox-cell">
+                <Checkbox />
+              </td>
+              <td className="label-cell">Eclair</td>
+              <td className="numeric-cell">262</td>
+              <td className="numeric-cell">16.0</td>
+              <td className="numeric-cell">24</td>
+              <td className="numeric-cell">6.0</td>
+              <td className="medium-only">Super tasty</td>
+              <td className="actions-cell">
+                <Link iconIos="f7:square_pencil" iconMd="material:edit" />
+                <Link iconIos="f7:trash" iconMd="material:delete" />
+              </td>
+            </tr>
+            <tr>
+              <td className="checkbox-cell">
+                <Checkbox />
+              </td>
+              <td className="label-cell">Cupcake</td>
+              <td className="numeric-cell">305</td>
+              <td className="numeric-cell">3.7</td>
+              <td className="numeric-cell">67</td>
+              <td className="numeric-cell">4.3</td>
+              <td className="medium-only">Don't like it</td>
+              <td className="actions-cell">
+                <Link iconIos="f7:square_pencil" iconMd="material:edit" />
+                <Link iconIos="f7:trash" iconMd="material:delete" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </CardContent>
+    </Card>
 
-    <BlockTitle>Modals</BlockTitle>
-    <Block className="grid grid-cols-2 grid-gap">
-      <Button fill popupOpen="#my-popup">Popup</Button>
-      <Button fill loginScreenOpen="#my-login-screen">Login Screen</Button>
-    </Block>
+
+ 
+
+
+    </div>
 
 
     
      </div>
   </Page>
-);
+  );
+};
 export default HomePage;

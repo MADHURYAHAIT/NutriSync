@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page, Navbar, Block, List, ListItem, NavRight,Link} from 'framework7-react';
+import { Page, Navbar, Block, List, ListItem, NavRight,Link,BlockTitle,Button} from 'framework7-react';
 import { FaBell } from "react-icons/fa";
 import { IoPersonCircleSharp } from "react-icons/io5";
 const RequestAndLoad = (props) => {
@@ -36,6 +36,12 @@ const RequestAndLoad = (props) => {
           ></ListItem>
           ))}
       </List>
+
+      <BlockTitle>Modals</BlockTitle>
+      <Block className="grid grid-cols-2 grid-gap">
+        <Button fill popupOpen="#my-popup">Popup</Button>
+        <Button fill loginScreenOpen="#my-login-screen">Login Screen</Button>
+      </Block>
     </div>
     </Page>
   );

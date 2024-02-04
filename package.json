@@ -23,6 +23,7 @@
     "framework7-icons": "^5.0.5",
     "framework7-react": "^8.3.0",
     "material-icons": "^1.13.12",
+    "moment": "^2.30.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

@@ -79,6 +79,7 @@ const MyApp = () => {
                 text="Drink about 300ml of water"
                 onClick={handleNotificationClick}
               />
+
               <NotificationItem
                 title="Run 200m"
                 text="Target Burn 100 calories"

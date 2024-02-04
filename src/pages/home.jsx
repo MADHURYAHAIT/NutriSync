@@ -65,7 +65,7 @@ const HomePage = () => {
     <div className='div3'>
      
       {/* <h3>Today</h3> */}
-    <DateTimeComponent/>
+      <DateTimeComponent/>
     </div>
       <NavTitleLarge><FaFire id='fire' /><h1>1730</h1><h4>Net Calories Today</h4> </NavTitleLarge>
       <CircularCompletionRing radius={179} strokeWidth={7} percentage={86} />
@@ -80,13 +80,19 @@ const HomePage = () => {
         {/* <CircularCompletionRing radius={70} strokeWidth={5} percentage={46} /> */}
       </div>
 
+      <div className='div4'>
+        <h3>Welcome To Your Daily Stats</h3>
+        <h6>Your personal fitness assistant : )</h6>
+      </div>
+
+     
     </Block>
    
 
 
   <div className='activities'>
     <Block>
-      <h3>Past activites Today</h3>
+      <h3>Past activites today</h3>
     </Block>
     <Card className="data-table data-table-init">
       <CardHeader>

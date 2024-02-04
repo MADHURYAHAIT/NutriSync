@@ -49,7 +49,7 @@ const HomePage = () => {
 
   return(
 
-  <Page name="home">
+  <Page  name="home">
     {/* Top Navbar */}
     <Navbar title="NutriSync">
       <NavRight>

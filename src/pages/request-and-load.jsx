@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page, Navbar, Block, List, ListItem, NavRight,Link,BlockTitle} from 'framework7-react';
+import { Page, Navbar, Block, List, ListItem, NavRight,Link,BlockTitle,Button} from 'framework7-react';
 import { FaBell } from "react-icons/fa";
 import '../css/profile.css';
 
@@ -53,12 +53,15 @@ const RequestAndLoad = (props) => {
     </Card> */}
 
 <div class="cardd">
-        <div class="card_background_img"></div>
+        <div class="card_background_img">
+        <img src={user.banner} style={{height:'130px',width:'100%',objectFit: 'cover'}} alt="profile" />
+        </div>
         <div class="card_profile_img" >
-            <img src={image} style={{height:'120px',weight:'120px'}} alt="profile" />
+            <img src={image} style={{height:'120px',width:'120px'}} alt="profile" />
         </div>
         <div class="user_details">
             <h3>{user.firstName} {user.lastName}</h3>
+            <p>{user.email}</p>
             <p>Plan : Weight Loss</p>
         </div>
         <div class="card_count">
@@ -76,7 +79,10 @@ const RequestAndLoad = (props) => {
                     <p>Age</p>
                 </div>
             </div>
-             <div class="bttn">Follow</div>
+            <Block className="grid grid-cols-2 grid-gap">
+        <Button fill popupOpen="#my-popup">Popup</Button>
+        <Button fill loginScreenOpen="#my-login-screen">Login Screen</Button>
+      </Block>
         </div>
     </div>
 

@@ -1,5 +1,9 @@
-.about,.profile,.contact,.description,.notFound,.team{
+.about,.contact,.description,.notFound,.team{
     margin-top: 80px;
+    font-size: 16px;
+    text-align: justify;
+}
+.profile{
     font-size: 16px;
     text-align: justify;
 }

@@ -5,6 +5,7 @@ h1,h4{
     font-size: 110px;
     color: #910A67;
     margin: 0px ;
+    
 }
 h1{
 animation: heartbeat 1s infinite; /* Apply the heartbeat animation */
@@ -167,13 +168,10 @@ Navbar{
 .page-content{
     background-color: #3C0753 !important;
     overflow-x: hidden;
-   
 }
 
 .page-content{
     padding-top: 0px;
-  
-    
 }
 
 .bellIcon{

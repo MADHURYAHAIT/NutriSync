@@ -161,7 +161,7 @@ const MyApp = () => {
             <List>
               <ListButton title="Sign In" onClick={() => alertLoginData()} />
               <BlockFooter>
-                Some text about login information.<br />Click "Sign In" to close Login Screen
+                Login to NutriSync & start a new journey towards a <br/>healthier you.
               </BlockFooter>
             </List>
           </Page>

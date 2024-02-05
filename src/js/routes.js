@@ -81,8 +81,9 @@ var routes = [
           weight: '61kg',
           height: '5.5ft',
           age: '22',
-          img:"https://source.unsplash.com/7Sz71zuuW4k",
-          about: 'Hello This is My about section and I am the creator of this site! Hope you like it ',
+          banner:"https://images.unsplash.com/photo-1593079831268-3381b0db4a77?q=80&w=2969&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          img:"https://yt3.googleusercontent.com/RTGS8fej7PVFJjF0cnWKRzzyPQgC9KBYwQZspLZsI5ZlcJcwccxvx42KMHSh_S9mvQa5eZyKTQ=s900-c-k-c0x00ffffff-no-rj",
+          email: 'abcdef124@gmail.com',
           links: [
             {
               title: 'Abc',

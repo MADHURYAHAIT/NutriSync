@@ -17,16 +17,16 @@ const RequestAndLoad = (props) => {
     </Navbar>
 
       <div class = 'profile'>
-      <div className='center'>
+      {/* <div className='center'>
         <IoPersonCircleSharp className='user' />
-      </div>
-      <Block strong inset>
+      </div> */}
+      {/* <Block strong inset>
         Name : {user.firstName} {user.lastName}
           <br/>
         User About :  {user.about}
-      </Block>
+      </Block> */}
       
-      <BlockTitle>Styled Cards</BlockTitle>
+      <BlockTitle>User Profile</BlockTitle>
     <Card outlineMd className="demo-card-header-pic">
       <CardHeader
         valign="bottom"

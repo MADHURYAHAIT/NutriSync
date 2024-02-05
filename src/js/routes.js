@@ -78,6 +78,10 @@ var routes = [
         var user = {
           firstName: 'Madhurya',
           lastName: 'Hait',
+          weight: '61kg',
+          height: '5.5ft',
+          age: '22',
+          img:"https://source.unsplash.com/7Sz71zuuW4k",
           about: 'Hello This is My about section and I am the creator of this site! Hope you like it ',
           links: [
             {

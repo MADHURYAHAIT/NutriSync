@@ -1,10 +1,12 @@
 import React from 'react';
-import { Page, Navbar, Block, List, ListItem, NavRight,Link,BlockTitle,Button,Card,CardContent,CardHeader,CardFooter} from 'framework7-react';
+import { Page, Navbar, Block, List, ListItem, NavRight,Link,BlockTitle} from 'framework7-react';
 import { FaBell } from "react-icons/fa";
-import { IoPersonCircleSharp } from "react-icons/io5";
+import '../css/profile.css';
+
 const RequestAndLoad = (props) => {
   const { user } = props;
-
+  const image = user.img;
+  console.log(image);
   return (
     <Page>
       
@@ -17,6 +19,7 @@ const RequestAndLoad = (props) => {
     </Navbar>
 
       <div class = 'profile'>
+
       {/* <div className='center'>
         <IoPersonCircleSharp className='user' />
       </div> */}
@@ -26,7 +29,7 @@ const RequestAndLoad = (props) => {
         User About :  {user.about}
       </Block> */}
       
-      <BlockTitle>User Profile</BlockTitle>
+      {/* <BlockTitle>User Profile</BlockTitle>
     <Card outlineMd className="demo-card-header-pic">
       <CardHeader
         valign="bottom"
@@ -47,11 +50,37 @@ const RequestAndLoad = (props) => {
         <Link>Like</Link>
         <Link>Read more</Link>
       </CardFooter>
-    </Card>
+    </Card> */}
 
+<div class="cardd">
+        <div class="card_background_img"></div>
+        <div class="card_profile_img" >
+            <img src={image} style={{height:'120px',weight:'120px'}} alt="profile" />
+        </div>
+        <div class="user_details">
+            <h3>{user.firstName} {user.lastName}</h3>
+            <p>Plan : Weight Loss</p>
+        </div>
+        <div class="card_count">
+            <div class="count">
+                <div class="fans">
+                    <h3>{user.weight}</h3>
+                    <p>Weight</p>
+                </div>
+                <div class="following">
+                    <h3>{user.height}</h3>
+                    <p>Height</p>
+                </div>
+                <div class="post">
+                    <h3>{user.age}</h3>
+                    <p>Age</p>
+                </div>
+            </div>
+             <div class="bttn">Follow</div>
+        </div>
+    </div>
 
-
-      <List strong inset dividersIos>
+      {/* <List strong inset dividersIos>
         {user.links.map((link, index) => (
           <ListItem
           key={index}
@@ -67,7 +96,7 @@ const RequestAndLoad = (props) => {
       <Block className="grid grid-cols-2 grid-gap">
         <Button fill popupOpen="#my-popup">Popup</Button>
         <Button fill loginScreenOpen="#my-login-screen">Login Screen</Button>
-      </Block>
+      </Block> */}
     </div>
     </Page>
   );

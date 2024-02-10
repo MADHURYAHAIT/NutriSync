@@ -4,9 +4,15 @@
 
 just run the following commands
 
-1.
+To Install the node modules :
 
     npm install
-2.
+    
+To start the developement server :
 
     npm start
+
+or 
+    npm run dev
+
+Enjoy : )

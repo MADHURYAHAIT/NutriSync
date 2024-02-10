@@ -4,7 +4,9 @@
 
 just run the following commands
 
-    npm install
+1.
 
+    npm install
+2.
 
     npm start

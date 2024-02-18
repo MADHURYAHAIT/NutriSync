@@ -1,0 +1,33 @@
+<form method="post", action="/signup">
+    <h1>Signup</h1>
+    <p><input placeholder="email" type="email" name="email"></p>
+    <p><input placeholder="phone" type="phone" name="phone"></p>
+    <p><input placeholder="pwd" type="password" name="password"></p>
+    <p><input placeholder="pwd" type="password" name="cpassword"></p>
+    <p><input placeholder="fnm" type="text" name="fnm"></p>
+    <p><input placeholder="lnm" type="text" name="lnm"></p>
+    <p><input placeholder="dob" type="date" name="dob"></p>
+    <input type="submit" value="Create">
+</form>
+
+<br>
+
+<form method="post" action="/signin">
+    <h1>Log In</h1>
+    <p><input placeholder="email" type="email" name="email"></p>
+    <p><input placeholder="password" type="password" name="password"></p>
+    <input type="submit" value="Log in">
+</form>
+
+<form method="post" action="/bmi">
+    <h1>BMI</h1>
+    <input type="number" placeholder="height" name="height">
+    <input type="number" placeholder="weight" name="weight">
+    <input type="submit" value="add">
+</form>
+
+<form method="post" action="/calories" enctype="multipart/form-data">
+    <h1>Calculate</h1>
+    <p><input type="file" name="file"></p>
+    <input type="submit" value="cal">
+</form>

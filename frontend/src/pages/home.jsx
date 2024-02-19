@@ -44,6 +44,8 @@ const HomePage = () => {
     setData(newData);
   };
 
+  let [intake,setIntake] = useState(1030);
+  let [burn,setBurn] = useState(380);
 
 
 
@@ -67,16 +69,16 @@ const HomePage = () => {
       {/* <h3>Today</h3> */}
       <DateTimeComponent/>
     </div>
-      <NavTitleLarge><FaFire id='fire' /><h1>1730</h1><h4>Net Calories Today</h4> </NavTitleLarge>
+      <NavTitleLarge><FaFire id='fire' /><h1>{intake-burn}</h1><h4>Net Calories Today</h4> </NavTitleLarge>
       <CircularCompletionRing radius={179} strokeWidth={7} percentage={86} />
      
       <div className='div1'>
-        <NavTitleLarge>  <FaRunning id='icon' /> <h1>130</h1><h4>Calorie Burn</h4></NavTitleLarge>
+        <NavTitleLarge>  <FaRunning id='icon' /> <h1>{burn}</h1><h4>Calorie Burn</h4></NavTitleLarge>
        
       </div>
 
       <div className='div2'>
-        <NavTitleLarge>  <FaPizzaSlice  id='icon' /> <h1>530</h1><h4>Calorie Intake</h4></NavTitleLarge>
+        <NavTitleLarge>  <FaPizzaSlice  id='icon' /> <h1>{intake}</h1><h4>Calorie Intake</h4></NavTitleLarge>
         {/* <CircularCompletionRing radius={70} strokeWidth={5} percentage={46} /> */}
       </div>
 

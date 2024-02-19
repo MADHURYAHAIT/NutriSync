@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.template import loader
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required
@@ -8,6 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import UserProfile, Nutrition, UserHealth
 import pandas as pd
 from.gemini import input_image_setup
+import json
 
 
 INDEX = "/"
@@ -78,35 +79,15 @@ def signout(request):
     return HttpResponseRedirect(INDEX)
 
 @csrf_exempt
-@login_required(login_url=INDEX)
+#@login_required(login_url=INDEX)
 def calories(request):
     if request.FILES:
         file = request.FILES["file"]
         file = file.read()
         if file:
             res = input_image_setup(file)
-            res = res.split("\n")
-            res = [x.strip().split(":") for x in res]
-            def gem(res):
-                f_res = {"dish": [], "calories": []}
-                for x in res:
-                    print(x)
-                    f_res["dish"].append(x[0].strip().replace(":", ""))
-                    cal = "".join([i for i in x[1].strip() if ord(i) in range(48, 58)])
-                    f_res["calories"].append(cal)
-                f_res["index"] = list(range(len(f_res["dish"])))
-                return f_res
-            try:
-               f_res = gem(res)
-            except:
-                try:
-                    f_res = gem(res)
-                except:
-                    f_res = gem(res)
-            for i in range(len(f_res["calories"])):
-                Nutrition(username=str(request.user), food=str(f_res["dish"][i]), calories=str(f_res["calories"][i])).save()
-            f_res = c2json(f_res)
-            return HttpResponse(f_res, content_type="text/plain")
+            f_res = str(res)
+            return JsonResponse(res)
 
 
 def fetch_calories(request):

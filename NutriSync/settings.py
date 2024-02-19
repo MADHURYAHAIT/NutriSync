@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-yu^7o8ekjs#b+!3rc404qkkh9gzi7ztiz0rg43-sd6@h5!emx+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'backend.apps.BackendConfig',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -48,9 +49,17 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'NutriSync.urls'
+
+CORS_ORIGIN_WHITELIST = [
+    'http://127.0.0.1:80',
+    'http://10.50.16.5:5173',
+    "http://localhost:5173",
+    "http://*",
+]
 
 TEMPLATES = [
     {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NotificationItem from '../pages/ NotificationItem';
+import axios from 'axios';
 import {
   f7,
   f7ready,
@@ -29,10 +30,24 @@ import routes from '../js/routes';
 import store from '../js/store';
 
 const MyApp = () => {
+  //fetching data from backend
+    const [calorie, setCalorie] = useState([]);
+    useEffect(() => {
+      async function getAllCal() {
+        try {
+          const response = await axios.get('http://127.0.0.1:8000/');
+          setCalorie(response.data);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+      getAllCal();
+    }, []);
 
     const handleNotificationClick = () => {
       // Handle click logic here
     };
+
 
 
   // Login screen demo data
@@ -142,6 +157,7 @@ const MyApp = () => {
         <View>
           <Page loginScreen>
             <LoginScreenTitle>Login</LoginScreenTitle>
+            <form method="post" action="/signin">
             <List form>
               <ListInput
                 type="text"
@@ -150,6 +166,7 @@ const MyApp = () => {
                 value={username}
                 onInput={(e) => setUsername(e.target.value)}
               ></ListInput>
+             
               <ListInput
                 type="password"
                 name="password"
@@ -158,6 +175,7 @@ const MyApp = () => {
                 onInput={(e) => setPassword(e.target.value)}
               ></ListInput>
             </List>
+            </form>
             <List>
               <ListButton title="Sign In" onClick={() => alertLoginData()} />
               <BlockFooter>

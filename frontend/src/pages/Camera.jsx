@@ -4,7 +4,6 @@ import FileUploadComponent from './FileUploadComponent';
 import { Block, Navbar, Page, NavRight, Link } from 'framework7-react'
 import React, { useState, useEffect, useRef } from 'react';
 import { FaBell } from "react-icons/fa";
-
 const Camera = () => {
 
 
@@ -26,8 +25,11 @@ const Camera = () => {
             <Block>
                 <FileUploadComponent />
             </Block>
+            <Block>
+            
+            </Block>
         </div>
-      
+        
     </Page>
   );
 };

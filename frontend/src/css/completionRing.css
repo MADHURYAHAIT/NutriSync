@@ -1,14 +1,14 @@
 /* YourComponent.css */
 
 .circular-completion-ring {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* display: flex;
+  align-items: center; */
+  /* justify-content: center;
   height: 100vh;
   position: absolute;
   left: 50%;
   top: 81%;
-  transform: translate(-50%, -60%);
+  transform: translate(-50%, -60%); */
 }
 
 
@@ -24,5 +24,47 @@
   
 @media screen and (max-height: 650px) {
 
+
+}
+
+
+.maindial{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  top: 47%;
+  transform: translate(-50%, -60%);
+  
+
+}
+
+
+.dial{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 99vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  top: 60.2%;
+    overflow-x: hidden;
+  transform: translate(-50%, -60%);
+}
+
+.dialtext{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  line-height: 720%;
 
 }

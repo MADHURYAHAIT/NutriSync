@@ -10,4 +10,5 @@ urlpatterns = [
     path("fetchBmi", views.fetch_bmi),
     path("calories", views.calories),
     path("fetchCalories", views.fetch_calories),
+    path("isAuthenticated", views.is_authenticated),
 ]

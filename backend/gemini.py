@@ -31,7 +31,7 @@ def input_image_setup(uploaded_file,type='image/jpeg'):
         ]
         input_prompt="""
 You are an expert in nutritionist where you need to see the food items from the image
-               and calculate the total calories, also provide the details of every food items with calories intake
+               and calculate the total calories per 100g, also provide the details of every food items with calories intake
                is below format in the form of given below format of json format. Only show the most probable one and check for the number of items also , if a photo has certain similar matches show only one result for that food no duplicates / similar food items for only one food item.
                Format should not be changed anyhow.
                {

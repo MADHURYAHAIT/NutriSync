@@ -8,24 +8,24 @@ const Team = () => {
     <div className='team'>
     <Block>
         <h6>NutriSync</h6>
-      <p>
-      The NutriSync company extends its sincere gratitude to each and every member of the team for their outstanding efforts and dedication in bringing NutriSync, the ultimate calorie tracking app, to fruition.
+                <p>
+                The NutriSync company extends its sincere gratitude to each and every member of the team for their outstanding efforts and dedication in bringing NutriSync, the ultimate calorie tracking app, to fruition.
 
-The team's collective expertise, creativity, and tireless commitment have been instrumental in every stage of development, from initial concept discussions to the final execution. The hard work and collaboration have resulted in a remarkable achievement.
+          The team's collective expertise, creativity, and tireless commitment have been instrumental in every stage of development, from initial concept discussions to the final execution. The hard work and collaboration have resulted in a remarkable achievement.
 
-Challenges were met and victories were celebrated together, leading to the creation of NutriSync. This app stands not just as a technological milestone but as a testament to the incredible teamwork, passion, and professionalism that define our team.
+          Challenges were met and victories were celebrated together, leading to the creation of NutriSync. This app stands not just as a technological milestone but as a testament to the incredible teamwork, passion, and professionalism that define our team.
 
-The NutriSync company is proud to have such a talented group of individuals on board. The success of NutriSync is a reflection of the team's skills and dedication.
+          The NutriSync company is proud to have such a talented group of individuals on board. The success of NutriSync is a reflection of the team's skills and dedication.
 
-As we celebrate the completion of this project, we also look forward to the positive impact NutriSync will have on the lives of its users. The team's contributions have not only elevated our collective capabilities but also have the potential to make a meaningful difference in the world.
+          As we celebrate the completion of this project, we also look forward to the positive impact NutriSync will have on the lives of its users. The team's contributions have not only elevated our collective capabilities but also have the potential to make a meaningful difference in the world.
 
-Once again, the NutriSync company extends its gratitude for the hard work, enthusiasm, and collaborative spirit of every team member. The team looks forward to future endeavors together.
+          Once again, the NutriSync company extends its gratitude for the hard work, enthusiasm, and collaborative spirit of every team member. The team looks forward to future endeavors together.
 
 
-      </p>
+                </p>
     </Block>
-
     <div className="demo-expandable-cards">
+    <h3 style={{paddingLeft:'20px'}}>Developer : </h3>
       <Card expandable>
         <CardContent padding={false}>
           <div
@@ -39,10 +39,6 @@ Once again, the NutriSync company extends its gratitude for the hard work, enthu
             <br/>
             <small style={{ opacity: 0.7 }}>Web Developer</small>
             </CardHeader>
-           
-           
-
-
             <Link
               cardClose
               color="white"
@@ -68,7 +64,7 @@ Once again, the NutriSync company extends its gratitude for the hard work, enthu
           </div>
         </CardContent>
       </Card>
-
+      <h3 style={{paddingLeft:'20px'}}>Our Contribitors : </h3>
       <Card expandable>
         <CardContent padding={false}>
           <div

@@ -66,7 +66,7 @@ const LoginPg = () => {
        
       
             <Page loginScreen>
-              <LoginScreenTitle>Login</LoginScreenTitle>
+              <LoginScreenTitle>Nutrisync</LoginScreenTitle>
               <form onSubmit={handleSubmit}>
                 <List form>
                   <ListInput

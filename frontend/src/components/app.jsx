@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NotificationItem from '../pages/ NotificationItem';
-
+import ToolbarSection from './toolbar';
 
 import {
   f7,
@@ -16,14 +16,7 @@ import {
   NavRight,
   Link,
   Block,
-  BlockTitle,
-  LoginScreen,
-  LoginScreenTitle,
-  List,
-  ListItem,
-  ListInput,
-  ListButton,
-  BlockFooter
+
 } from 'framework7-react';
 
 
@@ -90,6 +83,12 @@ const MyApp = () => {
                 text="Target Burn 100 calories"
                 onClick={handleNotificationClick}
               />
+
+              <NotificationItem
+                title="Sleep Well"
+                text="I"
+                onClick={handleNotificationClick}
+              />
               
             </Page>
           </View>
@@ -103,7 +102,7 @@ const MyApp = () => {
         <Views tabs className="safe-areas">
           {/* Tabbar for switching views-tabs */}
 
-          
+          <ToolbarSection/>
 
           {/* Your main view/tab, should have "view-main" class. It also has "tabActive" prop */}
           <View main tab tabActive url="/" />

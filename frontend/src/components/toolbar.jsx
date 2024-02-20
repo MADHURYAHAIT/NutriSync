@@ -1,6 +1,10 @@
 import React from 'react'
+import {
+  Link,
+  Toolbar,
 
-const toolbar = () => {
+} from 'framework7-react';
+const ToolbarSection = () => {
   return (
   <Toolbar tabbar icons bottom>
     <Link tabLink="#view-home"  iconIos="f7:house_fill" iconMd="material:home" text="Home" />
@@ -12,4 +16,4 @@ const toolbar = () => {
   )
 }
 
-export default toolbar
+export default ToolbarSection

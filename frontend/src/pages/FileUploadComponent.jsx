@@ -85,17 +85,20 @@ const FileUploadComponent = () => {
                       <Link popupClose>Close</Link>
                     </NavRight>
                   </Navbar>
-                  <Block style={{ padding: '40px' }}>
+                  <Block style={{ paddingTop:'50px' }}>
+                  <p> Calories per 100 gram : </p>
                    
                     { 
                     
                     length > 0 ? (
                      
                       Object.keys(MyData).map((curElm)=>(
+
                           <>
+
                           <CalTile
                             title={MyData[curElm]['Name']} 
-                            text={MyData[curElm]['Calories']}                       
+                            text={MyData[curElm]['Calories']}                
                             />
                           </>
                     

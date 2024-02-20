@@ -1,5 +1,6 @@
 import React ,{ useState } from 'react';
 import DateTimeComponent from './DateTimeComponent';
+import ToolbarSection from '../components/toolbar';
 import {
   Page,
   Navbar,
@@ -50,7 +51,7 @@ const HomePage = () => {
 
 
   return(
-
+    <>
   <Page  name="home">
     {/* Top Navbar */}
     <Navbar title="NutriSync">
@@ -64,17 +65,24 @@ const HomePage = () => {
 
     <div className='example'>
     <Block className='Caloriemeter'>
-    <div className='div3'>
-     
-      {/* <h3>Today</h3> */}
-      <DateTimeComponent/>
+   
+    <div className='maindial'>
+   
+      <div className='dial'>
+        <div className='dialtext'>
+          <FaFire id='fire' />
+          <h1>{intake-burn}</h1>
+        </div>
+          <h4>Net Calories Today</h4> 
+        <DateTimeComponent/>
+      </div>
+    
+
+      <CircularCompletionRing radius={159} strokeWidth={7} percentage={82} />
     </div>
-      <NavTitleLarge><FaFire id='fire' /><h1>{intake-burn}</h1><h4>Net Calories Today</h4> </NavTitleLarge>
-      <CircularCompletionRing radius={179} strokeWidth={7} percentage={86} />
      
       <div className='div1'>
         <NavTitleLarge>  <FaRunning id='icon' /> <h1>{burn}</h1><h4>Calorie Burn</h4></NavTitleLarge>
-       
       </div>
 
       <div className='div2'>
@@ -197,13 +205,14 @@ const HomePage = () => {
 
  
 
-
     </div>
 
 
     
      </div>
   </Page>
+   
+    </>
   );
 };
 export default HomePage;

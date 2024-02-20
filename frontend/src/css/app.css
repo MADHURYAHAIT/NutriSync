@@ -313,3 +313,12 @@ Navbar{
     padding-bottom: 20px;
 }
 
+.buttonBox {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+.login p{
+    font-size: 13px;
+    color: rgb(162, 162, 162);
+}

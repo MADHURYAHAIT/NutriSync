@@ -29,7 +29,7 @@ import {
   ListButton,
   BlockFooter
 } from 'framework7-react';
-import Tile from './tile';
+
 const FileUploadComponent = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [MyData, setMyData] = useState([]);
@@ -37,14 +37,16 @@ const FileUploadComponent = () => {
   const onDrop = useCallback(async (acceptedFiles) => {
     // Assuming only one file is dropped for simplicity
     const file = acceptedFiles[0];
-
+    
     // Create a FormData object and append the file to it
     const formData = new FormData();
     formData.append('file', file);
 
     try {
       // Make an AJAX request using fetch
+
       const response = await fetch('http://192.168.133.239:8000/calories', {
+
         method: 'POST',
         headers: {
           // Don't need to set Content-Type for FormData, it will be set automatically
@@ -75,9 +77,7 @@ const FileUploadComponent = () => {
 
   return (
     <>
-    <div {...getRootProps()} style={dropzoneStyle}>
-
-       <Popup id="my-popup">
+     <Popup id="my-popup">
               <View>
                 <Page>
                   <Navbar title="Popup">
@@ -111,6 +111,7 @@ const FileUploadComponent = () => {
             </View>
           </Popup>
 
+    <div {...getRootProps()} style={dropzoneStyle}>
      
       <input {...getInputProps()} />
       {isDragActive ? (

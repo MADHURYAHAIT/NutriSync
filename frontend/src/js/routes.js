@@ -10,13 +10,17 @@ import DynamicRoutePage from '../pages/dynamic-route.jsx';
 import RequestAndLoad from '../pages/request-and-load.jsx';
 import NotFoundPage from '../pages/404.jsx';
 import HistoryPage from '../pages/history.jsx';
-
+import LoginPg from '../components/Login.jsx';
 import Description from '../pages/description.jsx';
 import Team from '../pages/team.jsx';
 import Contact from '../pages/contact.jsx';
 var routes = [
   {
     path: '/',
+    component: LoginPg,
+  },
+  {
+    path: '/home/',
     component: HomePage,
   },
   {

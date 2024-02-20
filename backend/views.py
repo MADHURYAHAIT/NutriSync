@@ -44,7 +44,7 @@ def signin(request):
                 context = {"success": 0, "msg": "User account not active"}
         else:
             context = {"success": 0, "msg": "Wrong username/password"}
-        return HttpResponse(str(c2json([context])), content_type="text/plain")
+        return JsonResponse(c2json([context]))
 
 @csrf_exempt
 def signup(request):
@@ -70,7 +70,7 @@ def signup(request):
             UserProfile(username=username, email=email, phone=phone, first_name=fnm, last_name=lnm, password=make_password(pass1), dob=dob).save()
             context = c2json([{"success": True, "msg": "Created Successfully"}])
             return HttpResponse(str(context), content_type="text/plain")
-        return HttpResponse(str(c2json([context])), content_type="plain/text")
+        return JsonResponse((c2json([context])))
 
 
 @login_required(login_url=INDEX)
@@ -93,7 +93,7 @@ def calories(request):
 def fetch_calories(request):
     user = str(request.user)
     res = Nutrition.objects.filter(username=user).values()
-    return HttpResponse(str(c2json(res, ["date"])), content_type="text/plain")
+    return JsonResponse(res)
 
 
 

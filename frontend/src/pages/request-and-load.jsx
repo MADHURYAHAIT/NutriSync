@@ -80,7 +80,7 @@ const RequestAndLoad = (props) => {
                 </div>
             </div>
             <Block className="grid grid-cols-2 grid-gap">
-        <Button fill popupOpen="#my-popup">Popup</Button>
+        <Button fill popupOpen="#logout">Logout</Button>
         <Button fill loginScreenOpen="#my-login-screen">Login Screen</Button>
       </Block>
         </div>

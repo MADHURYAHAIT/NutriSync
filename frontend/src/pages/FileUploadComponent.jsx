@@ -11,7 +11,6 @@ import {
   Panel,
   Views,
   View,
-
   Popup,
   Page,
   Navbar,

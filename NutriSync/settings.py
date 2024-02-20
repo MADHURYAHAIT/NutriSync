@@ -56,7 +56,7 @@ ROOT_URLCONF = 'NutriSync.urls'
 
 CORS_ORIGIN_WHITELIST = [
     'http://127.0.0.1:80',
-    'http://10.50.16.5:5173',
+    'http://192.168.133.239:5173',
     "http://localhost:5173",
     "http://*",
 ]

@@ -1,12 +1,11 @@
 
 import '../css/camera.css'
 import FileUploadComponent from './FileUploadComponent';
-import { Block, Navbar, Page, NavRight, Link } from 'framework7-react'
+import { Block, Navbar, Page, NavRight, Link, Button } from 'framework7-react'
 import React, { useState, useEffect, useRef } from 'react';
 import { FaBell } from "react-icons/fa";
+
 const Camera = () => {
-
-
 
   return (
     <Page name="camera">
@@ -20,14 +19,12 @@ const Camera = () => {
 
         <div className='Cam'>
             <Block>
-              <p>Upload the food photo here: </p>
+              <p>Upload a photo to know it's calorie: </p>
             </Block>
             <Block>
                 <FileUploadComponent />
             </Block>
-            <Block>
             
-            </Block>
         </div>
         
     </Page>

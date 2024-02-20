@@ -1,10 +1,39 @@
 import React, { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { IoMdCloudUpload } from 'react-icons/io';
+import { IoIosCloudDone } from "react-icons/io";
+import { FaFileImage } from "react-icons/fa";
+import CalTile from '../pages/CalorieTile';
+import {
+  f7,
+  f7ready,
+  App,
+  Panel,
+  Views,
+  View,
+
+  Popup,
+  Page,
+  Navbar,
+  Toolbar,
+  NavRight,
+  Link,
+  Block,
+  Button,
+  BlockTitle,
+  LoginScreen,
+  LoginScreenTitle,
+  List,
+  ListItem,
+  ListInput,
+  ListButton,
+  BlockFooter
+} from 'framework7-react';
 import Tile from './tile';
 const FileUploadComponent = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [MyData, setMyData] = useState([]);
+  const [length, setLength] = useState([]);
   const onDrop = useCallback(async (acceptedFiles) => {
     // Assuming only one file is dropped for simplicity
     const file = acceptedFiles[0];
@@ -27,7 +56,10 @@ const FileUploadComponent = () => {
         // Get the response data and log it to the console
         const Data = await response.json();
         setMyData(Data);
-        console.log('Response Data:', Data);
+        const l = Object.keys(Data).length;
+        setLength(l);
+        console.log('Response Data:', length);
+
 
         // Update state to indicate that the file has been submitted
         setIsSubmitted(true);
@@ -42,23 +74,88 @@ const FileUploadComponent = () => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   return (
+    <>
     <div {...getRootProps()} style={dropzoneStyle}>
-      <IoMdCloudUpload size={100} />
+
+       <Popup id="my-popup">
+              <View>
+                <Page>
+                  <Navbar title="Popup">
+                    <NavRight>
+                      <Link popupClose>Close</Link>
+                    </NavRight>
+                  </Navbar>
+                  <Block style={{ padding: '40px' }}>
+                   
+                    { 
+                    
+                    length > 0 ? (
+                     
+                      Object.keys(MyData).map((curElm)=>(
+                          <>
+                          <CalTile
+                            title={MyData[curElm]['Name']} 
+                            text={MyData[curElm]['Calories']}                       
+                            />
+                          </>
+                    
+                       )
+                       )
+                      
+                    ) : (
+                      <p style={{ padding: '50px' }}>No data available</p>
+                    )}
+                  </Block>
+                  
+              </Page>
+            </View>
+          </Popup>
+
+     
       <input {...getInputProps()} />
       {isDragActive ? (
-        <p>Drop the files here...</p>
+        <>
+        <FaFileImage  size={100} style={{paddingTop:'18px'}}/>
+        <h2 className='innerbox' style={{fontSize:'28px'}}>Drop Pic Here</h2>
+       
+        </>
       ) : (
         <p>
           {isSubmitted
-            ? `${MyData[1]['Name']} - ${MyData[1]['Calories']} `
-            : "Drag 'n' drop some files here, or click to select files"
+            ? (
+              <div className='ib'>
+             
+              <IoIosCloudDone size={100}/>
+              <h2 style={{fontSize:'24px'}}>File Submitted !</h2>
+              <p>Know about your food from the button below</p>
+              </div>
+            )
+            : (
+              <div className='ib'>
+               <IoMdCloudUpload size={100} />
+               <h2 style={{fontSize:'24px'}}>Calorie Estimator Tool</h2>
+               <p>Drag & drop your pic here / click to select files</p>
+              </div>)
           }
         </p>
 
         
       )}
     </div>
-
+    {isSubmitted
+            ? (
+              <>
+              <Block>
+                    <Button fill popupOpen="#my-popup">Know Calories</Button>
+              </Block>
+            </>
+            )
+            :  (<Block>
+                <Button fill disabled >Know Calories</Button>
+                </Block>)
+          }
+   
+      </>
 
   );
 };

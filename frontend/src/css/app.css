@@ -330,3 +330,7 @@ Navbar{
     font-size: 13px;
     color: rgb(162, 162, 162);
 }
+
+.badge{
+    margin-bottom: 20px;
+}

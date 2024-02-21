@@ -12,6 +12,7 @@ import {
   BlockFooter,
   
 } from 'framework7-react';
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
   
@@ -36,6 +37,7 @@ const SignUp = () => {
     e.preventDefault();
 
     try {
+      
       const response = await fetch('http://192.168.133.239:8000/signin', {
         method: 'POST',
         headers: {
@@ -144,7 +146,11 @@ const SignUp = () => {
                 </div>
               </form>
               <div className='buttonBox'>
-                <Button Link='/signup/'><p style={{color:'white',fontSize:'15px'}}>Log in to your account</p></Button>
+             
+
+                <Button><Link ><p style={{color:'white',fontSize:'15px'}}>
+Log in to your account</p></Link></Button>
+                 
               </div>
             <List>
                  

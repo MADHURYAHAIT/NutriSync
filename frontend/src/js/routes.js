@@ -15,6 +15,9 @@ import Description from '../pages/description.jsx';
 import Team from '../pages/team.jsx';
 import Contact from '../pages/contact.jsx';
 import SignUp from '../components/SignUp.jsx';
+
+
+
 var routes = [
   {
     path: '/',
@@ -92,7 +95,7 @@ var routes = [
           age: '22',
           banner:"https://images.unsplash.com/photo-1593079831268-3381b0db4a77?q=80&w=2969&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           img:"https://yt3.googleusercontent.com/RTGS8fej7PVFJjF0cnWKRzzyPQgC9KBYwQZspLZsI5ZlcJcwccxvx42KMHSh_S9mvQa5eZyKTQ=s900-c-k-c0x00ffffff-no-rj",
-          email: 'abcdef124@gmail.com',
+          email: 'me@gmail.com',
           links: [
             {
               title: 'Abc',

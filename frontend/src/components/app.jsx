@@ -1,15 +1,14 @@
 import {React,useState } from 'react';
 import NotificationItem from '../pages/ NotificationItem';
 import ToolbarSection from './toolbar';
-
+import CircularCompletionRing from '../pages/CircularCompletionRing';
+import '../css/completionRing.css';
 import {
   f7,
-  f7ready,
   App,
   Panel,
   Views,
   View,
-  Popup,
   Page,
   Navbar,
   LoginScreenTitle,
@@ -35,7 +34,10 @@ const MyApp = () => {
   const [password, setPassword] = useState('');
   const [msg,setMsg] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
+  const handleClick = () => {
+    // Change the URL to the desired page
+    window.location.href = '/home/';
+  };
   
 
 
@@ -179,7 +181,7 @@ const MyApp = () => {
                   onInput={(e) => setPassword(e.target.value)}
                 ></ListInput>
               </List>
-              <div className='buttonBox'>
+              <div className='buttonBox' >
                   <Button type="submit"  onClick={alertLoginData}><h2>Login</h2></Button>
               </div>
 
@@ -187,7 +189,7 @@ const MyApp = () => {
              
             </form>
             <div className='buttonBox'>
-              <Button Link='/signup/'><p style={{color:'white',fontSize:'15px'}}>Create a new account</p></Button>
+              <Button onClick={handleClick}><p style={{color:'white',fontSize:'15px'}}>Create a new account</p></Button>
                 
               </div>
           <List>

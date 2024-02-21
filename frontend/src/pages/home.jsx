@@ -3,6 +3,7 @@ import DateTimeComponent from './DateTimeComponent';
 import ToolbarSection from '../components/toolbar';
 import {
   Page,
+  f7,
   Navbar,
   NavLeft,
   NavTitle,
@@ -15,6 +16,7 @@ import {
   List,
   ListItem,
   Button,
+  Badge,
   Icon,
   Card,
   CardContent,
@@ -58,7 +60,7 @@ const HomePage = () => {
     <Navbar title="NutriSync">
       <NavRight>
         <Link iconIos="f7:bell" iconMd="material:bell" panelOpen="left">
-          <FaBell className='bellIcon'/>
+          <FaBell className='bellIcon'><span class="badge color-red">3</span></FaBell><span class="badge color-red">3</span>
         </Link>
       </NavRight>
     </Navbar>
@@ -79,7 +81,7 @@ const HomePage = () => {
       </div>
     
 
-      <CircularCompletionRing radius={159} strokeWidth={7} percentage={82} />
+      <CircularCompletionRing radius={159} strokeWidth={7} percentage={62} />
     </div>
      
       <div className='div1'>

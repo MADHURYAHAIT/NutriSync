@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page, Navbar, Block, List, ListItem, NavRight,Link,BlockTitle,Button} from 'framework7-react';
+import { f7,Page, Navbar, Block, List, ListItem, NavRight,Link,BlockTitle,Button} from 'framework7-react';
 import { FaBell } from "react-icons/fa";
 import '../css/profile.css';
 
@@ -7,6 +7,32 @@ const RequestAndLoad = (props) => {
   const { user } = props;
   const image = user.img;
   console.log(image);
+
+  const handleLogout = async () => {
+    try {
+      const response = await fetch('http://192.168.133.239:8000/signout', {
+        method: 'GET', // Assuming logout endpoint is a GET request, adjust if needed
+        headers: {
+          'Content-Type': 'application/json',
+          // Include any additional headers if needed
+        },
+        // Add any additional options if needed
+      });
+
+      if (response.ok) {
+        // Logout successful, you may want to redirect or handle it in your app
+        console.log('Logout successful');
+        f7.dialog.alert('Logged Successfully');
+      } else {
+        // Logout failed, handle the error
+        console.error('Logout failed');
+        f7.dialog.alert('Logged Failure');
+      }
+    } catch (error) {
+      console.error('Error during logout:', error.message);
+    }
+  };
+
   return (
     <Page>
       
@@ -49,7 +75,7 @@ const RequestAndLoad = (props) => {
                 </div>
             </div>
             <Block className="grid grid-cols-2 grid-gap">
-        <Button fill popupOpen="#logout">Logout</Button>
+            <Button fill onClick={handleLogout}>Logout</Button>
         <Button fill loginScreenOpen="#my-login-screen">Edit Profile</Button>
       </Block>
         </div>

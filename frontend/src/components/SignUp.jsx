@@ -14,73 +14,71 @@ import {
 } from 'framework7-react';
 
 const SignUp = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  
   const [msg,setMsg] = useState('');
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
+  const [cpassword, setCpassword] = useState('');
+  const [fnm, setFnm] = useState('');
+  const [lnm, setLnm] = useState('');
+  const [dob, setDob] = useState('');
 
   const alertLoginData = () => {
-    f7.dialog.alert('Status: ' + msg + '<br>Email : ' + email, () => {
+    f7.dialog.alert('Data Submitted !', () => {
     f7.loginScreen.close();
     });
   };
-
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await  fetch('http://192.168.133.239:8000/signup', {
+      const response = await fetch('http://192.168.133.239:8000/signin', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded', // Adjust the content type if needed
+          'Content-Type': 'application/json',
+          // 'application/x-www-form-urlencoded'
         },
-        body: new URLSearchParams({
-          'email': email,
-          'password': password,
+        body: JSON.stringify({
+          email,
+          phone,
+          password,
+          cpassword,
+          fnm,
+          lnm,
+          dob,
         }),
       });
 
       if (response.ok) {
-        const data =  response.json();
-        const status = data['success']
-        if (status==1) {
-          setIsAuthenticated(true);
-          setMsg(data['msg']);
-          console.log('Login Successful:',isAuthenticated);
-          // Handle successful login, e.g., redirect to a new page
-        }
-        else {
-            setIsAuthenticated(false);
-            setMsg(data['msg']);
-            console.log('Login Unsuccessfull:',isAuthenticated);
-          // Handle failed login, display an error message, etc.
-        }
+        const data = await response.json();
+        setMsg(data['msg']); 
+        console.log(data);
+        // Assuming your backend sends a response with a message
+        // Handle the success, show an alert or redirect to a different page
       } else {
         const errorData = await response.json();
-        console.error('Login Failed:', errorData.error);
-        // Handle failed login, display an error message, etc.
+        setMsg(errorData.error); // Assuming your backend sends an error message
+        // Handle the error, show an alert or provide feedback to the user
       }
     } catch (error) {
-      console.error('Error during login:', error.message);
+      console.error('Error during signup:', error.message);
     }
   };
+
+
+
 
 
   return (
     <>
       <div className='login'>
-          {/* <Button fill loginScreenOpen="#my-login-screen">
-            Login Screen
-          </Button> */}
-
-
-            
-        
             <Page loginScreen>
-              <LoginScreenTitle><h1>NutriSync</h1></LoginScreenTitle>
-              <h3>Create a New Account today !</h3>
+              <LoginScreenTitle>NutriSync</LoginScreenTitle>
+             
               <form onSubmit={handleSubmit}>
                 <List form>
                   <ListInput
@@ -91,6 +89,14 @@ const SignUp = () => {
                     onInput={(e) => setEmail(e.target.value)}
                   ></ListInput>
 
+                <ListInput
+                    type="phone"
+                    name="phone"
+                    placeholder="Enter your phone number"
+                    value={phone}
+                    onInput={(e) => setPhone(e.target.value)}
+                  ></ListInput>
+
                   <ListInput
                     type="password"
                     name="password"
@@ -98,11 +104,48 @@ const SignUp = () => {
                     value={password}
                     onInput={(e) => setPassword(e.target.value)}
                   ></ListInput>
+
+                  <ListInput
+                    type="password"
+                    name="cpassword"
+                    placeholder="Re-Enter Your password"
+                    value={cpassword}
+                    onInput={(e) => setCpassword(e.target.value)}
+                  ></ListInput>
+
+                  <ListInput
+                    type="text"
+                    name="fnm"
+                    placeholder="Enter first name"
+                    value={fnm}
+                    onInput={(e) => setFnm(e.target.value)}
+                  ></ListInput>
+
+                  <ListInput
+                    type="text"
+                    name="lnm"
+                    placeholder="Enter last name"
+                    value={lnm}
+                    onInput={(e) => setLnm(e.target.value)}
+                  ></ListInput>
+
+                  <ListInput
+                    type="date"
+                    name="dob"
+                    placeholder="Enter date of birth"
+                    value={dob}
+                    onInput={(e) => setDob(e.target.value)}
+                  ></ListInput>
+
                 </List>
+
                 <div className='buttonBox'>
-                    <Button type="submit"  onClick={alertLoginData}><h2>SignUp</h2></Button>
+                    <Button type="submit"  onClick={alertLoginData}><h2>Sign Up</h2></Button>
                 </div>
               </form>
+              <div className='buttonBox'>
+                <Button Link='/signup/'><p style={{color:'white',fontSize:'15px'}}>Log in to your account</p></Button>
+              </div>
             <List>
                  
                   <BlockFooter>

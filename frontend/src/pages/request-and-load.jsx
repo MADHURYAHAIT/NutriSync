@@ -54,24 +54,6 @@ const RequestAndLoad = (props) => {
       </Block>
         </div>
     </div>
-
-      {/* <List strong inset dividersIos>
-        {user.links.map((link, index) => (
-          <ListItem
-          key={index}
-          link={link.url}
-          title={link.title}
-          external
-          target="_blank"
-          ></ListItem>
-          ))}
-      </List>
-
-      <BlockTitle>Modals</BlockTitle>
-      <Block className="grid grid-cols-2 grid-gap">
-        <Button fill popupOpen="#my-popup">Popup</Button>
-        <Button fill loginScreenOpen="#my-login-screen">Login Screen</Button>
-      </Block> */}
     </div>
     </Page>
   );

@@ -47,7 +47,7 @@ const MyApp = () => {
       const response = await  fetch('http://192.168.133.239:8000/signin', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded', // Adjust the content type if needed
+          'Content-Type': 'application/x-www-form-urlencoded', 
         },
         body: new URLSearchParams({
           'email': email,
@@ -183,15 +183,13 @@ const MyApp = () => {
                   <Button type="submit"  onClick={alertLoginData}><h2>Login</h2></Button>
               </div>
 
-              <div className='buttonBox'>
-                 
-                  <ListItem
-                  title="Description"
-                  link="/signup/"
-                  />
-              </div>
+              
              
             </form>
+            <div className='buttonBox'>
+              <Button Link='/signup/'><p style={{color:'white',fontSize:'15px'}}>Create a new account</p></Button>
+                
+              </div>
           <List>
                 <BlockFooter>
                   <p>Login to NutriSync & start a new journey towards a healthier you.</p>

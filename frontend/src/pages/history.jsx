@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Navbar, Page, List, ListItem, Subnavbar, Searchbar, Block, theme, NavRight,Link } from 'framework7-react';
 import { FaBell } from "react-icons/fa";
-
+import ToolbarSection from '../components/toolbar';
 const HistoryPage = () => {
     const items = [];
     let j=340;
@@ -30,6 +30,9 @@ const HistoryPage = () => {
       setVlData({ ...newData });
     };
     return (
+      <>
+      
+      {/* <ToolbarSection/> */}
       <Page>
       
         <Navbar title="NutriSync">
@@ -80,6 +83,7 @@ const HistoryPage = () => {
         </List>
         </div>  
       </Page>
+      </>
     );
 }
 

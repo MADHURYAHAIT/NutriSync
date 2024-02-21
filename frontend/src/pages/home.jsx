@@ -52,6 +52,7 @@ const HomePage = () => {
 
   return(
     <>
+
   <Page  name="home">
     {/* Top Navbar */}
     <Navbar title="NutriSync">

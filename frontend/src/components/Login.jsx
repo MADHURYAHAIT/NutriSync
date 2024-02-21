@@ -10,15 +10,18 @@ import {
   ListInput,
   ListButton,
   BlockFooter,
+  
 } from 'framework7-react';
 
 const LoginPg = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [msg,setMsg] = useState('');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const alertLoginData = () => {
-    f7.dialog.alert('Email: ' + email + '<br>Password: ' + password, () => {
-      f7.loginScreen.close();
+    f7.dialog.alert('Status: ' + msg + '<br>Email : ' + email, () => {
+    f7.loginScreen.close();
     });
   };
 
@@ -40,13 +43,23 @@ const LoginPg = () => {
       });
 
       if (response.ok) {
-        const data = await response.json();
-        console.log('Login Successful:', data);
-        // Handle successful login, e.g., redirect to a new page
+        const data =  response.json();
+        const status = data['success']
+        if (status==1) {
+          setIsAuthenticated(true);
+          setMsg(data['msg']);
+          console.log('Login Successful:',isAuthenticated);
+          // Handle successful login, e.g., redirect to a new page
+        }
+        else {
+            setIsAuthenticated(false);
+            setMsg(data['msg']);
+            console.log('Login Unsuccessfull:',isAuthenticated);
+          // Handle failed login, display an error message, etc.
+        }
       } else {
         const errorData = await response.json();
         console.error('Login Failed:', errorData.error);
-        console.log('Login Failed Bhai');
         // Handle failed login, display an error message, etc.
       }
     } catch (error) {
@@ -63,10 +76,10 @@ const LoginPg = () => {
           </Button> */}
 
 
-       
-      
+            
+        
             <Page loginScreen>
-              <LoginScreenTitle>Nutrisync</LoginScreenTitle>
+              <LoginScreenTitle>NutriSync</LoginScreenTitle>
               <form onSubmit={handleSubmit}>
                 <List form>
                   <ListInput
@@ -86,15 +99,10 @@ const LoginPg = () => {
                   ></ListInput>
                 </List>
                 <div className='buttonBox'>
-                    <Button type="submit"  ><h2>Login</h2></Button>
+                    <Button type="submit"  onClick={alertLoginData}><h2>Login</h2></Button>
                 </div>
-                </form>
-
-                
-              
-
-
-                <List>
+              </form>
+            <List>
                  
                   <BlockFooter>
                     <p>Login to NutriSync & start a new journey towards a healthier you.</p>
@@ -102,9 +110,9 @@ const LoginPg = () => {
                 </List>
              
             </Page>
-      
-     
-      </div>
+        </div>
+
+
     </>
   );
 };

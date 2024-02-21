@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 
 const DateTimeComponent = () => {
-  const [currentDateTime, setCurrentDateTime] = useState('');
+  const [currentDateTime, setCurrentDateTime] = useState(null);
 
   useEffect(() => {
     const updateDateTime = () => {
@@ -19,7 +19,11 @@ const DateTimeComponent = () => {
 
   return (
     <div className='dt'>
-      <p>{currentDateTime}</p>
+      {currentDateTime ? (
+        <p>{currentDateTime}</p>
+      ) : (
+        <p>Loading...</p>
+      )}
     </div>
   );
 };

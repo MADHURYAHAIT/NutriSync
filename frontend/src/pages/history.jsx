@@ -4,11 +4,11 @@ import { FaBell } from "react-icons/fa";
 import ToolbarSection from '../components/toolbar';
 const HistoryPage = () => {
     const items = [];
-    let j=340;
+    let j=840;
     for (let i = 1; i <= 31; i += 1) {
       items.push({
-        title: `Date : ${i}/${1}/${2023}`,
-        subtitle: `Net Calorie ${j+i*(-4)^i}`,
+        title: `Date : ${i}/${2}/${2023}`,
+        subtitle: `Net Calorie ${j+i*(-10)^i}`,
       });
     }
     const [vlData, setVlData] = useState({
@@ -38,7 +38,7 @@ const HistoryPage = () => {
         <Navbar title="NutriSync">
         <NavRight>
           <Link iconIos="f7:bell" iconMd="material:bell" panelOpen="left">
-            <FaBell className='bellIcon'/>
+            <FaBell className='bellIcon'/><span class="badge color-red">3</span>
           </Link>
         </NavRight>
           <Subnavbar  NavRight inner={false}>

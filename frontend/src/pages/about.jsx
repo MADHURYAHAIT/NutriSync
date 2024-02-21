@@ -7,7 +7,7 @@ const AboutPage = () => (
    <Navbar title="NutriSync">
       <NavRight>
         <Link iconIos="f7:bell" iconMd="material:bell" panelOpen="left">
-          <FaBell className='bellIcon'/>
+          <FaBell className='bellIcon'/><span class="badge color-red">3</span>
         </Link>
       </NavRight>
     </Navbar>
@@ -23,24 +23,24 @@ const AboutPage = () => (
     
      
   
-    <List strong inset dividersIos>
-    <ListItem
-        title="Description"
-        link="/signup/"
-        />
-      <ListItem
-        title="Our Team"
-        link="/team/"
-        />
-      <ListItem
-        title="Contact Us"
-        link="/contact/"
-        />
-      <ListItem
-        title="Terms & Conditions"
-        link="/page not found/"
-        />
-    </List>
+     <List strong inset dividersIos>
+     <ListItem
+         title="Description"
+         link="/signup/"
+         />
+       <ListItem
+         title="Our Team"
+         link="/team/"
+         />
+       <ListItem
+         title="Contact Us"
+         link="/contact/"
+         />
+       <ListItem
+         title="Terms & Conditions"
+         link="/page not found/"
+         />
+     </List>
     
     
 

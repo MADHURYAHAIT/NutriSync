@@ -6,7 +6,6 @@ const CalTile = ({ title, text }) => {
     <div className="notification-item" >
       <div className="notification-title"><b>Item : {title}</b></div>
       <div className="notification-text"><p>Calories : <b>{text} Cal </b> </p></div>
-
     </div>
   );
 };

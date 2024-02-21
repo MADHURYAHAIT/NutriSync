@@ -52,10 +52,11 @@ def signin(request):
 def signup(request):
     username = email = phone = fnm = lnm = dob = pass1 = pass2 = ""
     context = {
-        "successful": False,
+        "successful": 0,
         "msg": "Passwords do not match!!",
     }
     if request.POST:
+        print(request.POST)
         username = request.POST["email"]
         email = username
         phone = request.POST["phone"]
@@ -65,11 +66,11 @@ def signup(request):
         pass1 = request.POST["password"]
         pass2 = request.POST["cpassword"]
         if pass1 == pass2:
-            if UserProfile.objects.filter(username=email):
+            if UserProfile.objects.filter(username=username):
                 context["msg"] = "User already exists"
                 return JsonResponse(context)
             UserProfile(username=username, email=email, phone=phone, first_name=fnm, last_name=lnm, password=make_password(pass1), dob=dob).save()
-            context = {"success": True, "msg": "Created Successfully"}
+            context = {"success": 1, "msg": "Created Successfully"}
             return JsonResponse(context)
         return JsonResponse(context)
 
@@ -97,10 +98,14 @@ def fetch_calories(request):
     res = Nutrition.objects.filter(username=user).values()
     return JsonResponse(res)
 
+@csrf_exempt
 def is_authenticated(request):
-    if request.user.is_authenticated:
-        return JsonResponse({"success": 1, "msg": "Authenticated"})
-    return JsonResponse({"success": 0, "msg": "Not Authenticated"})
+    try:
+        if request.user.is_authenticated:
+            return JsonResponse({"success": 1, "msg": "Authenticated"})
+        return JsonResponse({"success": 0, "msg": "Not Authenticated"})
+    except:
+        return JsonResponse({"success": 0, "msg": "Not Authenticated"})
 
 
 

@@ -12,7 +12,7 @@ import {
   BlockFooter,
   
 } from 'framework7-react';
-import { Link } from 'react-router-dom';
+
 
 const SignUp = () => {
   
@@ -38,13 +38,13 @@ const SignUp = () => {
 
     try {
       
-      const response = await fetch('http://192.168.133.239:8000/signin', {
+      const response = await fetch('http://192.168.133.239:8000/signup', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
           // 'application/x-www-form-urlencoded'
         },
-        body: JSON.stringify({
+        body: new URLSearchParams({
           email,
           phone,
           password,
@@ -92,7 +92,7 @@ const SignUp = () => {
                   ></ListInput>
 
                 <ListInput
-                    type="phone"
+                    type="number"
                     name="phone"
                     placeholder="Enter your phone number"
                     value={phone}
@@ -148,8 +148,8 @@ const SignUp = () => {
               <div className='buttonBox'>
              
 
-                <Button><Link ><p style={{color:'white',fontSize:'15px'}}>
-Log in to your account</p></Link></Button>
+                <Button><p style={{color:'white',fontSize:'15px'}}>
+Log in to your account</p></Button>
                  
               </div>
             <List>

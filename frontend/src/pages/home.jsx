@@ -117,11 +117,11 @@ const HomePage = () => {
           ))}
         </div>
         <div className="data-table-actions">
-          <Link iconIos="f7:line_horizontal_3_decrease" iconMd="material:sort" />
-          <Link iconIos="f7:ellipsis_vertical_circle" iconMd="material:more_vert" />
+          {/* <Link iconIos="f7:line_horizontal_3_decrease" iconMd="material:sort" /> */}
+          {/* <Link iconIos="f7:ellipsis_vertical_circle" iconMd="material:more_vert" /> */}
         </div>
       </CardHeader>
-      <CardContent padding={true}>
+      <CardContent padding={true}> 
         <table>
           <thead>
             <tr>
@@ -129,13 +129,7 @@ const HomePage = () => {
                 <Checkbox />
               </th>
               <th className="label-cell">Dessert (100g serving)</th>
-              <th className="numeric-cell">Calories</th>
-              <th className="numeric-cell">Fat (g)</th>
-              <th className="numeric-cell">Carbs</th>
-              <th className="numeric-cell">Protein (g)</th>
-              <th className="medium-only">
-                <Icon ios="f7:chat_bubble_text_fill" md="material:message" /> Comments
-              </th>
+              <th className="numeric-cell">Calories(Cal)</th>
               <th></th>
             </tr>
           </thead>
@@ -146,25 +140,19 @@ const HomePage = () => {
               </td>
               <td className="label-cell">Frozen yogurt</td>
               <td className="numeric-cell">159</td>
-              <td className="numeric-cell">6.0</td>
-              <td className="numeric-cell">24</td>
-              <td className="numeric-cell">4.0</td>
-              <td className="medium-only">I like frozen yogurt</td>
               <td className="actions-cell">
                 <Link iconIos="f7:square_pencil" iconMd="material:edit" />
                 <Link iconIos="f7:trash" iconMd="material:delete" />
               </td>
             </tr>
+            
             <tr>
               <td className="checkbox-cell">
                 <Checkbox />
               </td>
               <td className="label-cell">Ice cream sandwich</td>
               <td className="numeric-cell">237</td>
-              <td className="numeric-cell">9.0</td>
-              <td className="numeric-cell">37</td>
-              <td className="numeric-cell">4.4</td>
-              <td className="medium-only">But like ice cream more</td>
+
               <td className="actions-cell">
                 <Link iconIos="f7:square_pencil" iconMd="material:edit" />
                 <Link iconIos="f7:trash" iconMd="material:delete" />
@@ -176,10 +164,8 @@ const HomePage = () => {
               </td>
               <td className="label-cell">Eclair</td>
               <td className="numeric-cell">262</td>
-              <td className="numeric-cell">16.0</td>
-              <td className="numeric-cell">24</td>
-              <td className="numeric-cell">6.0</td>
-              <td className="medium-only">Super tasty</td>
+
+            
               <td className="actions-cell">
                 <Link iconIos="f7:square_pencil" iconMd="material:edit" />
                 <Link iconIos="f7:trash" iconMd="material:delete" />
@@ -191,10 +177,7 @@ const HomePage = () => {
               </td>
               <td className="label-cell">Cupcake</td>
               <td className="numeric-cell">305</td>
-              <td className="numeric-cell">3.7</td>
-              <td className="numeric-cell">67</td>
-              <td className="numeric-cell">4.3</td>
-              <td className="medium-only">Don't like it</td>
+
               <td className="actions-cell">
                 <Link iconIos="f7:square_pencil" iconMd="material:edit" />
                 <Link iconIos="f7:trash" iconMd="material:delete" />
@@ -204,17 +187,10 @@ const HomePage = () => {
         </table>
       </CardContent>
     </Card>
-
-
- 
-
     </div>
 
-
-    
-     </div>
+    </div>
   </Page>
-   
     </>
   );
 };

@@ -29,14 +29,48 @@ import routes from '../js/routes';
 import store from '../js/store';
 
 const MyApp = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(0);
+
+  const check_auth = async () => {
+
+      try {
+        const response = await fetch('http://192.168.133.239:8000/isAuthenticated', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded', 
+          },
+          body: new URLSearchParams({
+          }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          const status = data['success']
+          setIsAuthenticated(status);
+        } else {
+          const errorData = await response.json();
+          console.error('Login check failed', errorData.error);
+          setIsAuthenticated(0);
+          // Handle failed login, display an error message, etc.
+        }
+      } catch (error) {
+        console.error('Error during login:', error.message);
+      }
+};
+
+
+
+ 
   //fetching data from backend
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [msg,setMsg] = useState('');
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  
+  
   const handleClick = () => {
-    // Change the URL to the desired page
-    window.location.href = '/home/';
+(  <View main tab tabActive url="/home/" />)
+
   };
   
 
@@ -82,6 +116,9 @@ const MyApp = () => {
     }
   };
 
+
+
+ 
   
    
     const handleNotificationClick = () => {
@@ -113,7 +150,7 @@ const MyApp = () => {
   };
 
 
-
+if (isAuthenticated) {
   return (
     <App { ...f7params }>
 
@@ -148,94 +185,86 @@ const MyApp = () => {
 
        
 
-
+       
         {/* Views/Tabs container */}
         <Views tabs className="safe-areas">
-        {isAuthenticated ? (
-          <>
-          <View main tab tabActive url="/home/" />
-          <ToolbarSection/>
-          </>
-        ) : ( 
-        <>  
-        
-        <div className='login'>   
-
-          <Page loginScreen>
-            <LoginScreenTitle>NutriSync</LoginScreenTitle>
-            <form onSubmit={(e) => { e.preventDefault(); handleSubmit(e); }}>
-              <List form>
-                <ListInput
-                  type="email"
-                  name="email"
-                  placeholder="Your email"
-                  value={email}
-                  onInput={(e) => setEmail(e.target.value)}
-                ></ListInput>
-
-                <ListInput
-                  type="password"
-                  name="password"
-                  placeholder="Your password"
-                  value={password}
-                  onInput={(e) => setPassword(e.target.value)}
-                ></ListInput>
-              </List>
-              <div className='buttonBox' >
-                  <Button type="submit"  onClick={alertLoginData}><h2>Login</h2></Button>
-              </div>
-
-              
-             
-            </form>
-            <div className='buttonBox'>
-              <Button onClick={handleClick}><p style={{color:'white',fontSize:'15px'}}>Create a new account</p></Button>
-                
-              </div>
-          <List>
-                <BlockFooter>
-                  <p>Login to NutriSync & start a new journey towards a healthier you.</p>
-                </BlockFooter>
-              </List>
-          </Page>
-
-      </div>
-      </>
-        
-        )}
-      
-
+        <Toolbar tabbar icons bottom>
+          <Link tabLink="#view-home"  iconIos="f7:house_fill" iconMd="material:home" text="Home" />
+          <Link tabLink="#view-history" iconIos="f7:info" iconMd="material:history" text="History" />
+          <Link tabLink="#view-camera" iconIos="f7:camera" iconMd="material:camera" text="Camera" />
+          <Link tabLink="#view-profile" iconIos="f7:person" iconMd="material:person" text="Profile" />
+          <Link tabLink="#view-info" iconIos="f7:info" iconMd="material:info" text="Info" />
+        </Toolbar>
+       
           {/* Tabbar for switching views-tabs */}
-         
+  
          
 
-          {/* Your main view/tab, should have "view-main" class. It also has "tabActive" prop */}
+         <View id="view-home" main tab tabActive url="/home/" />
           {/* <View main tab tabActive url="/" /> */}
           {/* Catalog View */}
-          <View id="view-home" name="home" tab url="/home/" />
           <View id="view-camera" name="camera" tab url="/camera/" />
           <View id="view-info" name="AboutPage" tab url="/about/"/>
           <View id="view-history" name="HistoryPage" tab url="/history/"/>
           <View id="view-profile" name="ProfilePage" tab url="/request-and-load/user/:userId/" />
-
           </Views>
+        
+        
 
-      {/* Popup */}
-      {/* <Popup id="my-popup">
-        <View>
-          <Page>
-            <Navbar title="Popup">
-              <NavRight>
-                <Link popupClose>Close</Link>
-              </NavRight>
-            </Navbar>
-            <Block>
-              <p>Popup content goes here.</p>
-            </Block>
-          </Page>
-        </View>
-      </Popup> */}
     </App>
   )
 }
+  else{
+    return(
+      <App { ...f7params }>
+      <>  
+        
+      <div className='login'>   
+
+        <Page loginScreen>
+          <LoginScreenTitle>NutriSync</LoginScreenTitle>
+          <form onSubmit={(e) => { e.preventDefault(); handleSubmit(e); }}>
+            <List form>
+              <ListInput
+                type="email"
+                name="email"
+                placeholder="Your email"
+                value={email}
+                onInput={(e) => setEmail(e.target.value)}
+              ></ListInput>
+
+              <ListInput
+                type="password"
+                name="password"
+                placeholder="Your password"
+                value={password}
+                onInput={(e) => setPassword(e.target.value)}
+              ></ListInput>
+            </List>
+            <div className='buttonBox' >
+                <Button type="submit"  onClick={alertLoginData}><h2>Login</h2></Button>
+            </div>
+
+            
+           
+          </form>
+          <div className='buttonBox'>
+            <Button onClick={handleClick}><p style={{color:'white',fontSize:'15px'}}>Create a new account</p></Button>
+              
+            </div>
+        <List>
+              <BlockFooter>
+                <p>Login to NutriSync & start a new journey towards a healthier you.</p>
+              </BlockFooter>
+            </List>
+        </Page>
+
+    </div>
+    </>
+    </App>
+      
+    )
+  }
+}
+
 export default MyApp;

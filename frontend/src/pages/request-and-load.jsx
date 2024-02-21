@@ -39,7 +39,7 @@ const RequestAndLoad = (props) => {
       <Navbar title="NutriSync">
       <NavRight>
         <Link iconIos="f7:bell" iconMd="material:bell" panelOpen="left">
-          <FaBell className='bellIcon'/>
+          <FaBell className='bellIcon'/><span class="badge color-red">3</span>
         </Link>
       </NavRight>
     </Navbar>

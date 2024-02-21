@@ -7,7 +7,7 @@ const HistoryPage = () => {
     let j=840;
     for (let i = 1; i <= 31; i += 1) {
       items.push({
-        title: `Date : ${i}/${2}/${2023}`,
+        title: `Date : ${i}/${1}/${2023}`,
         subtitle: `Net Calorie ${j+i*(-10)^i}`,
       });
     }

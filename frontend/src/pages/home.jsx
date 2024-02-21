@@ -145,12 +145,12 @@ const HomePage = () => {
                 <Link iconIos="f7:trash" iconMd="material:delete" />
               </td>
             </tr>
-            
+
             <tr>
               <td className="checkbox-cell">
                 <Checkbox />
               </td>
-              <td className="label-cell">Ice cream sandwich</td>
+              <td className="label-cell">Ice cream</td>
               <td className="numeric-cell">237</td>
 
               <td className="actions-cell">
@@ -183,6 +183,33 @@ const HomePage = () => {
                 <Link iconIos="f7:trash" iconMd="material:delete" />
               </td>
             </tr>
+
+            <tr>
+              <td className="checkbox-cell">
+                <Checkbox />
+              </td>
+              <td className="label-cell">Prawn</td>
+              <td className="numeric-cell">105</td>
+
+              <td className="actions-cell">
+                <Link iconIos="f7:square_pencil" iconMd="material:edit" />
+                <Link iconIos="f7:trash" iconMd="material:delete" />
+              </td>
+            </tr>
+
+            <tr>
+              <td className="checkbox-cell">
+                <Checkbox />
+              </td>
+              <td className="label-cell">Eggs</td>
+              <td className="numeric-cell">60</td>
+
+              <td className="actions-cell">
+                <Link iconIos="f7:square_pencil" iconMd="material:edit" />
+                <Link iconIos="f7:trash" iconMd="material:delete" />
+              </td>
+            </tr>
+
           </tbody>
         </table>
       </CardContent>

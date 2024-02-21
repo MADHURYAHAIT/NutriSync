@@ -18,6 +18,7 @@ import {
   BlockFooter,
   Toolbar,
   NavRight,
+  ListItem,
   Link,
   Button,
   Block,
@@ -78,6 +79,8 @@ const MyApp = () => {
       console.error('Error during login:', error.message);
     }
   };
+
+  
    
     const handleNotificationClick = () => {
       f7.dialog.alert('Notification Clicked');
@@ -179,6 +182,15 @@ const MyApp = () => {
               <div className='buttonBox'>
                   <Button type="submit"  onClick={alertLoginData}><h2>Login</h2></Button>
               </div>
+
+              <div className='buttonBox'>
+                 
+                  <ListItem
+                  title="Description"
+                  link="/signup/"
+                  />
+              </div>
+             
             </form>
           <List>
                 <BlockFooter>

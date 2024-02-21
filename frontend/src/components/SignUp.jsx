@@ -13,7 +13,7 @@ import {
   
 } from 'framework7-react';
 
-const LoginPg = () => {
+const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [msg,setMsg] = useState('');
@@ -31,7 +31,7 @@ const LoginPg = () => {
     e.preventDefault();
 
     try {
-      const response = await  fetch('http://192.168.133.239:8000/signin', {
+      const response = await  fetch('http://192.168.133.239:8000/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded', // Adjust the content type if needed
@@ -79,7 +79,8 @@ const LoginPg = () => {
             
         
             <Page loginScreen>
-              <LoginScreenTitle>NutriSync</LoginScreenTitle>
+              <LoginScreenTitle><h1>NutriSync</h1></LoginScreenTitle>
+              <h3>Create a New Account today !</h3>
               <form onSubmit={handleSubmit}>
                 <List form>
                   <ListInput
@@ -99,13 +100,13 @@ const LoginPg = () => {
                   ></ListInput>
                 </List>
                 <div className='buttonBox'>
-                    <Button type="submit"  onClick={alertLoginData}><h2>Login</h2></Button>
+                    <Button type="submit"  onClick={alertLoginData}><h2>SignUp</h2></Button>
                 </div>
               </form>
             <List>
                  
                   <BlockFooter>
-                    <p>Login to NutriSync & start a new journey towards a healthier you.</p>
+                    <p>Sign Up to NutriSync & start a new journey towards a healthier you.</p>
                   </BlockFooter>
                 </List>
              
@@ -117,4 +118,4 @@ const LoginPg = () => {
   );
 };
 
-export default LoginPg;
+export default SignUp;

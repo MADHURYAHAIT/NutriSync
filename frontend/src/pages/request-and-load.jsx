@@ -20,37 +20,6 @@ const RequestAndLoad = (props) => {
 
       <div class = 'profile'>
 
-      {/* <div className='center'>
-        <IoPersonCircleSharp className='user' />
-      </div> */}
-      {/* <Block strong inset>
-        Name : {user.firstName} {user.lastName}
-          <br/>
-        User About :  {user.about}
-      </Block> */}
-      
-      {/* <BlockTitle>User Profile</BlockTitle>
-    <Card outlineMd className="demo-card-header-pic">
-      <CardHeader
-        valign="bottom"
-        style={{
-          backgroundImage: 'url(https://cdn.framework7.io/placeholder/nature-1000x600-3.jpg)',
-        }}
-      >
-        Journey To Mountains <IoPersonCircleSharp className='user' />
-      </CardHeader>
-      <CardContent>
-        <p className="date">Posted on January 21, 2015</p>
-        <p>
-        Name : {user.firstName} {user.lastName}
-        </p>
-        <p>  User About :  {user.about}</p>
-      </CardContent>
-      <CardFooter>
-        <Link>Like</Link>
-        <Link>Read more</Link>
-      </CardFooter>
-    </Card> */}
 
 <div class="cardd">
         <div class="card_background_img">

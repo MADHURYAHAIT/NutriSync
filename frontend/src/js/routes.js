@@ -14,10 +14,15 @@ import HistoryPage from '../pages/history.jsx';
 import Description from '../pages/description.jsx';
 import Team from '../pages/team.jsx';
 import Contact from '../pages/contact.jsx';
+import SignUp from '../components/SignUp.jsx';
 var routes = [
   {
     path: '/',
     component: HomePage,
+  },
+  {
+    path: '/signup/',
+    component: SignUp,
   },
   {
     path: '/home/',

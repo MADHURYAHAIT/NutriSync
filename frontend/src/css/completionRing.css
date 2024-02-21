@@ -1,15 +1,12 @@
 /* YourComponent.css */
 
-.circular-completion-ring {
-  /* display: flex;
-  align-items: center; */
-  /* justify-content: center;
-  height: 100vh;
-  position: absolute;
-  left: 50%;
-  top: 81%;
-  transform: translate(-50%, -60%); */
-}
+/* .circular-completion-ring{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+} */
 
 
 .ring-background {
@@ -22,10 +19,7 @@
     transition: stroke-dashoffset 0.8s ease-in-out;
   }
   
-@media screen and (max-height: 650px) {
 
-
-}
 
 
 .maindial{

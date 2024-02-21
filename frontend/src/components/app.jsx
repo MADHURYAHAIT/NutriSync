@@ -1,4 +1,4 @@
-import {React,useState } from 'react';
+import {React,useState,useEffect } from 'react';
 import NotificationItem from '../pages/ NotificationItem';
 import ToolbarSection from './toolbar';
 import CircularCompletionRing from '../pages/CircularCompletionRing';
@@ -29,7 +29,7 @@ import routes from '../js/routes';
 import store from '../js/store';
 
 const MyApp = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(0);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const check_auth = async () => {
 
@@ -46,11 +46,18 @@ const MyApp = () => {
         if (response.ok) {
           const data = await response.json();
           const status = data['success']
-          setIsAuthenticated(status);
+          console.log("yaaay",data);
+          if (status==1){
+            localStorage.setItem('isAuthenticated', true);
+            setIsAuthenticated(true);
+            }
+          else{
+            localStorage.removeItem('isAuthenticated');
+            setIsAuthenticated(false);
+          }
         } else {
           const errorData = await response.json();
           console.error('Login check failed', errorData.error);
-          setIsAuthenticated(0);
           // Handle failed login, display an error message, etc.
         }
       } catch (error) {
@@ -58,7 +65,7 @@ const MyApp = () => {
       }
 };
 
-
+check_auth();
 
  
   //fetching data from backend
@@ -69,11 +76,19 @@ const MyApp = () => {
   
   
   const handleClick = () => {
-(  <View main tab tabActive url="/home/" />)
-
+    (   <Views tabs className="safe-areas">
+<View  id="info" main tab tabActive url="/about/" />
+</Views>)
   };
   
+  useEffect(() => {
+    const storedAuth = localStorage.getItem('isAuthenticated');
+    if (storedAuth ==false) {
+      setIsAuthenticated(true);
+      console.log('Bhai says',isAuthenticated);
 
+    }
+  }, []); 
 
 
   const handleSubmit = async (e) => {
@@ -96,12 +111,14 @@ const MyApp = () => {
         const status = await data['success']
         if (status==1) {
           setIsAuthenticated(true);
+          localStorage.setItem('isAuthenticated', true);
           setMsg(data['msg']);
           console.log('Login Successful:',isAuthenticated);
           // Handle successful login, e.g., redirect to a new page
         }
         else {
             setIsAuthenticated(false);
+
             setMsg(data['msg']);
             console.log('Login Unsuccessfull:',isAuthenticated);
           // Handle failed login, display an error message, etc.
@@ -150,7 +167,7 @@ const MyApp = () => {
   };
 
 
-if (isAuthenticated) {
+if (isAuthenticated==true) {
   return (
     <App { ...f7params }>
 
@@ -198,11 +215,8 @@ if (isAuthenticated) {
        
           {/* Tabbar for switching views-tabs */}
   
-         
-
-         <View id="view-home" main tab tabActive url="/home/" />
-          {/* <View main tab tabActive url="/" /> */}
-          {/* Catalog View */}
+      
+          <View id="view-home" main tab tabActive url="/home/" />
           <View id="view-camera" name="camera" tab url="/camera/" />
           <View id="view-info" name="AboutPage" tab url="/about/"/>
           <View id="view-history" name="HistoryPage" tab url="/history/"/>

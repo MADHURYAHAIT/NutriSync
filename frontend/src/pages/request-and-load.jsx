@@ -1,17 +1,13 @@
 import {React,useState,useEffect} from 'react';
-import { f7,Page, Navbar, Block, List, ListItem, NavRight,Link,BlockTitle,Button} from 'framework7-react';
+import { f7,Page, Navbar, Block, List, ListItem,Popup,View, NavRight,Link,BlockTitle,Button} from 'framework7-react';
 import { FaBell } from "react-icons/fa";
 import '../css/profile.css';
-
+import SubmitProfile from './SubmitProf';
 const RequestAndLoad = (props) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const { user } = props;
   const image = user.img;
   console.log(image);
-
-  const handleRefresh = () => {
-    window.location.reload();
-  };
 
 
   useEffect(() => {
@@ -94,11 +90,26 @@ const RequestAndLoad = (props) => {
             </div>
             <Block className="grid grid-cols-2 grid-gap">
             <Button fill onClick={handleLogout}>Logout</Button>
-        <Button fill loginScreenOpen="#my-login-screen">Edit Profile</Button>
+        <Button fill popupOpen=".demo-popup-push">Edit Profile</Button>
       </Block>
         </div>
     </div>
     </div>
+       <Popup push className="demo-popup-push">
+        <View>
+          <Page>
+            <Navbar  transparent>
+              <NavRight>
+
+                <Link popupClose>Close</Link>
+              </NavRight>
+            </Navbar>
+
+             <SubmitProfile/>
+          
+          </Page>
+        </View>
+      </Popup>
     </Page>
   );
 };

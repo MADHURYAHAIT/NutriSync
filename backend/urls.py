@@ -11,4 +11,5 @@ urlpatterns = [
     path("calories", views.calories),
     path("fetchCalories", views.fetch_calories),
     path("isAuthenticated", views.is_authenticated),
+    path("userdtls", views.userdtls),
 ]

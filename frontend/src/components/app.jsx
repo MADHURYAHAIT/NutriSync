@@ -299,6 +299,12 @@ if (isAuthenticated) {
 
    
 
+   
+      </Page>
+      
+      </div>
+      
+    </>
     <Popup push className="demo-popup-push">
         <View>
           <Page>
@@ -314,9 +320,6 @@ if (isAuthenticated) {
           </Page>
         </View>
       </Popup>
-      </Page>
-      </div>
-    </>
     </App>
       
     )

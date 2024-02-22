@@ -21,7 +21,7 @@ def c2json(ctxt, dates=[]):
     if dates:
         for x in dates:
             df[x] = df[x].astype("string")
-    return df.to_json()
+    return df.to_dict()
 
 
 def index(request):
@@ -89,14 +89,15 @@ def calories(request):
         if file:
             res = input_image_setup(file)
             f_res = str(res)
-            
+            for x in res.keys():
+                Nutrition(username=str(request.user), food=res[x]["Name"], calories=res[x]["Calories"]).save()
             return JsonResponse(res)
 
 
 def fetch_calories(request):
     user = str(request.user)
-    res = Nutrition.objects.filter(username=user).values()
-    return JsonResponse(res)
+    res = c2json(Nutrition.objects.filter(username=user).values(), ["date"])
+    return JsonResponse(res, safe=False)
 
 @csrf_exempt
 def is_authenticated(request):
@@ -129,6 +130,11 @@ def bmi(request):
 
 @login_required(login_url=INDEX)
 def fetch_bmi(request):
-    res = UserHealth.objects.filter(username=str(request.user)).values()
-    return JsonResponse(res)
+    res = c2json(UserHealth.objects.filter(username=str(request.user)).values(), ["date"])
+    return JsonResponse(res, safe=False)
+
+@login_required(login_url=INDEX)
+def userdtls(request):
+    res = c2json(UserProfile.objects.filter(username=str(request.user)).values(), ["dob"])
+    return JsonResponse(res, safe=False)
 

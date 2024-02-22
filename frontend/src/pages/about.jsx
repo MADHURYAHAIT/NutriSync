@@ -1,10 +1,11 @@
 import React from 'react';
 import { Page, Navbar, Block, BlockTitle, NavRight,Link,List,ListItem } from 'framework7-react';
 import { FaBell } from "react-icons/fa";
+import { GiChestnutLeaf } from "react-icons/gi";
 import '../css/about.css'
 const AboutPage = () => (
   <Page>
-   <Navbar title="NutriSync">
+    <Navbar title="NutriSync">
       <NavRight>
         <Link iconIos="f7:bell" iconMd="material:bell" panelOpen="left">
           <FaBell className='bellIcon'/><span class="badge color-red">3</span>

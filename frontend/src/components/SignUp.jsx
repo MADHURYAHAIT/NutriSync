@@ -13,7 +13,7 @@ import {
   
 } from 'framework7-react';
 
-
+import { GiChestnutLeaf } from "react-icons/gi";
 const SignUp = () => {
   
   const [msg,setMsg] = useState('');
@@ -79,7 +79,7 @@ const SignUp = () => {
     <>
       <div className='login'>
             <Page loginScreen>
-              <LoginScreenTitle>NutriSync</LoginScreenTitle>
+              <LoginScreenTitle><GiChestnutLeaf size={'28px'} /> NutriSync</LoginScreenTitle>
              
               <form onSubmit={handleSubmit}>
                 <List form>
@@ -141,21 +141,21 @@ const SignUp = () => {
 
                 </List>
 
-                <div className='buttonBox'>
+                <div className='buttonBox' >
                     <Button type="submit"  onClick={alertLoginData}><h2>Sign Up</h2></Button>
                 </div>
               </form>
-              <div className='buttonBox'>
+              {/* <div className='buttonBox'>
              
 
                 <Button><p style={{color:'white',fontSize:'15px'}}>
 Log in to your account</p></Button>
                  
-              </div>
+              </div> */}
             <List>
                  
                   <BlockFooter>
-                    <p>Sign Up to NutriSync & start a new journey towards a healthier you.</p>
+                    <p>Create a new Account and Join us Now</p>
                   </BlockFooter>
                 </List>
              

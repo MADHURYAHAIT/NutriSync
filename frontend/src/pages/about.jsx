@@ -26,7 +26,7 @@ const AboutPage = () => (
      <List strong inset dividersIos>
      <ListItem
          title="Description"
-         link="/signup/"
+         link="/description/"
          />
        <ListItem
          title="Our Team"

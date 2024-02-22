@@ -1,20 +1,26 @@
-import {React,useState,useEffect } from 'react';
+import {React,useState,useEffect,useRef} from 'react';
 import NotificationItem from '../pages/ NotificationItem';
 import ToolbarSection from './toolbar';
 import CircularCompletionRing from '../pages/CircularCompletionRing';
 import '../css/completionRing.css';
+import { GiChestnutLeaf } from "react-icons/gi";
+import SignUp from './SignUp';
 import {
   f7,
   App,
   Panel,
   Views,
   View,
+
   Page,
   Navbar,
   LoginScreenTitle,
   List,
   ListInput,
   BlockFooter,
+  BlockTitle,
+
+  Popup,
   Toolbar,
   NavRight,
   ListItem,
@@ -29,43 +35,44 @@ import routes from '../js/routes';
 import store from '../js/store';
 
 const MyApp = () => {
+
+  
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const check_auth = async () => {
+//   const checkAuthentication = async () => {
+//     try {
+//       const response = await fetch('http://192.168.133.239:8000/isAuthenticated');
+  
+//       if (response.ok) {
+//         const data = await response.json();
+//         const status = data['success'];
+//         if (status == 1) {
+//           setIsAuthenticated(true);
+//           localStorage.setItem('isAuthenticated', true);
+//           console.log('User is authenticated:', isAuthenticated);
+//         } else {
+//           setIsAuthenticated(false);
+//           localStorage.setItem('isAuthenticated', true);
+//           console.log('User is not authenticatedd:', isAuthenticated);
+//         }
+//       } else {
+//         const errorData = await response.json();
+//         console.error('Error during authentication check:', errorData.error);
+//       }
+//     } catch (error) {
+//       console.error('Error during authentication check:', error.message);
+//     }
+//   };
 
-      try {
-        const response = await fetch('http://192.168.133.239:8000/isAuthenticated', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded', 
-          },
-          body: new URLSearchParams({
-          }),
-        });
+     
 
-        if (response.ok) {
-          const data = await response.json();
-          const status = data['success']
-          console.log("yaaay",data);
-          if (status==1){
-            localStorage.setItem('isAuthenticated', true);
-            setIsAuthenticated(true);
-            }
-          else{
-            localStorage.removeItem('isAuthenticated');
-            setIsAuthenticated(false);
-          }
-        } else {
-          const errorData = await response.json();
-          console.error('Login check failed', errorData.error);
-          // Handle failed login, display an error message, etc.
-        }
-      } catch (error) {
-        console.error('Error during login:', error.message);
-      }
-};
+// useEffect(() => {
+//   const storedAuth = JSON.parse(localStorage.getItem('isAuthenticated'));
+//   setIsAuthenticated(storedAuth || true);
+// }, []);
 
-check_auth();
+
+// checkAuthentication();
 
  
   //fetching data from backend
@@ -73,22 +80,22 @@ check_auth();
   const [password, setPassword] = useState('');
   const [msg,setMsg] = useState('');
 
+
+  
   
   
   const handleClick = () => {
-    (   <Views tabs className="safe-areas">
-<View  id="info" main tab tabActive url="/about/" />
-</Views>)
+(  <View  id="signup" main tab tabActive url="/signup/" />)
   };
   
   useEffect(() => {
     const storedAuth = localStorage.getItem('isAuthenticated');
-    if (storedAuth ==false) {
+    if (storedAuth === 'true') {
       setIsAuthenticated(true);
-      console.log('Bhai says',isAuthenticated);
+      console.log('Bruh',isAuthenticated);
 
     }
-  }, []); 
+  }, [isAuthenticated]); 
 
 
   const handleSubmit = async (e) => {
@@ -110,17 +117,23 @@ check_auth();
         const data =  await response.json();
         const status = await data['success']
         if (status==1) {
-          setIsAuthenticated(true);
+         // After successful login
           localStorage.setItem('isAuthenticated', true);
+          setIsAuthenticated(true);
+          f7.dialog.alert('Login Success ', () => {
+            f7.loginScreen.close();
+            })
           setMsg(data['msg']);
           console.log('Login Successful:',isAuthenticated);
           // Handle successful login, e.g., redirect to a new page
         }
         else {
-            setIsAuthenticated(false);
-
+           
             setMsg(data['msg']);
             console.log('Login Unsuccessfull:',isAuthenticated);
+            f7.dialog.alert('Wrong Credentials ', () => {
+              f7.loginScreen.close();
+              });
           // Handle failed login, display an error message, etc.
         }
       } else {
@@ -145,9 +158,17 @@ check_auth();
     const [calorie, setCalorie] = useState([]);
    
     const alertLoginData = () => {
-      f7.dialog.alert('Status: ' + msg + '<br>Email : ' + email+'<br>Pass :'+password, () => {
-      f7.loginScreen.close();
-      });
+      // f7.dialog.alert('Status: ' + msg + '<br>Email : ' + email+'<br>Pass :'+password, () => {
+      // f7.loginScreen.close();
+      // });
+      // if (isAuthenticated){
+      // f7.dialog.alert('Login Success ', () => {
+      //   f7.loginScreen.close();
+      //   });}
+      // else{
+      //   f7.dialog.alert('Wrong Credentials ', () => {
+      //     f7.loginScreen.close();
+      //     });}
     };
 
 
@@ -167,7 +188,7 @@ check_auth();
   };
 
 
-if (isAuthenticated==true) {
+if (isAuthenticated) {
   return (
     <App { ...f7params }>
 
@@ -215,8 +236,11 @@ if (isAuthenticated==true) {
        
           {/* Tabbar for switching views-tabs */}
   
-      
-          <View id="view-home" main tab tabActive url="/home/" />
+         
+
+         <View id="view-home" main tab tabActive url="/home/" />
+          {/* <View main tab tabActive url="/" /> */}
+          {/* Catalog View */}
           <View id="view-camera" name="camera" tab url="/camera/" />
           <View id="view-info" name="AboutPage" tab url="/about/"/>
           <View id="view-history" name="HistoryPage" tab url="/history/"/>
@@ -236,7 +260,7 @@ if (isAuthenticated==true) {
       <div className='login'>   
 
         <Page loginScreen>
-          <LoginScreenTitle>NutriSync</LoginScreenTitle>
+          <LoginScreenTitle><GiChestnutLeaf size={'90px'}/> <br/>NutriSync</LoginScreenTitle>
           <form onSubmit={(e) => { e.preventDefault(); handleSubmit(e); }}>
             <List form>
               <ListInput
@@ -256,24 +280,42 @@ if (isAuthenticated==true) {
               ></ListInput>
             </List>
             <div className='buttonBox' >
-                <Button type="submit"  onClick={alertLoginData}><h2>Login</h2></Button>
+                <Button type="submit"><h2>Login</h2></Button>
             </div>
-
-            
-           
           </form>
-          <div className='buttonBox'>
-            <Button onClick={handleClick}><p style={{color:'white',fontSize:'15px'}}>Create a new account</p></Button>
-              
-            </div>
+        
+          <Block>
+            <div className='buttonBox'>
+                  <Button fill  popupOpen=".demo-popup-push"><p style={{color:'white',fontSize:'14px'}}>Create a new account</p></Button>      
+              </div>
+          </Block>
+          
         <List>
               <BlockFooter>
-                <p>Login to NutriSync & start a new journey towards a healthier you.</p>
+                <p>Join our platform NutriSync & start a new journey towards a healthier you.</p>
               </BlockFooter>
             </List>
-        </Page>
+       
 
-    </div>
+   
+
+    <Popup push className="demo-popup-push">
+        <View>
+          <Page>
+            <Navbar  transparent>
+              <NavRight>
+
+                <Link popupClose>Close</Link>
+              </NavRight>
+            </Navbar>
+           
+            <SignUp/>
+          
+          </Page>
+        </View>
+      </Popup>
+      </Page>
+      </div>
     </>
     </App>
       

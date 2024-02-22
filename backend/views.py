@@ -102,9 +102,12 @@ def fetch_calories(request):
 def is_authenticated(request):
     try:
         if request.user.is_authenticated:
+            print(' Authenticated')
             return JsonResponse({"success": 1, "msg": "Authenticated"})
+        print('Not Authenticated')
         return JsonResponse({"success": 0, "msg": "Not Authenticated"})
     except:
+        print(f"Exception: {e}")
         return JsonResponse({"success": 0, "msg": "Not Authenticated"})
 
 

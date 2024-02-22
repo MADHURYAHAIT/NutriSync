@@ -1,12 +1,27 @@
-import React from 'react';
+import {React,useState,useEffect} from 'react';
 import { f7,Page, Navbar, Block, List, ListItem, NavRight,Link,BlockTitle,Button} from 'framework7-react';
 import { FaBell } from "react-icons/fa";
 import '../css/profile.css';
 
 const RequestAndLoad = (props) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const { user } = props;
   const image = user.img;
   console.log(image);
+
+  const handleRefresh = () => {
+    window.location.reload();
+  };
+
+
+  useEffect(() => {
+    const storedAuth = localStorage.getItem('isAuthenticated');
+    if (storedAuth === 'true') {
+      setIsAuthenticated(true);
+      console.log('Bruh',isAuthenticated);
+
+    }
+  }, [isAuthenticated]); 
 
   const handleLogout = async () => {
     try {
@@ -22,7 +37,10 @@ const RequestAndLoad = (props) => {
       if (response.ok) {
         // Logout successful, you may want to redirect or handle it in your app
         console.log('Logout successful');
+        setIsAuthenticated(false);
+        localStorage.setItem('isAuthenticated', false);
         f7.dialog.alert('Logged Successfully');
+        window.location.reload(2000);
       } else {
         // Logout failed, handle the error
         console.error('Logout failed');

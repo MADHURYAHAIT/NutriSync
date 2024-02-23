@@ -1,7 +1,5 @@
 import {React,useState,useEffect,useRef} from 'react';
 import NotificationItem from '../pages/ NotificationItem';
-import ToolbarSection from './toolbar';
-import CircularCompletionRing from '../pages/CircularCompletionRing';
 import '../css/completionRing.css';
 import { GiChestnutLeaf } from "react-icons/gi";
 import SignUp from './SignUp';
@@ -11,33 +9,68 @@ import {
   Panel,
   Views,
   View,
-
   Page,
   Navbar,
   LoginScreenTitle,
   List,
   ListInput,
   BlockFooter,
-  BlockTitle,
-
   Popup,
   Toolbar,
   NavRight,
-  ListItem,
   Link,
   Button,
   Block,
 
 } from 'framework7-react';
-
-
 import routes from '../js/routes';
 import store from '../js/store';
 
-const MyApp = () => {
 
-  
+const MyApp = () => {
+  const [user1, setUser] = useState(localStorage.getItem('currentUser'));
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  // useEffect(() => {
+  //   setUser(localStorage.getItem('currentUser'));
+  // }, []);
+  function calculateAge(dateOfBirth) {
+    // Parse the input date string into a Date object
+    const dob = new Date(dateOfBirth);
+  
+    // Get the current date
+    const currentDate = new Date();
+  
+    // Calculate the difference in years
+    let age = currentDate.getFullYear() - dob.getFullYear();
+  
+    // Check if the birthday has already occurred this year
+    const currentMonth = currentDate.getMonth();
+    const birthMonth = dob.getMonth();
+  
+    if (currentMonth < birthMonth || (currentMonth === birthMonth && currentDate.getDate() < dob.getDate())) {
+      age--;
+    }
+  
+    return age;
+  }
+  useEffect(() => {
+    const user1=localStorage.getItem('currentUser');
+
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+      console.log("Ajax se fetch userdls",(JSON.parse(xhttp.responseText)));
+      localStorage.setItem('email',( JSON.parse(xhttp.responseText))['email'][0]);
+      localStorage.setItem('fname',( JSON.parse(xhttp.responseText))['first_name'][0]);
+      localStorage.setItem('lname',( JSON.parse(xhttp.responseText))['last_name'][0]);
+      localStorage.setItem('phone',( JSON.parse(xhttp.responseText))['phone'][0]);
+      localStorage.setItem('dob',( JSON.parse(xhttp.responseText))['dob'][0]);
+      localStorage.setItem('age',calculateAge(( JSON.parse(xhttp.responseText))['dob'][0]));
+    }
+    xhttp.open("GET", "http://192.168.133.239:8000/userdtls?user1="+encodeURIComponent(user1), true);
+    xhttp.send();
+  
+}, [isAuthenticated]);
+
 
 //   const checkAuthentication = async () => {
 //     try {
@@ -77,31 +110,27 @@ const MyApp = () => {
  
   //fetching data from backend
   const [email, setEmail] = useState('');
+  
   const [password, setPassword] = useState('');
   const [msg,setMsg] = useState('');
 
-
-  
-  
-  
-  const handleClick = () => {
-(  <View  id="signup" main tab tabActive url="/signup/" />)
-  };
+  const seteml = () =>{
+    localStorage.setItem('currentUser',email);
+    console.log('Email Set Ho gaya hai',email);
+  }
   
   useEffect(() => {
     const storedAuth = localStorage.getItem('isAuthenticated');
     if (storedAuth === 'true') {
       setIsAuthenticated(true);
-      console.log('Bruh',isAuthenticated);
-
+      console.log('APP JS AUTHENTICATION FROM LOCAL STORAGE ',isAuthenticated);
     }
   }, [isAuthenticated]); 
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
+      localStorage.setItem('currentUser',email);
       const response = await  fetch('http://192.168.133.239:8000/signin', {
         method: 'POST',
         headers: {
@@ -112,7 +141,6 @@ const MyApp = () => {
           'password': password,
         }),
       });
-
       if (response.ok) {
         const data =  await response.json();
         const status = await data['success']
@@ -157,19 +185,7 @@ const MyApp = () => {
 
     const [calorie, setCalorie] = useState([]);
    
-    const alertLoginData = () => {
-      // f7.dialog.alert('Status: ' + msg + '<br>Email : ' + email+'<br>Pass :'+password, () => {
-      // f7.loginScreen.close();
-      // });
-      // if (isAuthenticated){
-      // f7.dialog.alert('Login Success ', () => {
-      //   f7.loginScreen.close();
-      //   });}
-      // else{
-      //   f7.dialog.alert('Wrong Credentials ', () => {
-      //     f7.loginScreen.close();
-      //     });}
-    };
+
 
 
 
@@ -260,7 +276,7 @@ if (isAuthenticated) {
       <div className='login'>   
 
         <Page loginScreen>
-          <LoginScreenTitle><GiChestnutLeaf size={'90px'}/> <br/>NutriSync</LoginScreenTitle>
+          <LoginScreenTitle><GiChestnutLeaf size={'80px'}/> <br/>NutriSync</LoginScreenTitle>
           <form onSubmit={(e) => { e.preventDefault(); handleSubmit(e); }}>
             <List form>
               <ListInput
@@ -284,12 +300,11 @@ if (isAuthenticated) {
             </div>
           </form>
         
-          <Block>
-            <div className='buttonBox'>
-                  <Button fill  popupOpen=".demo-popup-push"><p style={{color:'white',fontSize:'14px'}}>Create a new account</p></Button>      
-              </div>
-          </Block>
-          
+
+          <div className='buttonBox'>
+            <Button onClick={()=>seteml()}  popupOpen=".demo-popup-push"><p style={{color:'white',fontSize:'15px'}}>Create a new account</p></Button>
+              
+            </div>
         <List>
               <BlockFooter>
                 <p>Join our platform NutriSync & start a new journey towards a healthier you.</p>
@@ -299,12 +314,6 @@ if (isAuthenticated) {
 
    
 
-   
-      </Page>
-      
-      </div>
-      
-    </>
     <Popup push className="demo-popup-push">
         <View>
           <Page>
@@ -320,6 +329,9 @@ if (isAuthenticated) {
           </Page>
         </View>
       </Popup>
+      </Page>
+      </div>
+    </>
     </App>
       
     )

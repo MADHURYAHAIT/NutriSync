@@ -1,23 +1,14 @@
-import React ,{ useState } from 'react';
+import React ,{ useState,useEffect } from 'react';
 import DateTimeComponent from './DateTimeComponent';
 import ToolbarSection from '../components/toolbar';
 import {
   Page,
   f7,
   Navbar,
-  NavLeft,
-  NavTitle,
   NavTitleLarge,
   NavRight,
   Link,
-  Toolbar,
   Block,
-  BlockTitle,
-  List,
-  ListItem,
-  Button,
-  Badge,
-  Icon,
   Card,
   CardContent,
   CardHeader,
@@ -31,7 +22,19 @@ import { FaFire } from "react-icons/fa6";
 import { FaRunning } from "react-icons/fa";
 import { FaPizzaSlice } from "react-icons/fa";
 const HomePage = () => {
-  const [data, setData] = useState([
+  const [data, setData] = useState([]);
+  useEffect(() => {
+
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function() {
+        console.log('Calorie History',xhttp.responseText)
+      }
+      xhttp.open("GET", "http://192.168.133.239:8000/fetchCalories?user1="+encodeURIComponent("me@gmail.com"), true);
+      xhttp.send();
+    
+  }, []);
+  
+  const [daata, setDaata] = useState([
     { dessert: 'Frozen yogurt', calories: 159, fat: 6.0, carbs: 24, protein: 4.0, comments: 'I like frozen yogurt' },
     // Add more data items as needed
   ]);
@@ -50,7 +53,7 @@ const HomePage = () => {
   let [intake,setIntake] = useState(1030);
   let [burn,setBurn] = useState(380);
 
-
+  
 
   return(
     <>
@@ -110,11 +113,11 @@ const HomePage = () => {
     <Card className="data-table data-table-init">
       <CardHeader>
          <div className="data-table-links">
-          <a className="button" onClick={handleAdd}>Add</a>
+          <a className="button" >Add</a>
           {/* Map over data and render a remove button for each item */}
-          {data.map((item, index) => (
-            <a className="button" key={index} onClick={() => handleRemove(index)}>Remove</a>
-          ))}
+
+            <a className="button" >Remove</a>
+
         </div>
         <div className="data-table-actions">
           {/* <Link iconIos="f7:line_horizontal_3_decrease" iconMd="material:sort" /> */}

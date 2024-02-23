@@ -75,7 +75,7 @@ def signup(request):
         return JsonResponse(context)
 
 
-@login_required(login_url=INDEX)
+#@login_required(login_url=INDEX)
 def signout(request):
     logout(request)
     return JsonResponse({'success': 1, 'msg': 'Logged out successfully'})
@@ -95,7 +95,7 @@ def calories(request):
 
 
 def fetch_calories(request):
-    user = str(request.user)
+    user = request.GET["user1"]
     res = c2json(Nutrition.objects.filter(username=user).values(), ["date"])
     return JsonResponse(res, safe=False)
 
@@ -107,34 +107,39 @@ def is_authenticated(request):
             return JsonResponse({"success": 1, "msg": "Authenticated"})
         print('Not Authenticated')
         return JsonResponse({"success": 0, "msg": "Not Authenticated"})
-    except:
+    except Exception as e:
         print(f"Exception: {e}")
         return JsonResponse({"success": 0, "msg": "Not Authenticated"})
 
 
 
-@login_required(login_url=INDEX)
 @csrf_exempt
+#@login_required(login_url=INDEX)
 def bmi(request):
+    user = request.GET["user1"]
+    print(request.GET)
     context = {"success": 0,
-               "msg": "Failed to add"}
-    if request.POST:
-        height = request.POST["height"]
-        weight = request.POST["weight"]
-        UserHealth(username=str(request.user), height=height, weight=weight).save()
+               "msg": "Failed to add, Request not post"}
+    if request.GET:
+        user = request.user
+        height = request.GET["height"]
+        weight = request.GET["weight"]
+        UserHealth(username=str(user), height=height, weight=weight).save()
         context = {
             "success": 1,
             "msg": "Added"
         }
     return JsonResponse(context)
 
-@login_required(login_url=INDEX)
+#@login_required(login_url=INDEX)
 def fetch_bmi(request):
-    res = c2json(UserHealth.objects.filter(username=str(request.user)).values(), ["date"])
+    user = request.GET["user1"]
+    res = c2json(UserHealth.objects.filter(username=str(user)).values(), ["date"])
     return JsonResponse(res, safe=False)
 
-@login_required(login_url=INDEX)
+#@login_required(login_url=INDEX)
 def userdtls(request):
-    res = c2json(UserProfile.objects.filter(username=str(request.user)).values(), ["dob"])
+    user = request.GET["user1"]
+    res = c2json(UserProfile.objects.filter(username=str(user)).values(), ["dob"])
     return JsonResponse(res, safe=False)
 

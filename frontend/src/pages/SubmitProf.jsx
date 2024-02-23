@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import {
   f7,
   Page,
   Button,
-  LoginScreen,
-  View,
   LoginScreenTitle,
   List,
   ListInput,
-  ListButton,
+
   BlockFooter,
   
 } from 'framework7-react';
@@ -19,50 +17,45 @@ const SubmitProfile = () => {
   const [msg,setMsg] = useState('');
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
+  const [user1, setUser1] = useState(localStorage.getItem('currentUser'));
+//   useEffect(() => {
+//     const user1=localStorage.getItem('currentUser');
 
-
-
+//     const xhttp = new XMLHttpRequest();
+//     xhttp.onload = function() {
+//       console.log("Height Weight se fetch ",(JSON.parse(xhttp.responseText)));
+//     }
+//     xhttp.open("GET", "http://192.168.133.239:8000/fetchBmi?user1="+encodeURIComponent(user1), true);
+//     xhttp.send();
+  
+// }, [height]);
 
   const handleProfSubmit = async (e) => {
-    e.preventDefault();
-
+    e.preventDefault(); // Prevent the default form submission behavior
+    
     try {
+      const response = await fetch(`http://192.168.133.239:8000/bmi?height=${encodeURIComponent(height)}&weight=${encodeURIComponent(weight)}&user1=${encodeURIComponent(user1)}`);
       
-      const response = await fetch('http://192.168.133.239:8000/bmi', {
-        method: 'POST',
-        headers : { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-           },
-        body: new URLSearchParams({
-        height,
-        weight,
-        }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-        setMsg(data['msg']); 
-        f7.dialog.alert('Data Updated !', () => {
-        f7.loginScreen.close();});
-        // Assuming your backend sends a response with a message
-        // Handle the success, show an alert or redirect to a different page
-      } else {
-        const errorData = await response.json();
-        setMsg(errorData.error); 
-        f7.dialog.alert('Submission Error !', () => {
-        f7.loginScreen.close();});// Assuming your backend sends an error message
-        // Handle the error, show an alert or provide feedback to the user
+      if (!response.ok) {
+         console.log('Network response was not ok');
+         f7.dialog.alert('Submission Error!', () => {
+          f7.loginScreen.close();
+        });
       }
+  
+      const responseData = await response.text();
+      console.log(responseData);
+      f7.dialog.alert('Data Updated!', () => {
+        f7.loginScreen.close();
+      });
     } catch (error) {
-      console.error('Error during signup:', error.message);
-      f7.dialog.alert('Submission Error 505 !', () => {
-        f7.loginScreen.close();});
+      console.error('Fetch error:', error);
+      console.error('Fetch error:', error);
+      f7.dialog.alert('Fetch Error!', () => {
+        f7.loginScreen.close();
+      });
     }
   };
-
-
 
 
 
@@ -73,7 +66,7 @@ const SubmitProfile = () => {
               <LoginScreenTitle><GiChestnutLeaf size={'28px'} /> NutriSync</LoginScreenTitle>
              
               <form onSubmit={handleProfSubmit}>
-                <List form>
+                <List>
     
                 <ListInput
                     type="number"
@@ -105,7 +98,6 @@ Log in to your account</p></Button>
                  
               </div> */}
             <List>
-            
                   <BlockFooter>
                     <p>Update your current weight</p>
                   </BlockFooter>

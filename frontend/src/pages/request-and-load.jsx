@@ -1,5 +1,5 @@
 import {React,useState,useEffect} from 'react';
-import { f7,Page, Navbar, Block, List, ListItem,Popup,View, NavRight,Link,BlockTitle,Button} from 'framework7-react';
+import { f7,Page, Navbar, Block,Popup,View, NavRight,Link,Button} from 'framework7-react';
 import { FaBell } from "react-icons/fa";
 import '../css/profile.css';
 import SubmitProfile from './SubmitProf';
@@ -7,14 +7,14 @@ const RequestAndLoad = (props) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const { user } = props;
   const image = user.img;
-  console.log(image);
+  //console.log(image);
 
 
   useEffect(() => {
     const storedAuth = localStorage.getItem('isAuthenticated');
     if (storedAuth === 'true') {
       setIsAuthenticated(true);
-      console.log('Bruh',isAuthenticated);
+      console.log('Authentication :',isAuthenticated);
 
     }
   }, [isAuthenticated]); 
@@ -25,15 +25,14 @@ const RequestAndLoad = (props) => {
         method: 'GET', // Assuming logout endpoint is a GET request, adjust if needed
         headers: {
           'Content-Type': 'application/json',
-          // Include any additional headers if needed
         },
-        // Add any additional options if needed
       });
 
       if (response.ok) {
         // Logout successful, you may want to redirect or handle it in your app
         console.log('Logout successful');
         setIsAuthenticated(false);
+        localStorage.clear();
         localStorage.setItem('isAuthenticated', false);
         f7.dialog.alert('Logged Successfully');
         window.location.reload(2000);
@@ -46,6 +45,8 @@ const RequestAndLoad = (props) => {
       console.error('Error during logout:', error.message);
     }
   };
+
+
 
   return (
     <Page>
@@ -71,7 +72,8 @@ const RequestAndLoad = (props) => {
         <div class="user_details">
             <h3>{user.firstName} {user.lastName}</h3>
             <p>{user.email}</p>
-            <p>Plan : Weight Loss</p>
+            <p>Dob : {user.dob}</p>
+            <p>mob : {user.mob}</p>
         </div>
         <div class="card_count">
             <div class="count">

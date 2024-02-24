@@ -4,12 +4,13 @@ import FileUploadComponent from './FileUploadComponent';
 import { Block, Navbar, Page, NavRight, Link, Button } from 'framework7-react'
 import React, { useState, useEffect, useRef } from 'react';
 import { FaBell } from "react-icons/fa";
+import { GiChestnutLeaf } from "react-icons/gi";
 
 const Camera = () => {
 
   return (
     <Page name="camera">
-      <Navbar title="NutriSync">
+   <Navbar title={ <><GiChestnutLeaf size={20} />  NutriSync</>}>
         <NavRight>
           <Link iconIos="f7:bell" iconMd="material:bell" panelOpen="left">
             <FaBell className='bellIcon'/><span class="badge color-red">3</span>

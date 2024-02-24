@@ -3,6 +3,7 @@ import { f7,Page, Navbar, Block,Popup,View, NavRight,Link,Button} from 'framewor
 import { FaBell } from "react-icons/fa";
 import '../css/profile.css';
 import SubmitProfile from './SubmitProf';
+import { GiChestnutLeaf } from "react-icons/gi";
 
 const RequestAndLoad = (props) => {
   const [weight, setWeight] = useState(null);
@@ -88,7 +89,7 @@ const RequestAndLoad = (props) => {
   return (
     <Page>
       
-      <Navbar title="NutriSync">
+      <Navbar title={ <><GiChestnutLeaf size={20} />  NutriSync</>}>
       <NavRight>
         <Link iconIos="f7:bell" iconMd="material:bell" panelOpen="left">
           <FaBell className='bellIcon'/><span class="badge color-red">3</span>

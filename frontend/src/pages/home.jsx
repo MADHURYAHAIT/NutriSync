@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DateTimeComponent from './DateTimeComponent';
 import TRow from './tableRow';
+import { GiChestnutLeaf } from "react-icons/gi";
 import {
   Page,
   Navbar,
@@ -69,7 +70,7 @@ const HomePage = () => {
     <>
       <Page name="home">
         {/* Top Navbar */}
-        <Navbar title="NutriSync">
+        <Navbar title={ <><GiChestnutLeaf size={20} />  NutriSync</>}>
           <NavRight>
             <Link iconIos="f7:bell" iconMd="material:bell" panelOpen="left">
               <FaBell className='bellIcon'><span className="badge color-red">3</span></FaBell>

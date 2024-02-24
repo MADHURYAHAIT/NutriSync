@@ -1,6 +1,6 @@
 import { Page,Navbar,BlockTitle,Block,List } from 'framework7-react'
 import React from 'react'
- 
+import GoogleMap from './map'
 const Contact = () => {
   return (
     <Page>
@@ -13,32 +13,35 @@ const Contact = () => {
         We appreciate your interest in contacting us. Whether you have questions, feedback, or just want to say hello, we're here to assist you.
         </p>
         <div className='c'>
-        <Block strong inset>
+        <Block strong >
             <h4>Email:</h4>
               <p>Send us an email at <i>haitmadhurya@gmail.com</i></p>
         </Block>
-        <Block strong inset>
+        <Block strong >
            
               <h4>Contact Number:</h4>
               <p>Reach out to us at <i>+91-9931111589</i></p>
 
         </Block>
-        <Block strong inset>
+        <Block strong >
             <h4>Visit Us:</h4>
               <p>Drop by and talk to us straight at<br/>
                 <i>Sikkim Manipal Institute of Technology,<br />
                 Majitar, Sikkim - 737136</i>
               </p>
+              <GoogleMap/>
         </Block>
 
-        <Block strong inset>
+        <Block strong >
              <h4>Business Hours:</h4>
               <p>Monday to Friday: 9:00 AM - 6:00 PM<br />
                 Saturday: 10:00 AM - 2:00 PM<br />
                 Sunday: Closed
               </p>
         </Block>
-       
+     
+        
+        
         </div>
      </Block>
     </div>

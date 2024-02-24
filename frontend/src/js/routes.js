@@ -12,7 +12,7 @@ import Team from '../pages/team.jsx';
 import Contact from '../pages/contact.jsx';
 import SignUp from '../components/SignUp.jsx';
 import TermsAndConditions from '../pages/TnC.jsx';
-
+import { useEffect } from 'react';
 
 
 var routes = [
@@ -75,7 +75,6 @@ var routes = [
   },
   {
 
-    
     path: '/request-and-load/user/:userId/',
     async: function ({ router, to, resolve }) {
       // App instance
@@ -129,19 +128,21 @@ var routes = [
 
 
 
-
-
+        const updt=localStorage.getItem('updateProf');
+        
         // We got user data from request
+      
         var user = {
+
+     
+   
           firstName: localStorage.getItem('fname'),
           dob: localStorage.getItem('dob'),
           lastName: localStorage.getItem('lname'),
-          weight: localStorage.getItem('CurrentWeight'),
-          height: localStorage.getItem('CurrentHeight'),
           age: localStorage.getItem('age'),
           mob: localStorage.getItem('phone'),
           
-          bmi:localStorage.getItem('CurrentWeight')/(localStorage.getItem('CurrentHeight')*localStorage.getItem('CurrentHeight')),
+        
           banner:"https://images.unsplash.com/photo-1593079831268-3381b0db4a77?q=80&w=2969&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           img:"https://yt3.googleusercontent.com/RTGS8fej7PVFJjF0cnWKRzzyPQgC9KBYwQZspLZsI5ZlcJcwccxvx42KMHSh_S9mvQa5eZyKTQ=s900-c-k-c0x00ffffff-no-rj",
           email: localStorage.getItem('email'),
@@ -152,7 +153,10 @@ var routes = [
             },
             
           ]
+
         };
+      
+
         // Hide Preloader
         app.preloader.hide();
 

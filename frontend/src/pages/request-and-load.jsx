@@ -3,11 +3,49 @@ import { f7,Page, Navbar, Block,Popup,View, NavRight,Link,Button} from 'framewor
 import { FaBell } from "react-icons/fa";
 import '../css/profile.css';
 import SubmitProfile from './SubmitProf';
+
 const RequestAndLoad = (props) => {
+  const [weight, setWeight] = useState(null);
+  const [height, setHeight] = useState(null);
+  
+  
+  const[updateProf,setupdatedProf]=useState(0);
+  const clk=()=>{
+  setupdatedProf((prevUpdateProf) => prevUpdateProf + 1);
+  }
+
+
+  useEffect(() => {
+    if(isAuthenticated){
+      setTimeout(() => {
+          clk();
+      }, 10500);
+    }
+    });
+  
+
+
+  useEffect(() => {
+    const user1=localStorage.getItem('currentUser');
+
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+      setWeight(
+        ((JSON.parse(xhttp.responseText))['weight'])[Object.keys((JSON.parse(xhttp.responseText))['weight']).length-1]);
+      setHeight(((JSON.parse(xhttp.responseText))['height'])[Object.keys((JSON.parse(xhttp.responseText))['height']).length-1]);
+      }
+    xhttp.open("GET", "http://192.168.133.239:8000/fetchBmi?user1="+encodeURIComponent(user1), true);
+    xhttp.send();
+  
+}, [updateProf]);
+
+
+
+
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const { user } = props;
   const image = user.img;
-  //console.log(image);
+
 
   const[flag,setFlag]=useState(0)
   useEffect(() => {
@@ -15,7 +53,6 @@ const RequestAndLoad = (props) => {
     if (storedAuth === 'true') {
       setIsAuthenticated(true);
       console.log('Authentication :',isAuthenticated);
-
     }
   }, [flag]); 
 
@@ -67,7 +104,7 @@ const RequestAndLoad = (props) => {
         <img src={user.banner} style={{height:'130px',width:'100%',objectFit: 'cover'}} alt="profile" />
         </div>
         <div class="card_profile_img" >
-            <img src={image} style={{height:'120px',width:'120px'}} alt="profile" />
+            <img onClick={updateProf} src={image} style={{height:'120px',width:'120px'}} alt="profile" />
         </div>
         <div class="user_details">
             <h3>{user.firstName} {user.lastName}</h3>
@@ -78,15 +115,15 @@ const RequestAndLoad = (props) => {
         <div class="card_count">
             <div class="count">
             <div class="fans">
-                    <h3>{parseFloat(user.bmi.toFixed(1))}</h3>
+                    <h3>{parseFloat((weight/(height*height)).toFixed(1))}</h3>
                     <p>Bmi</p>
                 </div>
                 <div class="fans">
-                    <h3>{parseFloat(user.weight).toFixed(1)}kg</h3>
+                    <h3>{parseFloat(weight).toFixed(1)}kg</h3>
                     <p>Weight</p>
                 </div>
                 <div class="following">
-                    <h3>{parseFloat(user.height).toFixed(1)}m</h3>
+                    <h3>{parseFloat(height).toFixed(1)}m</h3>
                     <p>Height</p>
                 </div>
                 <div class="post">
@@ -96,7 +133,8 @@ const RequestAndLoad = (props) => {
             </div>
             <Block className="grid grid-cols-2 grid-gap">
             <Button fill onClick={handleLogout}>Logout</Button>
-        <Button fill popupOpen=".demo-popup-push">Edit Profile</Button>
+            <Button fill popupOpen=".demo-popup-push">Edit Profile</Button>
+           
       </Block>
         </div>
     </div>

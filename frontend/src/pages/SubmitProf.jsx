@@ -13,23 +13,13 @@ import {
 
 import { GiChestnutLeaf } from "react-icons/gi";
 const SubmitProfile = () => {
-  
+
 
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
   const [user1, setUser1] = useState(localStorage.getItem('currentUser'));
-  useEffect(() => {
-    const user1=localStorage.getItem('currentUser');
 
-    const xhttp = new XMLHttpRequest();
-    xhttp.onload = function() {
-      localStorage.setItem("CurrentWeight",((JSON.parse(xhttp.responseText))['weight'])[Object.keys((JSON.parse(xhttp.responseText))['weight']).length-1]);
-      localStorage.setItem("CurrentHeight",((JSON.parse(xhttp.responseText))['height'])[Object.keys((JSON.parse(xhttp.responseText))['height']).length-1]);
-    }
-    xhttp.open("GET", "http://192.168.133.239:8000/fetchBmi?user1="+encodeURIComponent(user1), true);
-    xhttp.send();
-  
-}, []);
+
 
   const handleProfSubmit = async (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
@@ -57,7 +47,6 @@ const SubmitProfile = () => {
       });
     }
   };
-
 
 
   return (
@@ -88,7 +77,7 @@ const SubmitProfile = () => {
                 </List>
 
                 <div className='buttonBox' >
-                    <Button type="submit"><h2>Submit</h2></Button>
+                    <Button  type="submit"><h2>Submit</h2></Button>
                 </div>
               </form>
      

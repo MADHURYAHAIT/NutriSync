@@ -1,6 +1,6 @@
 import { Navbar, Page, Block, Card, CardHeader, CardContent, Link, Button, Subnavbar } from 'framework7-react';
 import React from 'react'
-
+import { FaInstagram, FaGithub, FaLinkedin } from 'react-icons/fa'
 const Team = () => {
   return (
     <Page>
@@ -51,11 +51,18 @@ const Team = () => {
           <p>
                Hi I am Madhurya Hait, A Web Developer of 21 years. I made the website. I'm a Student of sikkim Manipal Institute of Technology.
             </p>
-            <p>
-             <i>Instagram : @madhuryahait</i><br/>
-             <i>Github : MADHURYAHAIT</i><br/>
-             <i>Linkdin : MADHURYA HAIT</i><br/>
-            </p>
+            <p>Follow us:</p>
+              <div className='social-links'>
+                <Link href="https://www.instagram.com/madhuryahait/" target="_blank">
+                  <FaInstagram size={24} />
+                </Link>
+                <Link href="https://github.com/MADHURYAHAIT" target="_blank">
+                  <FaGithub size={24} />
+                </Link>
+                <Link href="https://www.linkedin.com/in/madhurya-hait-b8128017a/" target="_blank">
+                  <FaLinkedin size={24} />
+                </Link>
+                </div>
             <p>
               <Button fill round large cardClose>
                 Close

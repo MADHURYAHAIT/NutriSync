@@ -136,8 +136,12 @@ const SignUp = () => {
                     name="dob"
                     placeholder="Enter date of birth"
                     value={dob}
+
+                    id="demo-calendar-default"
                     onInput={(e) => setDob(e.target.value)}
                   ></ListInput>
+
+
 
                 </List>
 

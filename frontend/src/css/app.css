@@ -334,3 +334,15 @@ Navbar{
 .badge{
     margin-bottom: 20px;
 }
+
+.terms-and-conditions{
+    padding-top: 50px;
+}
+
+.terms-and-conditions li{
+    font-size: larger;
+}
+
+.contact h4{
+    color:#bd0f86;
+}

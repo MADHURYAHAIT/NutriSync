@@ -9,13 +9,13 @@ const TermsAndConditions = () => {
 
       <div className='terms-and-conditions'>
 
-        <BlockTitle><h2>Terms and Conditions</h2></BlockTitle>
+        <BlockTitle><h2>Company Terms and Conditions</h2></BlockTitle>
 
         <Block bold inset>
           <p>Please read these terms and conditions carefully before using our application. By accessing or using the app, you agree to be bound by these terms.</p>
 
           <h4>1. Acceptance of Terms</h4>
-          <p>By accessing or using the NutriSync application (the "App"), you agree to comply with and be bound by these terms and conditions. If you do not agree to these terms, please do not use the App.</p>
+          <p>By accessing or using the NutriSync application NutriSync, you agree to comply with and be bound by these terms and conditions. If you do not agree to these terms, please do not use the App.</p>
 
           <h4>2. User Conduct</h4>
           <p>You agree to use the App for lawful purposes and in a way that does not infringe the rights of, restrict, or inhibit anyone else's use and enjoyment of the App. Prohibited behavior includes but is not limited to:</p>

@@ -39,7 +39,7 @@ const AboutPage = () => (
          />
        <ListItem
          title="Terms & Conditions"
-         link="/page not found/"
+         link="/tnc/"
          />
      </List>
     

@@ -14,6 +14,7 @@ import Description from '../pages/description.jsx';
 import Team from '../pages/team.jsx';
 import Contact from '../pages/contact.jsx';
 import SignUp from '../components/SignUp.jsx';
+import TermsAndConditions from '../pages/TnC.jsx';
 
 
 
@@ -37,6 +38,10 @@ var routes = [
   {
     path:'/contact/',
     component: Contact,
+  },
+  {
+    path:'/tnc/',
+    component: TermsAndConditions,
   },
   {
     path:'/team/',

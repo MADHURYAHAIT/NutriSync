@@ -9,7 +9,7 @@ const RequestAndLoad = (props) => {
   const image = user.img;
   //console.log(image);
 
-
+  const[flag,setFlag]=useState(0)
   useEffect(() => {
     const storedAuth = localStorage.getItem('isAuthenticated');
     if (storedAuth === 'true') {
@@ -17,7 +17,7 @@ const RequestAndLoad = (props) => {
       console.log('Authentication :',isAuthenticated);
 
     }
-  }, [isAuthenticated]); 
+  }, [flag]); 
 
   const handleLogout = async () => {
     try {
@@ -77,12 +77,16 @@ const RequestAndLoad = (props) => {
         </div>
         <div class="card_count">
             <div class="count">
+            <div class="fans">
+                    <h3>{parseFloat(user.bmi.toFixed(1))}</h3>
+                    <p>Bmi</p>
+                </div>
                 <div class="fans">
-                    <h3>{user.weight}</h3>
+                    <h3>{parseFloat(user.weight).toFixed(1)}kg</h3>
                     <p>Weight</p>
                 </div>
                 <div class="following">
-                    <h3>{user.height}</h3>
+                    <h3>{parseFloat(user.height).toFixed(1)}m</h3>
                     <p>Height</p>
                 </div>
                 <div class="post">

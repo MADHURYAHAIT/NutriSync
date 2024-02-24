@@ -22,10 +22,20 @@ import { FaPizzaSlice } from "react-icons/fa";
 
 const HomePage = () => {
   const [intake, setIntake] = useState(0);
-  const [burn, setBurn] = useState(480);
+  const [burn, setBurn] = useState(457);
   const [calorieObj, setCalorieObj] = useState(null);
   const [foodObj, setFoodObj] = useState(null);
   const [length, setLength] = useState(0);
+  const[resfresh,setRefresh]=useState(0);
+
+  const updateref=()=>{
+    setRefresh(resfresh+1);
+  }
+
+  const removedata=()=>{
+    setLength(0);
+    setIntake(0);
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,7 +63,7 @@ const HomePage = () => {
     };
 
     fetchData();
-  }, []);
+  }, [resfresh]);
 
   return (
     <>
@@ -79,7 +89,7 @@ const HomePage = () => {
                 <h4>Net Calories Today</h4>
                 <DateTimeComponent />
               </div>
-              <CircularCompletionRing radius={159} strokeWidth={7} percentage={(intake - burn) * 100 / 1000} />
+              <CircularCompletionRing radius={159} strokeWidth={7} percentage={(intake - burn) * 100 / 2000} />
             </div>
             <div className='div1'>
               <NavTitleLarge> <FaRunning id='icon' /> <h1>{burn}</h1><h4>Calorie Burn</h4></NavTitleLarge>
@@ -100,8 +110,8 @@ const HomePage = () => {
             <Card className="data-table data-table-init">
               <CardHeader>
                 <div className="data-table-links">
-                  <Link className="button" >Add</Link>
-                  <Link className="button" >Remove</Link>
+                  <Link onClick={()=>updateref()}className="button" >Refresh</Link>
+                  <Link onClick={()=>removedata()} className="button" >Remove</Link>
                 </div>
               </CardHeader>
               <CardContent padding={true}>
@@ -119,17 +129,19 @@ const HomePage = () => {
                   <tbody>
                     {length > 0 ? (
                       Object.keys(calorieObj).map((key) => (
+                       
                         <TRow
                           key={key}
                           title={foodObj[key]}
                           text={calorieObj[key]}
                         />
+                        
                       ))
                     ) : (
                       <tr>
                       <td className="checkbox-cell"></td>
                       <td className="label-cell">No Data Available</td>
-                      <td className="numeric-cell">Nil</td>
+                      <td className="numeric-cell">Null</td>
                     </tr>
                   )}
                 </tbody>

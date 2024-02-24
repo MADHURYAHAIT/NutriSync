@@ -8,6 +8,7 @@ import {
 import React from 'react';
 
 const TRow = ({ title, text }) => {
+    if(text !=0){
   return (
     <tr>
         <td className="checkbox-cell">
@@ -21,6 +22,7 @@ const TRow = ({ title, text }) => {
         </td>
   </tr>
   );
+    }
 };
 
 export default TRow;

@@ -28,6 +28,7 @@ const FileUploadComponent = () => {
   const [length, setLength] = useState([]);
 
   const onDrop = useCallback(async (acceptedFiles) => {
+    const user1=localStorage.getItem('currentUser');
     const file = acceptedFiles[0];
     const formData = new FormData();
     formData.append('file', file);
@@ -35,7 +36,7 @@ const FileUploadComponent = () => {
     try {
       setIsLoading(true);
 
-      const response = await fetch('http://192.168.133.239:8000/calories', {
+      const response = await fetch(`http://192.168.133.239:8000/calories?user1=${encodeURIComponent(user1)}`, {
         method: 'POST',
         headers: {},
         body: formData,
@@ -116,7 +117,7 @@ const FileUploadComponent = () => {
       
       {isLoading && (
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
-          <p>analyzing image...</p>
+          <p>Analyzing Image...</p>
           <p>
             <span className="progressbar-infinite color-multi"></span>
           </p>

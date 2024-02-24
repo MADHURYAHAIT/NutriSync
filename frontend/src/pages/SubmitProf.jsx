@@ -14,21 +14,22 @@ import {
 import { GiChestnutLeaf } from "react-icons/gi";
 const SubmitProfile = () => {
   
-  const [msg,setMsg] = useState('');
+
   const [height, setHeight] = useState('');
   const [weight, setWeight] = useState('');
   const [user1, setUser1] = useState(localStorage.getItem('currentUser'));
-//   useEffect(() => {
-//     const user1=localStorage.getItem('currentUser');
+  useEffect(() => {
+    const user1=localStorage.getItem('currentUser');
 
-//     const xhttp = new XMLHttpRequest();
-//     xhttp.onload = function() {
-//       console.log("Height Weight se fetch ",(JSON.parse(xhttp.responseText)));
-//     }
-//     xhttp.open("GET", "http://192.168.133.239:8000/fetchBmi?user1="+encodeURIComponent(user1), true);
-//     xhttp.send();
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+      localStorage.setItem("CurrentWeight",((JSON.parse(xhttp.responseText))['weight'])[Object.keys((JSON.parse(xhttp.responseText))['weight']).length-1]);
+      localStorage.setItem("CurrentHeight",((JSON.parse(xhttp.responseText))['height'])[Object.keys((JSON.parse(xhttp.responseText))['height']).length-1]);
+    }
+    xhttp.open("GET", "http://192.168.133.239:8000/fetchBmi?user1="+encodeURIComponent(user1), true);
+    xhttp.send();
   
-// }, [height]);
+}, []);
 
   const handleProfSubmit = async (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
@@ -71,7 +72,7 @@ const SubmitProfile = () => {
                 <ListInput
                     type="number"
                     name="height"
-                    placeholder="Enter your Height in feet"
+                    placeholder="Enter your height (in metres)"
                     value={height}
                     onInput={(e) => setHeight(e.target.value)}
                   ></ListInput>
@@ -79,7 +80,7 @@ const SubmitProfile = () => {
                 <ListInput
                      type="number"
                      name="weight"
-                     placeholder="Enter your Weight in kgs"
+                     placeholder="Enter your Weight (in kgs)"
                      value={weight}
                      onInput={(e) => setWeight(e.target.value)}
                   ></ListInput>

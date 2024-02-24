@@ -86,11 +86,12 @@ def calories(request):
     if request.FILES:
         file = request.FILES["file"]
         file = file.read()
+        user = request.GET["user1"]
         if file:
             res = input_image_setup(file)
             f_res = str(res)
             for x in res.keys():
-                Nutrition(username=str(request.user), food=res[x]["Name"], calories=res[x]["Calories"]).save()
+                Nutrition(username=str(user), food=res[x]["Name"], calories=res[x]["Calories"]).save()
             return JsonResponse(res)
 
 
@@ -120,22 +121,27 @@ def bmi(request):
     print(request.GET)
     context = {"success": 0,
                "msg": "Failed to add, Request not post"}
-    if request.GET:
-        user = request.user
-        height = request.GET["height"]
-        weight = request.GET["weight"]
-        UserHealth(username=str(user), height=height, weight=weight).save()
-        context = {
-            "success": 1,
-            "msg": "Added"
-        }
+    try:
+        if request.GET:
+            height = request.GET["height"]
+            weight = request.GET["weight"]
+            UserHealth(username=str(user), height=height, weight=weight).save()
+            context = {
+                "success": 1,
+                "msg": "Added"
+            }
+    except ValueError as e:
+        pass
     return JsonResponse(context)
 
 #@login_required(login_url=INDEX)
 def fetch_bmi(request):
     user = request.GET["user1"]
-    res = c2json(UserHealth.objects.filter(username=str(user)).values(), ["date"])
-    return JsonResponse(res, safe=False)
+    try:
+        res = c2json(UserHealth.objects.filter(username=str(user)).values(), ["date"])
+        return JsonResponse(res, safe=False)
+    except ValueError as e:
+        return JsonResponse({"success": 0, "msg": "No data found"})
 
 #@login_required(login_url=INDEX)
 def userdtls(request):

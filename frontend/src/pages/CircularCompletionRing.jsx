@@ -1,5 +1,3 @@
-// CircularCompletionRing.jsx
-
 import React, { useEffect, useRef } from 'react';
 
 const CircularCompletionRing = ({ radius, strokeWidth, percentage }) => {
@@ -31,6 +29,15 @@ const CircularCompletionRing = ({ radius, strokeWidth, percentage }) => {
           <stop offset="100%" style={{ stopColor: ' #3f0499' }}/>
            
         </linearGradient>
+        <filter id="shadow">
+          <feDropShadow
+            dx="0"
+            dy="0"
+            stdDeviation="3"
+            floodColor="#000"
+            floodOpacity="0.9"
+          />
+        </filter>
       </defs>
       <circle
         className="ring-background"
@@ -48,6 +55,8 @@ const CircularCompletionRing = ({ radius, strokeWidth, percentage }) => {
         strokeWidth={strokeWidth}
         stroke="url(#gradient)" // Apply the gradient as a stroke
         fill="transparent"
+        transform={`rotate(-90 ${radius} ${radius})`} // Rotate the circle by 90 degrees
+        filter="url(#shadow)" // Apply the shadow filter
       />
     </svg>
   );

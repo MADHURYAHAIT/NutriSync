@@ -73,7 +73,7 @@ const RequestAndLoad = (props) => {
             <h3>{user.firstName} {user.lastName}</h3>
             <p>{user.email}</p>
             <p>Dob : {user.dob}</p>
-            <p>mob : {user.mob}</p>
+
         </div>
         <div class="card_count">
             <div class="count">

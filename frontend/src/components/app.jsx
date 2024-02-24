@@ -58,7 +58,7 @@ const MyApp = () => {
 
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
-      console.log("Ajax se fetch userdls",(JSON.parse(xhttp.responseText)));
+     // console.log("Ajax se fetch userdls",(JSON.parse(xhttp.responseText)));
       localStorage.setItem('email',( JSON.parse(xhttp.responseText))['email'][0]);
       localStorage.setItem('fname',( JSON.parse(xhttp.responseText))['first_name'][0]);
       localStorage.setItem('lname',( JSON.parse(xhttp.responseText))['last_name'][0]);

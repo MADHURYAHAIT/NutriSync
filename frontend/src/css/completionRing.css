@@ -17,6 +17,7 @@
 .ring-progress {
     fill: none;
     transition: stroke-dashoffset 0.8s ease-in-out;
+
   }
   
 
@@ -33,6 +34,7 @@
   position: absolute;
   left: 50%;
   top: 47%;
+
   transform: translate(-50%, -60%);
   
 
@@ -51,6 +53,7 @@
   left: 50%;
   top: 60.2%;
     overflow-x: hidden;
+    
   transform: translate(-50%, -60%);
 }
 
@@ -58,6 +61,7 @@
   align-items: center;
   justify-content: center;
   display: flex;
+  
   flex-direction: column;
   line-height: 720%;
 

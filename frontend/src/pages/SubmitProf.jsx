@@ -90,13 +90,7 @@ const SubmitProfile = () => {
                     <Button type="submit"><h2>Submit</h2></Button>
                 </div>
               </form>
-              {/* <div className='buttonBox'>
-             
-
-                <Button><p style={{color:'white',fontSize:'15px'}}>
-Log in to your account</p></Button>
-                 
-              </div> */}
+     
             <List>
                   <BlockFooter>
                     <p>Update your current weight</p>

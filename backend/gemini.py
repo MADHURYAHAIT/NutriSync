@@ -1,5 +1,5 @@
 import google.generativeai as genai
-genai.configure(api_key="AIzaSyB2w46GV54BhAQaNUhtj392HVZP_Hn3pm0")
+genai.configure(api_key="AIzaSyC_QnnV7u17nrxAOKF_Q0X3WZGjiFCRb9w")
 import json
 
 

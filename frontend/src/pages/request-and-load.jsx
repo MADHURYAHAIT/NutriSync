@@ -16,13 +16,13 @@ const RequestAndLoad = (props) => {
   }
 
 
-  useEffect(() => {
-    if(isAuthenticated){
-      setTimeout(() => {
-          clk();
-      }, 10500);
-    }
-    });
+  // useEffect(() => {
+  //   if(isAuthenticated){
+  //     setTimeout(() => {
+  //         clk();
+  //     }, 10500);
+  //   }
+  //   });
   
 
 
@@ -87,7 +87,7 @@ const RequestAndLoad = (props) => {
 
 
   return (
-    <Page>
+    <Page >
       
       <Navbar title={ <><GiChestnutLeaf size={20} />  NutriSync</>}>
       <NavRight>
@@ -100,7 +100,7 @@ const RequestAndLoad = (props) => {
       <div class = 'profile'>
 
 
-<div class="cardd">
+<div class="cardd" onClick={clk}>
         <div class="card_background_img">
         <img src={user.banner} style={{height:'130px',width:'100%',objectFit: 'cover'}} alt="profile" />
         </div>

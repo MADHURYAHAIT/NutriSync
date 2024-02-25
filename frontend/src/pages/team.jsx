@@ -25,7 +25,7 @@ const Team = () => {
                 </p>
     </Block>
     <div className="demo-expandable-cards">
-    <h3 style={{paddingLeft:'20px'}}>Developer : </h3>
+    <h3 style={{paddingLeft:'20px'}}>Developers : </h3>
       <Card expandable>
         <CardContent padding={false}>
           <div

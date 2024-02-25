@@ -71,7 +71,7 @@ const Team = () => {
           </div>
         </CardContent>
       </Card>
-      <h3 style={{paddingLeft:'20px'}}>Our Contribitors : </h3>
+      {/* <h3 style={{paddingLeft:'20px'}}>Our Contribitors : </h3> */}
       <Card expandable>
         <CardContent padding={false}>
           <div
@@ -109,47 +109,7 @@ const Team = () => {
       </Card>
 
 
-      <Card expandable>
-        <CardContent padding={false}>
-          <div
-            style={{
-              background: 'url(../imgs/shivam.jpeg) no-repeat center top',
-              backgroundSize: 'cover',
-              height: '400px',
-            }}
-          >
-            <CardHeader textColor="black" className="display-block">Shivam Kumar
-            <br/>
-            <small style={{ opacity: 0.7 }}>ML Engineer</small>
-            </CardHeader>
-           
-           
-
-
-            <Link
-              cardClose
-              color="white"
-              className="card-opened-fade-in"
-              style={{ position: 'absolute', right: '15px', top: '15px' }}
-              iconF7="xmark_circle_fill"
-            />
-          </div>
-          <div className="card-content-padding">
-            <p>
-                Hi I am Shivam
-            </p>
-            <p>
-             
-            </p>
-            <p>
-              <Button fill round large cardClose>
-                Close
-              </Button>
-            </p>
-          </div>
-        </CardContent>
-      </Card>
-
+   
 
     </div>
     </div>

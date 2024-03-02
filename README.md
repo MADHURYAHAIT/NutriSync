@@ -30,6 +30,10 @@ To go Back
 
 Run the following commands 
 
+install google genai
+
+     pip3 install google-generativeai 
+
 Frist :
     
     pip3 install django

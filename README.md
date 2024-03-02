@@ -29,13 +29,14 @@ To go Back
     cd ..
 
 Run the following commands 
-Frist :
 
-    pip3 install django-cors-headers
+Frist :
+    
+    pip3 install django
 
 Second :
 
-    python3 manage.py migrate
+    pip3 install django-cors-headers
 
 Third: 
 

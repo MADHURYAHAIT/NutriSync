@@ -55,6 +55,8 @@ Third:
 
     source web/bin/activate
     
+Make sure you are connected to the same network :
+
 Finally run the server : 
 
     python3 manage.py runserver 0.0.0.0:8000

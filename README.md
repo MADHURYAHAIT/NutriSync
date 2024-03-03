@@ -9,6 +9,9 @@ NutriSync is not just another calorie tracking app, it's a comprehensive tool de
 <p>
 It's a Reactjs based web application which could be accessed from any device of your wish designed and connected with the backend using ajax where the backend is on Django . </p>
 
+Here's a video demonstration of the app :
+
+https://github.com/MADHURYAHAIT/NutriSync/assets/101663118/7400f74f-e36b-4309-a3fd-0d47adf8f177
 
 just run the following commands
 

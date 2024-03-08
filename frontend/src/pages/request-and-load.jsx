@@ -140,7 +140,7 @@ const RequestAndLoad = (props) => {
         </div>
     </div>
     </div>
-       <Popup push className="demo-popup-push">
+        <Popup push className="demo-popup-push">
         <View>
           <Page>
             <Navbar  transparent>

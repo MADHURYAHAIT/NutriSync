@@ -2,7 +2,7 @@
 
 ## A Solution Challenge project. 🏢
 
-<p>In a world 🌍 where hectic schedules and demanding lifestyles often take precedence, where every other person is out of shape, maintaining a healthy diet can be a challenging task. NutriSync was born out of the recognition that Ai can play a vital role in helping individuals take control of their nutrition and make informed choices about their diet.</p>
+<p>In a world 🌍   where hectic schedules and demanding lifestyles often take precedence, where every other person is out of shape, maintaining a healthy diet can be a challenging task. NutriSync was born out of the recognition that Ai can play a vital role in helping individuals take control of their nutrition and make informed choices about their diet.</p>
 
 <p>
 NutriSync is not just another calorie tracking app, it's a comprehensive tool designed to empower you on your journey towards better health. 👨‍⚕️ With a user-friendly interface and advanced features, NutriSync offers a seamless experience that fits seamlessly into your daily routine. From tracking your daily meals just at a click of a picture using your device, harnessing the power of Google Gemini. NutriSync goes beyond calorie counting to promote holistic well-being. It helps you to achieve your daily target and tells you your net calorie count for achieving your desired bmi. It helps you to browse through your history of daily net calorie count enabling you to keep a track of your progress graph. </p>
